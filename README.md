@@ -20,7 +20,7 @@ cd /path/to/task-workspace
 bash .harness/codex.sh
 ```
 
-실행기는 모델·추론 강도와 네이티브 역할을 명시한다.
+실행기는 모델·추론 강도를 명시한다. Codex는 `.codex/agents/`에서 네이티브 역할을 발견한다.
 메인은 제공된 인증·승인·샌드박스·연결 설정을 상속한다.
 기존 `.codex/config.toml`이 있으면 보존한다. 직접 `codex`로 실행했을 때 기존 설정이
 다른 모델을 고를 수 있으므로 이 하네스의 실행기를 사용하고 `/status`에서 확인한다.
@@ -74,6 +74,8 @@ python3 .harness/harness.py verify
 [네이티브 훅](https://learn.chatgpt.com/docs/hooks)을 지원한다.
 프로젝트 신뢰와 별개로 `/hooks`에서 추가된 훅을 검토·신뢰해야 실행된다.
 플랫폼이 훅을 허용하지 않으면 명시적 `verify` 절차를 따른다.
+설정 파일 파싱 성공만으로 활성화를 판단하지 않는다. `--ignore-user-config`는
+프로젝트 신뢰 정보도 제외할 수 있으므로 실제 훅 검증에 사용하지 않는다.
 
 - SessionStart는 세션별 코드 기준 지문을 저장한다. 재개·컨텍스트 압축 때 보존한다.
 - Stop은 세션 시작 이후 변경된 파일에 최신 검증 성공 기록이 있는지 확인한다.
@@ -83,12 +85,18 @@ python3 .harness/harness.py verify
   `.harness/state/`, `.harness/work/`는 제외한다. 무시된 생성물과 외부 상태는 검증하지 않는다.
 - 훅은 명령 종료 코드와 파일 동일성을 확인한다. 테스트 적정성·요구 충족·
   독립 리뷰·사용자 이해·제출 성공은 역할별 검수와 실제 확인이 필요하다.
-- 실행기는 planner·developer·reviewer·auditor 네이티브 역할을 등록한다.
-  모두 `gpt-6.1-sol / xhigh`이고 planner·reviewer·auditor는 읽기 전용이다.
-  기존 설정 파일을 보존하면서 실행 시 역할을 추가하며 멀티에이전트 기능 자체를 강제로 켜지 않는다.
+- `.codex/agents/`에 planner·developer·reviewer·auditor 네이티브 역할을 제공한다.
+  모두 `gpt-6.1-sol / xhigh`이고 planner·reviewer·auditor는 파일을 수정하지 않도록 지시한다.
+  각 파일에 이름·설명·지침을 선언한다. 프로젝트 신뢰가 필요하며 기존 설정 파일을 보존한다.
+  멀티에이전트 기능 자체를 강제로 켜지 않는다.
 - 환경이 지원·허용하면 검증 역할을 별도 컨텍스트에 위임한다.
   지원하지 않으면 제한을 밝히고 같은 세션에서 수행한다. 실제 독립 컨텍스트가 없으면
   독립 리뷰라고 주장하지 않는다. 원본의 이종 모델 듀얼 리뷰와는 보장 범위가 다르다.
+- 네이티브 자식의 실제 권한은 부모에게서 상속된다. 역할 파일에 `sandbox_mode`를 적어도
+  별도 쓰기 차단을 보장하지 않는다. 강제 읽기 전용 검수는
+  `python3 .harness/harness.py review '검수 요청'`, 완료 감사는
+  `python3 .harness/harness.py audit '감사 요청'`으로 실행한다.
+  이 명령은 별도 Codex 프로세스 전체를 `--sandbox read-only`로 실행한다.
 
 ## 시험 운영
 

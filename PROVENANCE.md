@@ -10,8 +10,11 @@
   변경 설명·완료 감사, 선행 결정 조회, 작업 진행 상태, 실제 검증 근거.
 - 이식한 구성: `.claude` 에이전트·Skill → 저장소 `AGENTS.md`·`.agents/skills/kty-harness`;
   검증 누락 확인 → Codex 네이티브 SessionStart·Stop와 코드 지문·검증 영수증.
-- 네이티브 역할: planner·developer·reviewer·auditor TOML을 제공하고 실행기가 등록한다.
+- 네이티브 역할: 이름·설명·지침을 선언한 planner·developer·reviewer·auditor TOML을 제공한다.
+  Codex가 신뢰된 프로젝트의 `.codex/agents/`에서 발견한다.
   검수·감사는 별도 컨텍스트에서 수행할 수 있으며, 환경 미지원 시 제한을 보고하고 순차 수행한다.
+- 2026-10-27 실제 권한 시험에서 자식 역할의 `sandbox_mode`가 부모 권한을 대체하지
+  못함을 확인해 제거했다. 기술적 읽기 전용 검수·감사는 별도 CLI의 sandbox로 분리했다.
 - 제거한 실행 의존: Claude Code, Opus/Sonnet 호출, Claude+Codex 이종 듀얼 리뷰,
   Claude 전용 훅·MCP 가드·전역 에이전트 배포, claude-mem·superpowers 플러그인,
   자동 push·PR·개인 지식 저장소 반영.

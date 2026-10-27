@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-27",
+  "codex_cli": "0.159.3",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "xhigh",
+  "agents": {
+    "discovery": "project .codex/agents with name and description; no legacy role CLI overrides",
+    "method": "four role-private instruction attestations; no file reads requested",
+    "matched": {
+      "kty_planner": true,
+      "kty_developer": true,
+      "kty_reviewer": true,
+      "kty_auditor": true
+    },
+    "startup_role_errors": 0,
+    "passed": true
+  },
+  "hooks": {
+    "project_trust": true,
+    "trust_method": "normal CLI /hooks review and trust",
+    "ignore_user_config": false,
+    "bypass_hook_trust": false,
+    "trace": [
+      {
+        "event": "SessionStart",
+        "stop_hook_active": null,
+        "decision": "allow",
+        "exit_code": 0
+      },
+      {
+        "event": "Stop",
+        "stop_hook_active": false,
+        "decision": "block",
+        "exit_code": 0
+      },
+      {
+        "event": "Stop",
+        "stop_hook_active": true,
+        "decision": "allow",
+        "exit_code": 0
+      }
+    ],
+    "verification_passed": true,
+    "receipt_matches_current_code": true,
+    "passed": true
+  },
+  "native_role_permissions": {
+    "sandbox_mode_in_role_file_blocked_write": false,
+    "corrected": true,
+    "native_children_inherit_parent_permissions": true
+  },
+  "isolated_review": {
+    "sandbox": "read-only",
+    "write_attempt_exit_code": 1,
+    "error": "PermissionError: [Errno 1] Operation not permitted",
+    "target_file_created": false,
+    "evidence": "actual tool result from persisted local Codex rollout, independently parsed",
+    "passed": true
+  },
+  "unit_tests": {
+    "passed": 21,
+    "failed": 0
+  },
+  "platform_compatibility": "exam environment not yet tested"
+}

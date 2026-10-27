@@ -15,12 +15,8 @@ import time
 
 MODEL = "gpt-6.1-sol"
 EFFORT = "xhigh"
-ROLES = {
-    "kty_planner": ("kty-planner.toml", "설계·계획 및 계획 검증. 읽기 전용."),
-    "kty_developer": ("kty-developer.toml", "명확히 배정받은 범위의 구현과 검증."),
-    "kty_reviewer": ("kty-reviewer.toml", "독립 코드·보안 검수. 읽기 전용."),
-    "kty_auditor": ("kty-auditor.toml", "완료 주장과 최신 검증 근거 대조. 읽기 전용."),
-}
+ROLES = {"kty_" + role: "kty-" + role + ".toml"
+         for role in ("planner", "developer", "reviewer", "auditor")}
 STATE_PREFIXES = (".harness/state/", ".harness/work/")
 
 
@@ -181,14 +177,30 @@ def hook(root, event):
 def launch(root, prompt):
     command = ["codex", "--cd", str(root), "--model", MODEL,
                "--config", 'model_reasoning_effort="' + EFFORT + '"']
-    for role, (filename, description) in ROLES.items():
+    for filename in ROLES.values():
         path = root / ".codex/agents" / filename
         if not path.is_file():
             raise ValueError("역할 설정이 없습니다. 재설치하세요: " + str(path))
-        command.extend(["--config", "agents." + role + ".config_file=" + json.dumps(str(path)),
-                        "--config", "agents." + role + ".description=" + json.dumps(description)])
     if prompt is not None:
         command.extend(["--", prompt])
+    os.execvp(command[0], command)
+
+
+def readonly_role(root, role, task):
+    """Child role files cannot enforce permissions; isolate the whole CLI process."""
+    filename = ROLES["kty_" + role]
+    path = root / ".codex/agents" / filename
+    if not path.is_file():
+        raise ValueError("역할 설정이 없습니다. 재설치하세요: " + str(path))
+    prompt = ("이 호출은 독립된 읽기 전용 " + role + " 작업이다. "
+              "시작 전에 " + str(path) + "의 역할 지침, .harness/project-profile.md와 "
+              ".harness/principles.md를 읽어 적용하라. "
+              "파일을 수정하거나 권한을 확대하지 말고 결과만 응답으로 반환하라. "
+              "다른 에이전트를 만들지 마라. 실행할 수 없는 검증은 그 한계를 밝혀라.\n\n"
+              "검수·감사 요청:\n" + task)
+    command = ["codex", "exec", "--cd", str(root), "--model", MODEL,
+               "--config", 'model_reasoning_effort="' + EFFORT + '"',
+               "--sandbox", "read-only", "--ephemeral", "--", prompt]
     os.execvp(command[0], command)
 
 
@@ -201,6 +213,8 @@ def main():
     commands.add_parser("hook")
     codex = commands.add_parser("codex")
     codex.add_argument("prompt", nargs="?")
+    for role in ("review", "audit"):
+        commands.add_parser(role).add_argument("task")
     args = parser.parse_args()
     try:
         root = args.root.resolve()
@@ -210,6 +224,8 @@ def main():
             print(fingerprint(root))
         elif args.command == "codex":
             launch(root, args.prompt)
+        elif args.command in ("review", "audit"):
+            readonly_role(root, "reviewer" if args.command == "review" else "auditor", args.task)
         else:
             print(json.dumps(hook(root, json.load(sys.stdin)), ensure_ascii=False))
         return 0

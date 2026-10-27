@@ -228,16 +228,32 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(args[:6], ["--cd", str(self.root.resolve()), "--model", "gpt-6.1-sol", "--config",
                                    'model_reasoning_effort="xhigh"'])
         self.assertEqual(args[-2:], ["--", "-m different-model"])
-        self.assertEqual(args[6:-2:2], ["--config"] * 8)
-        values = dict(item.split("=", 1) for item in args[7:-2:2])
+        self.assertEqual(len(args), 8)
         for role in ("planner", "developer", "reviewer", "auditor"):
-            path = Path(json.loads(values["agents.kty_" + role + ".config_file"]))
+            path = self.root / ".codex/agents" / ("kty-" + role + ".toml")
             self.assertTrue(path.is_file())
             content = path.read_text()
+            self.assertIn('name = "kty_' + role + '"', content)
+            self.assertIn('description = "', content)
             self.assertIn('model = "gpt-6.1-sol"', content)
             self.assertIn('model_reasoning_effort = "xhigh"', content)
-            if role != "developer":
-                self.assertIn('sandbox_mode = "read-only"', content)
+            self.assertNotIn('sandbox_mode', content)
+
+    def test_readonly_review_and_audit_isolate_whole_codex_process(self):
+        self.install()
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nimport json,sys\nprint(json.dumps(sys.argv[1:]))\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        for command, role in (("review", "reviewer"), ("audit", "auditor")):
+            args = json.loads(self.command(command, "Inspect current code", env=env).stdout)
+            self.assertEqual(args[:3], ["exec", "--cd", str(self.root.resolve())])
+            self.assertEqual(args[args.index("--model") + 1], "gpt-6.1-sol")
+            self.assertEqual(args[args.index("--sandbox") + 1], "read-only")
+            self.assertIn('model_reasoning_effort="xhigh"', args)
+            self.assertIn("kty-" + role + ".toml", args[-1])
+            self.assertIn("Inspect current code", args[-1])
 
 
 if __name__ == "__main__":
