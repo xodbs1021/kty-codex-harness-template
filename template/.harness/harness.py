@@ -15,6 +15,12 @@ import time
 
 MODEL = "gpt-6.1-sol"
 EFFORT = "xhigh"
+ROLES = {
+    "kty_planner": ("kty-planner.toml", "설계·계획 및 계획 검증. 읽기 전용."),
+    "kty_developer": ("kty-developer.toml", "명확히 배정받은 범위의 구현과 검증."),
+    "kty_reviewer": ("kty-reviewer.toml", "독립 코드·보안 검수. 읽기 전용."),
+    "kty_auditor": ("kty-auditor.toml", "완료 주장과 최신 검증 근거 대조. 읽기 전용."),
+}
 STATE_PREFIXES = (".harness/state/", ".harness/work/")
 
 
@@ -175,6 +181,12 @@ def hook(root, event):
 def launch(root, prompt):
     command = ["codex", "--cd", str(root), "--model", MODEL,
                "--config", 'model_reasoning_effort="' + EFFORT + '"']
+    for role, (filename, description) in ROLES.items():
+        path = root / ".codex/agents" / filename
+        if not path.is_file():
+            raise ValueError("역할 설정이 없습니다. 재설치하세요: " + str(path))
+        command.extend(["--config", "agents." + role + ".config_file=" + json.dumps(str(path)),
+                        "--config", "agents." + role + ".description=" + json.dumps(description)])
     if prompt is not None:
         command.extend(["--", prompt])
     os.execvp(command[0], command)

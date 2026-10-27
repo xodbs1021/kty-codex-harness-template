@@ -225,8 +225,19 @@ class HarnessTest(unittest.TestCase):
         env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
         result = self.command("codex", "--", "-m different-model", env=env)
         args = json.loads(result.stdout)
-        self.assertEqual(args, ["--cd", str(self.root.resolve()), "--model", "gpt-6.1-sol", "--config",
-                                'model_reasoning_effort="xhigh"', "--", "-m different-model"])
+        self.assertEqual(args[:6], ["--cd", str(self.root.resolve()), "--model", "gpt-6.1-sol", "--config",
+                                   'model_reasoning_effort="xhigh"'])
+        self.assertEqual(args[-2:], ["--", "-m different-model"])
+        self.assertEqual(args[6:-2:2], ["--config"] * 8)
+        values = dict(item.split("=", 1) for item in args[7:-2:2])
+        for role in ("planner", "developer", "reviewer", "auditor"):
+            path = Path(json.loads(values["agents.kty_" + role + ".config_file"]))
+            self.assertTrue(path.is_file())
+            content = path.read_text()
+            self.assertIn('model = "gpt-6.1-sol"', content)
+            self.assertIn('model_reasoning_effort = "xhigh"', content)
+            if role != "developer":
+                self.assertIn('sandbox_mode = "read-only"', content)
 
 
 if __name__ == "__main__":
