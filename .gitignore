@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.harness/state/
+.harness/work/
+tmp/
+.DS_Store

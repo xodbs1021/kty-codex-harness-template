@@ -1,0 +1,3 @@
+# Only model defaults; authentication, permissions and platform settings are inherited.
+model = "gpt-6.1-sol"
+model_reasoning_effort = "xhigh"
