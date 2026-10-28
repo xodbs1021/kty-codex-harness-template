@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-28",
+  "environment": "local macOS, Codex CLI 0.159.3; not Probe",
+  "tested_source_commit": "70c7d641be8edfaf87f72f15c61fc99b634c9dc7",
+  "discovery_input": "GitHub account xodbs1021 only; no repository URL supplied",
+  "timing": {
+    "start": "first Codex discovery request launch",
+    "end": "integrated final report completion",
+    "total_seconds": 860.603,
+    "within_900_seconds": true,
+    "two_cli_reviews_done_at_seconds": 669.7,
+    "parallel_review_seconds": 44.111,
+    "includes": "failed attempts, controller interaction gaps, normal TUI trust, and interleaved public-source research",
+    "human_typing_measured": false
+  },
+  "interruptions": [
+    "default local session read-only; clone blocked",
+    "local workspace-write default network restriction; clone DNS failure",
+    "Sol at capacity after successful clone",
+    "Sol at capacity on parent dual-review request"
+  ],
+  "recovery": [
+    "local test session selected workspace-write plus public-download network access; no sandbox or hook-trust bypass",
+    "fixture prepare run from terminal after capacity interruption",
+    "normal project/hook trust through CLI TUI and restart",
+    "two fresh read-only CLI reviews run in parallel from terminal fallback",
+    "captured fallback evidence passed back to parent for final summary"
+  ],
+  "hooks": {
+    "actual_native_callbacks": true,
+    "recorded_callback_count": 12,
+    "session_start_block_verify_release": true,
+    "receipt_current": true
+  },
+  "reviews": [
+    {
+      "role": "A",
+      "model": "gpt-6.1-sol",
+      "effort_observed": "high",
+      "sandbox": "read-only",
+      "session_identity_sha256": "833a207db70d97856d6a9274ab9b0243e479be80c42d6a678ee6e9dccd57c83a",
+      "exit_code": 0,
+      "sum_bug_reproduced": true,
+      "nonowner_bug_reproduced": true,
+      "findings": [
+        "incorrect sum and empty-input result",
+        "non-owner document access permitted"
+      ]
+    },
+    {
+      "role": "B",
+      "model": "gpt-6.1-sol",
+      "effort_observed": "high",
+      "sandbox": "read-only",
+      "session_identity_sha256": "aa56a878609fac96967ea254877e84522a1e501caa8b212cfdf34b86674e1b33",
+      "exit_code": 0,
+      "sum_bug_reproduced": true,
+      "nonowner_bug_reproduced": true,
+      "findings": [
+        "incorrect sum and empty-input result",
+        "non-owner document access permitted"
+      ]
+    }
+  ],
+  "same_snapshot": true,
+  "fingerprint": "b7e8623aeb0979894395c63a69d4ec4a2e81d000b929e54f729eb4408f1e2523",
+  "native_subagent_path": "not validated in this run; parent request failed at model capacity",
+  "cleanup": {
+    "temporary_project_and_hook_trust_removed": true,
+    "all_test_model_processes_finished": true
+  },
+  "limits": [
+    "single local observation, not a 15-minute guarantee",
+    "human typing and actual Probe UI delays not measured",
+    "Probe model queues, filesystem, network and policies unknown",
+    "preview, exam submission and practice exit UI not tested"
+  ]
+}
