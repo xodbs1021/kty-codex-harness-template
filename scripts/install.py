@@ -13,7 +13,7 @@ SOURCE = Path(__file__).resolve().parents[1]
 START = "<!-- kty-codex-harness:start -->"
 END = "<!-- kty-codex-harness:end -->"
 SLOTS = {".harness/project-profile.md", ".harness/checks.json", ".harness/task-evidence.md"}
-IGNORE = ["/.harness/state/", "/.harness/work/"]
+IGNORE = ["/.harness/state/", "/.harness/work/", "/.harness/vendor/kty-codex-harness/"]
 HOOK_COMMAND = 'python3 "$(git rev-parse --show-toplevel)/.harness/harness.py" hook'
 LEGACY_CONFIG = (b"# Only model defaults; authentication, permissions and platform settings are inherited.\n"
                  b'model = "gpt-6.1-sol"\nmodel_reasoning_effort = "xhigh"\n')
@@ -68,6 +68,8 @@ def hook_config(existing):
 
 
 def install(root, hooks=True):
+    if sys.version_info < (3, 9):
+        raise ValueError("전체 설치에는 Python 3.9 이상이 필요합니다. README의 문서형 모드도 확인하세요.")
     root = root.resolve(strict=True)
     actual = subprocess.check_output(
         ["git", "-C", str(root), "rev-parse", "--show-toplevel"], text=True,

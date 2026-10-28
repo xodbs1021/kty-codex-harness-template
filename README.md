@@ -1,4 +1,4 @@
-# KTY Codex Harness Template
+# KTY Codex Harness — SK하이닉스 AI 해커톤 2026
 
 Codex와 **GPT 6.1 Sol (`gpt-6.1-sol`)** 중심의 개발 하네스다.
 추론 강도(effort)는 기본으로 지정하지 않고 Codex가 실제 설정을 해석하도록 둔다.
@@ -10,9 +10,28 @@ Skill 발견·훅 지원 여부는 실제 체험에서 확인하고 보완한다
 
 ## 설치와 실행
 
-Linux·macOS의 Python 3.9 이상, Git, 제공 환경의 Codex가 필요하다.
-외부 Python 패키지나 별도 AI API 키·구독은 필요 없다.
-패키지는 작업 공간 바깥에 clone하고, 기존 과제 Git 저장소 루트에 설치한다.
+전체 설치·영수증·훅 기능은 Linux·macOS의 Bash, Python 3.9 이상, Git, 제공 환경의 Codex를 사용한다.
+이 조건은 응시자 PC가 아니라 Probe 안에서 명령을 실행하는 터미널 환경 기준이다.
+Python 외부 패키지와 별도 AI API 키·구독은 필요 없다. 이것은 하네스의 구현 의존성이다.
+실제 Probe 이미지에 해당 도구가 있는지, 추가 설치 권한이 있는지는 아직 확인하지 않았다.
+
+운영 안내에는 공개 GitHub 도구의 clone·다운로드와 터미널 설치가 명시돼 있다.
+GitHub 반입 허용이 OS 패키지 설치 권한·모든 다운로드 주소의 접근·작업 공간 밖 쓰기를
+보장하지는 않는다. 사전 체험에서 제공 환경의 터미널로 먼저 확인한다.
+
+```bash
+pwd
+git --version
+git rev-parse --show-toplevel
+python3 --version
+codex --version
+```
+
+Python이 이미 있으면 그대로 사용한다. 없거나 3.9 미만이면 허용된 설치 방법·권한·시간을
+확인한 뒤 추가한다. 이 패키지는 sudo·시스템 패키지 설치·Python 다운로드를 자동 수행하지 않는다.
+
+패키지 반입 경로는 허용된 쓰기 가능한 곳이면 된다. **작업 공간 밖 clone은 필수가 아니다.**
+아래 `/tmp`는 접근 가능한 경우의 예시다. 설치 대상은 기존 과제 Git 저장소 루트다.
 
 ```bash
 git clone https://github.com/xodbs1021/kty-codex-harness-template.git /tmp/kty-codex-harness
@@ -20,6 +39,19 @@ bash /tmp/kty-codex-harness/install.sh /path/to/task-workspace
 cd /path/to/task-workspace
 bash .harness/codex.sh
 ```
+
+작업 공간 안에 가져와야 한다면 과제 Git 루트에서 다음 형태를 사용할 수 있다.
+원본 반입 폴더는 Git에서 제외하며, 설치 대상 파일과 겹치지 않는다.
+경로가 이미 있으면 덮어쓰지 않고 기존 반입 상태를 먼저 확인한다.
+
+```bash
+git clone https://github.com/xodbs1021/kty-codex-harness-template.git .harness/vendor/kty-codex-harness
+bash .harness/vendor/kty-codex-harness/install.sh .
+bash .harness/codex.sh
+```
+
+과제 폴더가 Git 루트가 아니면 임의로 `git init`하지 않고 실제 작업 경로를 확인한다.
+파일이 반입됐다는 사실과 설치·Skill 발견·훅 활성화 성공은 각각 확인한다.
 
 실행기는 모델을 명시한다. Codex는 `.codex/agents/`에서 네이티브 역할을 발견한다.
 메인은 제공된 인증·승인·샌드박스·연결 설정을 상속한다.
@@ -38,6 +70,22 @@ effort 없는 기본값으로 갱신한다. 사용자 설정이나 소유가 불
 이미 설치한 곳에서는 남아 있는 effort 설정도 확인한다.
 훅을 추가하지 않는 환경에서는 `install.sh /path/to/workspace --no-hooks`를 사용한다.
 이 옵션은 기존 훅을 끄거나 삭제하지 않는다.
+
+### Python 설치가 어려울 때의 문서형 모드
+
+핵심 프로필·원칙·검수 절차는 Markdown이다. 전체 설치가 불가능해도 제공 Codex로
+반입한 패키지의 `template/.harness/project-profile.md`, `template/.harness/principles.md`,
+`template/.agents/skills/kty-harness/SKILL.md`와 필요한 references를 읽고 적용할 수 있다.
+자동 발견을 가정하지 말고 제공 Codex에 실제 반입 경로를 전달한다.
+문서 안의 설치 후 상대 경로는 반입된 `template/` 안의 읽기 경로로 대응시키고,
+진행·판단·검증 기록은 실제 과제 작업 공간에 작성한다.
+
+이 모드에서는 설치기·`.harness/harness.py`·Python 훅을 실행하지 않는다.
+문서의 Python 검증 명령 대신 과제 자체의 테스트·빌드·실행 명령을 직접 수행하고,
+허용된 작업 공간의 진행 문서에 명령·결과·미검증 사항을 기록한다.
+네이티브 독립 역할이 있으면 검수에 사용하고, 없으면 같은 세션 검수임을 밝힌다.
+검증 영수증·강제 읽기 전용 별도 CLI·훅 게이트가 활성화됐다고 보고하지 않는다.
+제공 환경이 Git도 지원하지 않으면 도구 반입·작업 저장 방법부터 Helper에 확인한다.
 
 ### 추론 강도 선택
 
@@ -59,7 +107,9 @@ python3 .harness/harness.py review --effort high '변경의 정확성과 보안�
 
 ## 프로젝트 설정
 
-`.harness/project-profile.md`에 목표·스택·불변식·경계·실행 방법·제출물을 채운다.
+`.harness/project-profile.md`에는 이번 해커톤의 목표·도구 경계·Sol + Sol 검수·시간 배분·
+제출 원칙을 미리 채웠다. 과제 도메인·스택·불변식·실행 경로·필수 제출물은 실제 접속 후 채운다.
+기존 설치의 프로젝트 프로필은 보존하므로 새 배포본의 내용을 임의로 덮어쓰지 않는다.
 실제 검증 명령은 `.harness/checks.json` 한 곳에 배열로 등록한다.
 아래는 형식 예시다. 과제의 실제 명령으로 바꾼다.
 
@@ -126,6 +176,10 @@ AI 제안·테스트 실행과 응시자의 직접 결정·수동 확인을 구�
 - 환경이 지원·허용하면 검증 역할을 별도 컨텍스트에 위임한다.
   지원하지 않으면 제한을 밝히고 같은 세션에서 수행한다. 실제 독립 컨텍스트가 없으면
   독립 리뷰라고 주장하지 않는다. 원본의 이종 모델 듀얼 리뷰와는 보장 범위가 다르다.
+- 프로필의 Sol + Sol 검수는 `kty_reviewer`를 두 독립 컨텍스트로 호출하거나 `review` 명령을
+  두 번 새로 실행한다. 두 리뷰 모두 정확성과 보안을 보되 A/B 중점을 달리하며,
+  같은 코드 상태를 서로의 결론 없이 검토한 뒤 메인이 지적을 합쳐 재현·판단한다.
+  호출 계약은 `references/roles.md`에 있으며 이 절차의 실행을 훅이 강제하는 것은 아니다.
 - 네이티브 자식의 실제 권한은 부모에게서 상속된다. 역할 파일에 `sandbox_mode`를 적어도
   별도 쓰기 차단을 보장하지 않는다. 강제 읽기 전용 검수는
   `python3 .harness/harness.py review '검수 요청'`, 완료 감사는

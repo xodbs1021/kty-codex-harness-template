@@ -2,6 +2,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -85,6 +86,22 @@ class HarnessTest(unittest.TestCase):
         hooks = json.loads((self.root / ".codex/hooks.json").read_text())["hooks"]["Stop"]
         self.assertEqual(hooks[0], existing["hooks"]["Stop"][0])
         self.assertEqual(len(hooks), 2)
+
+    def test_package_can_be_installed_from_within_task_workspace(self):
+        package = self.root / ".harness/vendor/kty-codex-harness"
+        for name in ("scripts", "template"):
+            shutil.copytree(SOURCE / name, package / name, ignore=shutil.ignore_patterns("__pycache__"))
+        shutil.copyfile(SOURCE / "install.sh", package / "install.sh")
+        result = subprocess.run(["bash", str(package / "install.sh"), str(self.root), "--no-hooks"],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue((self.root / ".harness/project-profile.md").is_file())
+        ignored = subprocess.run(["git", "-C", str(self.root), "check-ignore", str(package)],
+                                 capture_output=True, text=True)
+        self.assertEqual(ignored.returncode, 0, ignored.stderr)
+        before = self.command("fingerprint").stdout
+        (package / "download-notes.txt").write_text("inbound package metadata")
+        self.assertEqual(before, self.command("fingerprint").stdout)
 
     def test_owned_legacy_effort_default_is_migrated_but_unowned_config_is_preserved(self):
         legacy = (b"# Only model defaults; authentication, permissions and platform settings are inherited.\n"
