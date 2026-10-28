@@ -62,11 +62,14 @@ class HarnessTest(unittest.TestCase):
         self.install()
         self.assertIn("# Existing project instructions", (self.root / "AGENTS.md").read_text())
         self.write(".harness/project-profile.md", "project-specific facts")
+        self.write(".harness/task-evidence.md", "R1: user decision and measured evidence")
         self.checks()
         first = (self.root / "AGENTS.md").read_bytes()
         self.install()
         self.assertEqual(first, (self.root / "AGENTS.md").read_bytes())
         self.assertEqual((self.root / ".harness/project-profile.md").read_text(), "project-specific facts")
+        self.assertEqual((self.root / ".harness/task-evidence.md").read_text(),
+                         "R1: user decision and measured evidence")
         self.assertEqual(len(json.loads((self.root / ".harness/checks.json").read_text())["checks"]), 1)
         hooks = json.loads((self.root / ".codex/hooks.json").read_text())["hooks"]
         self.assertEqual(len(hooks["Stop"]), 1)
@@ -192,6 +195,16 @@ class HarnessTest(unittest.TestCase):
         self.write("app.py", "value = 2\n")
         self.command("verify")
         self.write(".harness/work/progress.md", "progress")
+        self.assertEqual(self.event("Stop"), {})
+
+    def test_task_evidence_changes_require_new_verification(self):
+        self.install()
+        self.checks()
+        self.event("SessionStart")
+        self.command("verify")
+        self.write(".harness/task-evidence.md", "R1: revised acceptance evidence")
+        self.assertEqual(self.event("Stop")["decision"], "block")
+        self.command("verify")
         self.assertEqual(self.event("Stop"), {})
 
     def test_sessions_and_resume_keep_separate_baselines(self):

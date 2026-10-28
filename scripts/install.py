@@ -12,7 +12,7 @@ import sys
 SOURCE = Path(__file__).resolve().parents[1]
 START = "<!-- kty-codex-harness:start -->"
 END = "<!-- kty-codex-harness:end -->"
-SLOTS = {".harness/project-profile.md", ".harness/checks.json"}
+SLOTS = {".harness/project-profile.md", ".harness/checks.json", ".harness/task-evidence.md"}
 IGNORE = ["/.harness/state/", "/.harness/work/"]
 HOOK_COMMAND = 'python3 "$(git rev-parse --show-toplevel)/.harness/harness.py" hook'
 
