@@ -15,6 +15,8 @@ END = "<!-- kty-codex-harness:end -->"
 SLOTS = {".harness/project-profile.md", ".harness/checks.json", ".harness/task-evidence.md"}
 IGNORE = ["/.harness/state/", "/.harness/work/"]
 HOOK_COMMAND = 'python3 "$(git rev-parse --show-toplevel)/.harness/harness.py" hook'
+LEGACY_CONFIG = (b"# Only model defaults; authentication, permissions and platform settings are inherited.\n"
+                 b'model = "gpt-6.1-sol"\nmodel_reasoning_effort = "xhigh"\n')
 
 
 def sha(data):
@@ -88,8 +90,14 @@ def install(root, hooks=True):
         content = source.read_bytes()
         if target.exists():
             current = target.read_bytes()
-            if name in SLOTS or name == ".codex/config.toml":
+            if name in SLOTS:
                 continue
+            if name == ".codex/config.toml":
+                owned = old.get(name) == sha(current)
+                if not (owned and current == LEGACY_CONFIG):
+                    if owned:
+                        managed[name] = sha(current)
+                    continue
             if current != content and old.get(name) != sha(current):
                 raise ValueError("로컬 수정/기존 파일을 덮어쓸 수 없습니다: " + name)
         changes[name] = content
@@ -118,7 +126,7 @@ def install(root, hooks=True):
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(managed, indent=2) + "\n")
     print("설치 완료: " + str(root))
-    print("모델: gpt-6.1-sol / xhigh — bash .harness/codex.sh 로 실행")
+    print("모델: gpt-6.1-sol / effort 미지정 — bash .harness/codex.sh 로 실행")
     print("프로필과 checks.json을 채운 뒤 python3 .harness/harness.py verify 실행")
     if hooks:
         print("네이티브 훅은 Codex의 /hooks에서 검토·신뢰 후 활성화됩니다.")

@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -75,14 +76,36 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(len(hooks["Stop"]), 1)
 
     def test_existing_config_and_hooks_are_preserved(self):
-        self.write(".codex/config.toml", 'model = "existing-model"\n[features]\nhooks = true\n')
+        config = 'model = "existing-model"\nmodel_reasoning_effort = "high"\n[features]\nhooks = true\n'
+        self.write(".codex/config.toml", config)
         existing = {"hooks": {"Stop": [{"hooks": [{"type": "command", "command": "existing-hook"}]}]}}
         self.write(".codex/hooks.json", json.dumps(existing))
         self.install()
-        self.assertIn("existing-model", (self.root / ".codex/config.toml").read_text())
+        self.assertEqual((self.root / ".codex/config.toml").read_text(), config)
         hooks = json.loads((self.root / ".codex/hooks.json").read_text())["hooks"]["Stop"]
         self.assertEqual(hooks[0], existing["hooks"]["Stop"][0])
         self.assertEqual(len(hooks), 2)
+
+    def test_owned_legacy_effort_default_is_migrated_but_unowned_config_is_preserved(self):
+        legacy = (b"# Only model defaults; authentication, permissions and platform settings are inherited.\n"
+                  b'model = "gpt-6.1-sol"\nmodel_reasoning_effort = "xhigh"\n')
+        self.install()
+        self.write(".codex/config.toml", legacy.decode())
+        manifest = self.root / ".harness/state/install.json"
+        values = json.loads(manifest.read_text())
+        values[".codex/config.toml"] = hashlib.sha256(legacy).hexdigest()
+        manifest.write_text(json.dumps(values))
+        self.install()
+        self.assertNotIn("model_reasoning_effort", (self.root / ".codex/config.toml").read_text())
+        self.install()
+        self.assertIn(".codex/config.toml", json.loads(manifest.read_text()))
+        # An unowned/user-managed configuration is preserved even if its text matches an old default.
+        values = json.loads(manifest.read_text())
+        del values[".codex/config.toml"]
+        manifest.write_text(json.dumps(values))
+        self.write(".codex/config.toml", legacy.decode())
+        self.install()
+        self.assertEqual((self.root / ".codex/config.toml").read_bytes(), legacy)
 
     def test_no_hooks_does_not_touch_existing_hook_configuration(self):
         self.write(".codex/hooks.json", '{"hooks": {}}\n')
@@ -229,7 +252,7 @@ class HarnessTest(unittest.TestCase):
         (self.root / "app.py").symlink_to("different-outside-file")
         self.assertNotEqual(before, self.command("fingerprint").stdout)
 
-    def test_launcher_pins_model_and_effort_without_security_overrides(self):
+    def test_launcher_pins_model_without_effort_or_security_overrides(self):
         self.install()
         fake = self.root / "bin/codex"
         fake.parent.mkdir()
@@ -238,10 +261,9 @@ class HarnessTest(unittest.TestCase):
         env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
         result = self.command("codex", "--", "-m different-model", env=env)
         args = json.loads(result.stdout)
-        self.assertEqual(args[:6], ["--cd", str(self.root.resolve()), "--model", "gpt-6.1-sol", "--config",
-                                   'model_reasoning_effort="xhigh"'])
+        self.assertEqual(args[:4], ["--cd", str(self.root.resolve()), "--model", "gpt-6.1-sol"])
         self.assertEqual(args[-2:], ["--", "-m different-model"])
-        self.assertEqual(len(args), 8)
+        self.assertEqual(len(args), 6)
         for role in ("planner", "developer", "reviewer", "auditor"):
             path = self.root / ".codex/agents" / ("kty-" + role + ".toml")
             self.assertTrue(path.is_file())
@@ -249,7 +271,7 @@ class HarnessTest(unittest.TestCase):
             self.assertIn('name = "kty_' + role + '"', content)
             self.assertIn('description = "', content)
             self.assertIn('model = "gpt-6.1-sol"', content)
-            self.assertIn('model_reasoning_effort = "xhigh"', content)
+            self.assertNotIn('model_reasoning_effort', content)
             self.assertNotIn('sandbox_mode', content)
 
     def test_readonly_review_and_audit_isolate_whole_codex_process(self):
@@ -264,9 +286,39 @@ class HarnessTest(unittest.TestCase):
             self.assertEqual(args[:3], ["exec", "--cd", str(self.root.resolve())])
             self.assertEqual(args[args.index("--model") + 1], "gpt-6.1-sol")
             self.assertEqual(args[args.index("--sandbox") + 1], "read-only")
-            self.assertIn('model_reasoning_effort="xhigh"', args)
+            self.assertFalse(any("model_reasoning_effort" in arg for arg in args))
             self.assertIn("kty-" + role + ".toml", args[-1])
             self.assertIn("Inspect current code", args[-1])
+
+    def test_effort_is_forwarded_only_on_explicit_request(self):
+        self.install()
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nimport json,sys\nprint(json.dumps(sys.argv[1:]))\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        roles_before = {path: path.read_bytes() for path in (self.root / ".codex/agents").glob("*.toml")}
+        for command in ("codex", "review", "audit"):
+            args = json.loads(self.command(command, "--effort", "high", "Task", env=env).stdout)
+            self.assertEqual(args[args.index("--config") + 1], 'model_reasoning_effort="high"')
+            if command != "codex":
+                self.assertEqual(args[args.index("--sandbox") + 1], "read-only")
+        self.assertEqual(roles_before, {path: path.read_bytes() for path in roles_before})
+
+    def test_rejected_effort_is_not_retried_with_a_different_level(self):
+        self.install()
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nfrom pathlib import Path\nimport sys\n'
+                        'target = Path(sys.argv[sys.argv.index("--cd") + 1]) / "calls"\n'
+                        'with target.open("a") as out: out.write("called\\n")\n'
+                        'raise SystemExit(2)\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        for command in ("codex", "review", "audit"):
+            result = self.command(command, "--effort", "not-supported", "Task", success=False, env=env)
+            self.assertEqual(result.returncode, 2)
+        self.assertEqual((self.root / "calls").read_text().splitlines(), ["called"] * 3)
 
 
 if __name__ == "__main__":

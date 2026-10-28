@@ -1,6 +1,7 @@
 # KTY Codex Harness Template
 
-Codex와 **GPT 6.1 Sol (`gpt-6.1-sol`, `xhigh`)** 중심의 개발 하네스다.
+Codex와 **GPT 6.1 Sol (`gpt-6.1-sol`)** 중심의 개발 하네스다.
+추론 강도(effort)는 기본으로 지정하지 않고 Codex가 실제 설정을 해석하도록 둔다.
 기존 개인 하네스의 프로필·공학 원칙·계획 검증·코드 검수·설명·완료 감사를
 Codex의 `AGENTS.md`, 저장소 Skill, 네이티브 훅으로 이식했다.
 
@@ -20,7 +21,7 @@ cd /path/to/task-workspace
 bash .harness/codex.sh
 ```
 
-실행기는 모델·추론 강도를 명시한다. Codex는 `.codex/agents/`에서 네이티브 역할을 발견한다.
+실행기는 모델을 명시한다. Codex는 `.codex/agents/`에서 네이티브 역할을 발견한다.
 메인은 제공된 인증·승인·샌드박스·연결 설정을 상속한다.
 기존 `.codex/config.toml`이 있으면 보존한다. 직접 `codex`로 실행했을 때 기존 설정이
 다른 모델을 고를 수 있으므로 이 하네스의 실행기를 사용하고 `/status`에서 확인한다.
@@ -32,8 +33,29 @@ bash .harness/codex.sh 'README와 하네스를 읽고 필수 요구사항부터 
 
 설치기는 기존 `AGENTS.md`에 관리 블록만 추가하고 기존 훅과 함께 두 이벤트를 등록한다.
 프로필·검증 명령은 재설치 시 보존한다. 관리 파일의 로컬 수정은 덮어쓰지 않고 중단한다.
+구버전의 변경되지 않은 기본 config는 설치 manifest로 소유를 확인할 수 있을 때만
+effort 없는 기본값으로 갱신한다. 사용자 설정이나 소유가 불명확한 config는 보존하므로,
+이미 설치한 곳에서는 남아 있는 effort 설정도 확인한다.
 훅을 추가하지 않는 환경에서는 `install.sh /path/to/workspace --no-hooks`를 사용한다.
 이 옵션은 기존 훅을 끄거나 삭제하지 않는다.
+
+### 추론 강도 선택
+
+기본 실행은 `model_reasoning_effort`를 주입하지 않는다. 프로젝트 기본 config와 역할
+파일에도 effort를 지정하지 않는다. 최종 값은 Codex의 설정 우선순위와 모델·관리 정책에
+따르므로 실제 실행 정보에서 확인한다. 시험 환경의 조절 지원 여부는 아직 미확인이다.
+
+제공 환경에서 조절을 허용하고 해당 수준이 지원될 때만 명시적으로 선택한다.
+
+```bash
+bash .harness/codex.sh --effort high '필수 요구사항을 구현해줘'
+python3 .harness/harness.py review --effort high '변경의 정확성과 보안을 검수해줘'
+```
+
+수준의 지원 여부는 Codex가 검증하며, 거부되면 오류를 그대로 반환한다.
+다른 강도로 몰래 바꾸거나 설정 제한을 우회하지 않는다. 인터랙티브 CLI에서는
+허용된 `/model` 선택기를 사용할 수 있다. 별도 review·audit CLI는 새 프로세스이므로
+메인 화면에서 일시적으로 바꾼 effort가 그대로 이어진다고 가정하지 않는다.
 
 ## 프로젝트 설정
 
@@ -98,7 +120,7 @@ AI 제안·테스트 실행과 응시자의 직접 결정·수동 확인을 구�
 - 훅은 명령 종료 코드와 파일 동일성을 확인한다. 테스트 적정성·요구 충족·
   독립 리뷰·사용자 이해·제출 성공은 역할별 검수와 실제 확인이 필요하다.
 - `.codex/agents/`에 planner·developer·reviewer·auditor 네이티브 역할을 제공한다.
-  모두 `gpt-6.1-sol / xhigh`이고 planner·reviewer·auditor는 파일을 수정하지 않도록 지시한다.
+  모두 `gpt-6.1-sol`이며 effort를 덮어쓰지 않는다. planner·reviewer·auditor는 파일을 수정하지 않도록 지시한다.
   각 파일에 이름·설명·지침을 선언한다. 프로젝트 신뢰가 필요하며 기존 설정 파일을 보존한다.
   멀티에이전트 기능 자체를 강제로 켜지 않는다.
 - 환경이 지원·허용하면 검증 역할을 별도 컨텍스트에 위임한다.

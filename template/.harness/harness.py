@@ -14,7 +14,6 @@ import time
 
 
 MODEL = "gpt-6.1-sol"
-EFFORT = "xhigh"
 ROLES = {"kty_" + role: "kty-" + role + ".toml"
          for role in ("planner", "developer", "reviewer", "auditor")}
 STATE_PREFIXES = (".harness/state/", ".harness/work/")
@@ -174,9 +173,13 @@ def hook(root, event):
     return {"decision": "block", "reason": reason}
 
 
-def launch(root, prompt):
-    command = ["codex", "--cd", str(root), "--model", MODEL,
-               "--config", 'model_reasoning_effort="' + EFFORT + '"']
+def effort_args(effort):
+    # Omit the key entirely by default; let Codex resolve its effective settings.
+    return [] if effort is None else ["--config", "model_reasoning_effort=" + json.dumps(effort)]
+
+
+def launch(root, prompt, effort=None):
+    command = ["codex", "--cd", str(root), "--model", MODEL] + effort_args(effort)
     for filename in ROLES.values():
         path = root / ".codex/agents" / filename
         if not path.is_file():
@@ -186,7 +189,7 @@ def launch(root, prompt):
     os.execvp(command[0], command)
 
 
-def readonly_role(root, role, task):
+def readonly_role(root, role, task, effort=None):
     """Child role files cannot enforce permissions; isolate the whole CLI process."""
     filename = ROLES["kty_" + role]
     path = root / ".codex/agents" / filename
@@ -199,8 +202,7 @@ def readonly_role(root, role, task):
               "다른 에이전트를 만들지 마라. 실행할 수 없는 검증은 그 한계를 밝혀라.\n\n"
               "검수·감사 요청:\n" + task)
     command = ["codex", "exec", "--cd", str(root), "--model", MODEL,
-               "--config", 'model_reasoning_effort="' + EFFORT + '"',
-               "--sandbox", "read-only", "--ephemeral", "--", prompt]
+               *effort_args(effort), "--sandbox", "read-only", "--ephemeral", "--", prompt]
     os.execvp(command[0], command)
 
 
@@ -212,9 +214,12 @@ def main():
     commands.add_parser("fingerprint")
     commands.add_parser("hook")
     codex = commands.add_parser("codex")
+    codex.add_argument("--effort", metavar="LEVEL", help="허용된 추론 강도를 명시할 때만 사용")
     codex.add_argument("prompt", nargs="?")
     for role in ("review", "audit"):
-        commands.add_parser(role).add_argument("task")
+        command = commands.add_parser(role)
+        command.add_argument("--effort", metavar="LEVEL", help="허용된 추론 강도를 명시할 때만 사용")
+        command.add_argument("task")
     args = parser.parse_args()
     try:
         root = args.root.resolve()
@@ -223,9 +228,10 @@ def main():
         if args.command == "fingerprint":
             print(fingerprint(root))
         elif args.command == "codex":
-            launch(root, args.prompt)
+            launch(root, args.prompt, args.effort)
         elif args.command in ("review", "audit"):
-            readonly_role(root, "reviewer" if args.command == "review" else "auditor", args.task)
+            readonly_role(root, "reviewer" if args.command == "review" else "auditor", args.task,
+                          args.effort)
         else:
             print(json.dumps(hook(root, json.load(sys.stdin)), ensure_ascii=False))
         return 0

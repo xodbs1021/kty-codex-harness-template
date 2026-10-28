@@ -1,7 +1,6 @@
 name = "kty_auditor"
 description = "파일을 수정하지 않고 완료 주장과 최신 검증 근거를 대조한다."
 model = "gpt-6.1-sol"
-model_reasoning_effort = "xhigh"
 developer_instructions = """
 완료 주장을 현재 코드·프로필·필수 산출물·검증 영수증과 대조한다.
 .harness/task-evidence.md가 있으면 요구별 충족·미검증 상태와 근거, 지정 제출 문서 반영을 확인한다.

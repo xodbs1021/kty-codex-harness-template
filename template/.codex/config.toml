@@ -1,3 +1,2 @@
-# Only model defaults; authentication, permissions and platform settings are inherited.
+# Model default only; reasoning effort is resolved by Codex and the provided environment.
 model = "gpt-6.1-sol"
-model_reasoning_effort = "xhigh"
