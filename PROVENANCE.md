@@ -95,3 +95,15 @@ Python·Go 사본은 그대로 유지하고 Java 원문을 공식 저장소 고�
 Git blob SHA `6c64db7a5527328a81d20889742434afee7604f9`와 실제 저장 파일이 일치한다.
 파일별 출처·SHA-256은 Google Skill의 snapshot.json에 있다.
 Go 자동 포맷 검사와 Python·Java 원문 기반 검토를 같은 검증 수준으로 표현하지 않는다.
+
+## Google 공통 API 설계
+
+2026-10-31 사용자 요청으로 Google AIP 기반 공통 API Skill을 추가했다.
+공식 `aip-dev/google.aip.dev`의 커밋 `2ccc61a4e09882bdd63aea1a42dceebc37bf3bd5`에서
+선택한 AIP 18개와 LICENSE.md를 변경 없이 반입했다.
+[NOTICE](template/.agents/skills/google-api-design/references/NOTICE.md)와
+[snapshot](template/.agents/skills/google-api-design/references/snapshot.json)에 출처·Git blob·SHA-256을 기록했다.
+문서는 CC BY 4.0, 코드 예제는 Apache 2.0이며 Google 코드 스타일 번들의 라이선스와 구분한다.
+한국어 적용 절차는 과제의 기존 계약을 보존하는 KTY 해석이다. Google 인증·전체 AIP 준수·
+자동 API 검사 도구를 뜻하지 않는다. 설계·계획·구현·리뷰·감사의 실제 원문 읽기 경로를 연결했다.
+검증 범위와 실제 호출은 [API 적용 검증](docs/google-api-validation-2026-10-31.md)에 기록했다.

@@ -1,7 +1,7 @@
 # KTY Codex Harness — SK하이닉스 AI 해커톤 2026
 
 제공 Codex에서 사용하는 해커톤 전용 하네스다. 메인·독립 검수는 `gpt-6.1-sol`,
-effort는 실제 환경 설정을 따른다. 13개 역할, Google 스타일·글쓰기 스킬,
+effort는 실제 환경 설정을 따른다. 13개 역할, Google API 설계·코드 스타일·글쓰기 스킬,
 검증 보조 훅, 반도체 지식 65개를 포함한다.
 
 ## 바로 시작
@@ -59,6 +59,7 @@ Sol A/B 코드 검수와 조건부 보안·테스트 검토 → 설명 → 완�
 실행 계약은 [workflow.md](template/.agents/skills/kty-harness/references/workflow.md)가 정본이다.
 
 - 코드·문서 작성/검수: [Google 스타일 Skill](template/.agents/skills/google-styleguide/SKILL.md). Python·Java·Go 원문 포함.
+- API 설계·리뷰: [Google API Skill](template/.agents/skills/google-api-design/SKILL.md)의 관련 AIP 원문을 직접 읽고 계약·검증에 연결한다.
 - 사용자 설명·문장 품질: [readable-writing](template/.agents/skills/readable-writing/SKILL.md).
 - 결정·진행·반복 지적: [기록 계약](template/.agents/skills/kty-harness/references/decision-memory.md).
 - 서비스 과제: 구현뿐 아니라 실행·연결·응답을 검증한다. 주소·포트·스택은 고정하지 않는다.

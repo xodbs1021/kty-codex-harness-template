@@ -1,0 +1,232 @@
+{
+  "date": "2026-10-31",
+  "target_base_commit": "66e6fe7",
+  "scope": "Synthetic local API fixture only. Separate architect and two independent reviewer CLI processes; no conclusion sharing, no actual Probe environment, HTTP server or full 13-role pipeline. Parent thread history is not passed: each exec receives only its role/task prompt.",
+  "effort": "No override requested. Observed local default low is not a harness pin.",
+  "template_hashes": {
+    "AGENTS.block.md": "b49a6a78992d01b82b48eec09bd9021c5df9069295929e3ff8860fa75a61530d",
+    ".harness/read-only.md": "a567c4c926cb837b08a5d91952098085ba62dbfb64cdd42c4a6a438b1203abef",
+    ".codex/agents/kty-change-explainer.toml": "84e45eccabb86d29ba2255a9c9fc5c75f413410592d066779a939bb18876ba40",
+    ".codex/agents/kty-architect.toml": "93eb3ffc6f3a5d5ec3f0e652a31e5d0c4911821b049323b79cc850d8a37418ac",
+    ".codex/agents/kty-developer.toml": "290edf25278f28e1e8975a0f4f410729329cc012ab3fad9fe56dfbc0a4afad82",
+    ".codex/agents/kty-planner.toml": "d8c5351f3d7ec229be5d60306a281782f0d3ad1043def5c106e781d73859c11b",
+    ".codex/agents/kty-research-collector.toml": "445d3b80feb60fccf00b959d02f8b49f9edbc8044bb8931eaf57886b26e95d6c",
+    ".codex/agents/kty-reviewer.toml": "f5e86f5c82c0d0c4cf3896e1aed1c0159f4d43eee406f95af39e43eb5ff68537",
+    ".codex/agents/kty-clarifier.toml": "9106224ccdd4f3e23ae674b1a88c5cc3b5ed35a36a0ef39fed987d0a88b55400",
+    ".codex/agents/kty-architecture-guide.toml": "5cedac18fcd7ed9840453eb62337942a813804532b78855634f76023ff7e6a35",
+    ".codex/agents/kty-auditor.toml": "198e9a69f9e57af2bc9f6876103900d38560fe9181535fa7eb453850ea9986a4",
+    ".codex/agents/kty-test-analyzer.toml": "fe2a240cc17d4cf8690b742956c6bf6826d0a5b50447a14e989fabef2f5d45c5",
+    ".codex/agents/kty-research-evaluator.toml": "7b11a56643b5019cc2767e03c79e9a6970f15807e9dcc4293cab629848389be2",
+    ".codex/agents/kty-plan-reviewer.toml": "aeec979f4220b17ab35af30433323ea0b58ba4eba19ffed99bc420c0f1a72457",
+    ".codex/agents/kty-security-reviewer.toml": "0835844e5b431fc04707ff5592c43f1add4bad3653c9a89b49ae8a8bf49bbd0f",
+    ".agents/skills/kty-harness/SKILL.md": "615badbc11c7e7a4e3f32640696c8d9712a739c3853f0e45d1215511a2b82da5",
+    ".agents/skills/google-api-design/SKILL.md": "ffcdacafc28f856d716f3743ada165e252991ebb2afc4b1b67516a45aa8462c9",
+    ".agents/skills/google-api-design/references/application.md": "65b2c698a9cfcd066312fd618e4af4831b1f1950280f1ab8ef971e759c5fd6a2",
+    ".agents/skills/google-api-design/references/source-map.md": "78a6603fc7ec2a18f741d92891270b813897e7a90590c841a5da2c57d4a89746",
+    ".agents/skills/google-api-design/references/snapshot.json": "7cbf43d99260a674c8fae876219802ebd148ccdcc919feb193ed84d8bb258b04",
+    ".agents/skills/google-api-design/references/NOTICE.md": "7ac912e95238e56e3a2475f6c78f49ef9bdd0b1d965f7e47cf9b38b1c4eabd73",
+    ".agents/skills/google-api-design/references/aip/LICENSE.md": "c80d18310bc29da5c83a5c66dff8e43c79ae0a66b6cd1a5c5fe21df3d58aa32a",
+    ".agents/skills/google-api-design/references/aip/0155.md": "031a0e49e3827eb671ec972a2f03a2b1b2a9a0d1daf0bfd33584f27208827d1c",
+    ".agents/skills/google-api-design/references/aip/0134.md": "5c5a679a2888f72d3ac302bde2df3b8d8d9da4596b66507393ffd1dadd9c59d5",
+    ".agents/skills/google-api-design/references/aip/0001.md": "711f65d63c23a5c342565b5574983b9f0da091da6e5f1092b07dc2bf832373e2",
+    ".agents/skills/google-api-design/references/aip/0135.md": "1937e5b8f9fd9815086eed98baf88ab7adfb9c5eb0f48acdc766b3c0f080d022",
+    ".agents/skills/google-api-design/references/aip/0140.md": "4740f61060f1804d972a909d22d0a5e518501efbeb6821507e85541f87114900",
+    ".agents/skills/google-api-design/references/aip/0193.md": "d76399f08a3a01256f75f567596e95f57eec9deb6f6f3b28333d80e8f012018a",
+    ".agents/skills/google-api-design/references/aip/0131.md": "a33b9814cc00d96ff5304f6eadfabd6bdaf56a9ec780509c86984e2b3dc914bc",
+    ".agents/skills/google-api-design/references/aip/0154.md": "63d1f35de6f7ee0f37a5e285effb64445eb4cb52b368cd45144c14f59580ef13",
+    ".agents/skills/google-api-design/references/aip/0121.md": "118217a474dabd41105a4d8d7d271f878c8a4e3a6e09013e196c781f155241fd",
+    ".agents/skills/google-api-design/references/aip/0136.md": "7bac1100566898ab049f65c3a33d66bb0926c133475fe68442ea7f3ac16941e6",
+    ".agents/skills/google-api-design/references/aip/0194.md": "8c3b8c2cf07a694dd28ee28e7eacd583cd7fe57ed74de870ae6ca0ea59da8050",
+    ".agents/skills/google-api-design/references/aip/0132.md": "2e3d4b33c81800da76a5b3f045672bef18644fa1f76aaa05aef7524d4664d744",
+    ".agents/skills/google-api-design/references/aip/0180.md": "36d325d519ed3f1100b50156258a6bf4e81224ebef5fa277ad94dfa970d954b3",
+    ".agents/skills/google-api-design/references/aip/0211.md": "7a03970b4a0de40592413da7c4b013f08224fab52136d9814a1ec35573c895a9",
+    ".agents/skills/google-api-design/references/aip/0122.md": "6f744a0878e83fb5ba0561ecd8131d53e7df40f637ff3448df538f98922ac59e",
+    ".agents/skills/google-api-design/references/aip/0133.md": "3048153ace34095c3b7d04efb4f025abfb02ceceb8a7c5e6a856e49d4878848f",
+    ".agents/skills/google-api-design/references/aip/0149.md": "6a98c437da7a9ca368102bd6e35bfb2ccb6dc8e7ddf1166a12a0c0f231e3c358",
+    ".agents/skills/google-api-design/references/aip/0158.md": "3275e7ac12a1f9f8b3f10e36edb47d942e83293ab5a27aa3aea3107f0f0e7b76",
+    ".agents/skills/kty-harness/references/workflow.md": "b9b328aaaa557e2a4c709f178e875b6aac9a90bcbbbc45267014e03573bcf5b9"
+  },
+  "installation": {
+    "new_skill_copied_byte_identically": true,
+    "profile_preserved_on_reinstall": true,
+    "hooks_requested": false
+  },
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "tests_run": 42,
+    "seconds": 11.999,
+    "result": "OK"
+  },
+  "independent_static_reviews": [
+    {
+      "id": "/root/api_review_a",
+      "requested_model": "gpt-6.1-sol",
+      "fork_turns": "none",
+      "actionable_findings": [],
+      "scope": "Uncommitted skill, originals, routing, installer logic and README; no runtime execution by reviewer. Reported document count corrected by manifest count."
+    },
+    {
+      "id": "/root/api_review_b",
+      "requested_model": "gpt-6.1-sol",
+      "fork_turns": "none",
+      "actionable_findings": [
+        {
+          "finding": "PROVENANCE incorrectly counted 19 AIPs; actual 18 AIPs plus LICENSE",
+          "status": "fixed"
+        }
+      ],
+      "scope": "Independent original-source/hash, semantic, routing and installer logic review; no runtime execution by reviewer."
+    }
+  ],
+  "cases": [
+    {
+      "case": "design",
+      "role": "architect",
+      "mode": "direct-read",
+      "exit_code": 0,
+      "seconds": 113.96,
+      "task_and_git_unchanged": true,
+      "model_requested": "gpt-6.1-sol",
+      "effort_override": null,
+      "thread_id": "01a18e1f-7834-7a53-b695-6dd69edc1742",
+      "runtime_observed": {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "sandbox_policy": {
+          "type": "read-only"
+        },
+        "approval_policy": "never"
+      },
+      "task_cache_directories_after": [],
+      "fixture_hashes": {
+        "README.md": "610aa83763defd03052f8327fbb22326ba21c8e318ab1fd6c14ebf7aa90bd2d2"
+      },
+      "original_read_commands": [
+        {
+          "command": "/bin/zsh -lc 'cat <harness>/template/.agents/skills/google-api-design/references/aip/0121.md <harness>/template/.agents/skills/google-api-design/references/aip/0132.md <harness>/template/.agents/skills/google-api-design/references/aip/0158.md <harness>/template/.agents/skills/google-api-design/references/aip/0134.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat <harness>/template/.agents/skills/google-api-design/references/aip/0121.md <harness>/template/.agents/skills/google-api-design/references/aip/0132.md <harness>/template/.agents/skills/google-api-design/references/aip/0158.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat <harness>/template/.agents/skills/google-api-design/references/aip/0149.md <harness>/template/.agents/skills/google-api-design/references/aip/0180.md <harness>/template/.agents/skills/google-api-design/references/aip/0193.md'",
+          "exit_code": 0
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "result": "설계안은 **기존 API 계약을 보존하고, `/v1/items`에만 페이지 계약을 적용**합니다. 이번 결과는 단일 architect의 설계·검증 계획이며, 승인이나 구현·검증 완료 판정은 아닙니다.\n\n**확인한 과제와 선행 근거**\n\n- 실제 과제: 현재 디렉터리의 [README.md](<harness>/tmp/api-forward/design/task/README.md).\n- 작업 파일과 HEAD 추적 파일은 README뿐입니다. handler 코드·테스트·설치된 `.agents`·`.harness`·`.codex`는 없습니다.\n- 과제 Git 이력에서 `d017a37 Synthetic API fixture`를 확인했고, HEAD의 README와 현재 요구를 대조했습니다. 별도 선행 설계·조사 판정은 발견하지 못했습니다.\n- 반입본의 [architect 역할 지침](<harness>/template/.codex/agents/kty-architect.toml), 읽기 전용 절차, 프로필·원칙, workflow·roles·decision-memory·plan-gates·research·explanation을 직접 읽었습니다.\n- Google API 설계·스타일·글쓰기 스킬을 직접 읽어 적용했습니다. 레퍼런스 조사는 **로컬 AIP 원문 확인을 수행**했으며, 외부 조사와 독립 평가는 수행하지 않았습니다.\n\nREADME로 필수 계약은 명확합니다. 아래에서 README가 정하지 않은 동작은 **설계 제안**으로 구분합니다.\n\n**API 계약**\n\n| 대상 | 계약 |\n|---|---|\n| `GET /` | **확정:** 200, `{\"message\":\"hello\"}` 그대로 유지 |\n| `GET /tasks` | **확정:** 기존 JSON 배열 유지. 페이지 응답 객체로 감싸거나 기본 반환 개수를 제한하지 않음 |\n| `GET /v1/items` | **확정:** 데이터 1부터 10, 기본 페이지 크기 2, 최대 5 |\n| `PATCH /tasks/{id}` | **확정:** 전달된 `title`·`completed`만 수정. 누락 필드 보존. `false` 허용 |\n| 오류 | **확정:** HTTP 상태와 `{\"error\":{\"code\":\"문자열\",\"message\":\"문자열\"}}` 유지. Proto 의존성 없음 |\n\n`GET /v1/items`의 구체 계약은 다음과 같이 제안합니다.\n\n- 숫자 오름차순으로 반환합니다. 응답은 `{\"items\":[1,2],\"next_page_token\":\"불투명한 문자열\"}` 형태입니다.\n- `page_size` 누락 또는 `0`은 2, 양수는 최대 5로 제한합니다. 음수·정수가 아닌 값·빈 값·중복 지정은 400으로 처리합니다.\n- `page_token` 누락 또는 빈 문자열은 첫 페이지입니다. 잘못되거나 알 수 없는 토큰은 400입니다.\n- 마지막 페이지는 `next_page_token: \"\"`로 통일합니다. 클라이언트는 배열 길이가 아닌 토큰으로 종료를 판단합니다.\n- 다음 요청에서 `page_size` 변경을 허용합니다. 크기를 토큰에 고정하지 않습니다.\n- 정렬·필터·`skip`·`total_size`는 이번 요구에 추가하지 않습니다.\n\n페이지 토큰은 **고정 데이터의 각 계속 위치에 대응하는 URL-safe 불투명 문자열**로 제안합니다. 동일 위치에는 동일 토큰을 반환하고, 전체 위치 매핑을 서비스 정의에 포함해 이전 요청을 기억할 필요가 없게 합니다. 숫자 offset이나 그 Base64 표현은 사용하지 않습니다. 이 방식은 DB·암호화 패키지 없이 요구를 충족하지만, 데이터가 가변적으로 바뀌면 토큰 설계를 재검토해야 합니다. 토큰은 접근 권한을 부여하지 않습니다.\n\n`PATCH /tasks/{id}`의 미정 부분은 다음과 같이 제안합니다.\n\n- JSON 객체의 **키 존재 여부**로 수정 필드를 결정합니다.\n- `title`은 문자열, `completed`는 JSON boolean만 허용합니다. `null`, 숫자 `0`·`1`, 문자열 `\"false\"`는 거부합니다.\n- 빈 문자열 `title`은 별도 제한 요구가 없으므로 허용합니다. 빈 객체 `{}`는 변경 없이 성공합니다.\n- 알 수 없는 필드와 본문의 `id`는 400으로 거부합니다.\n- 모든 필드를 검증한 뒤 한 번에 반영합니다. 한 필드라도 잘못되면 전체 상태를 보존합니다.\n- 성공은 200과 수정된 전체 task 객체, 존재하지 않는 ID는 404로 제안합니다. task ID 형식과 기존 task 응답 스키마는 코드가 없어 미확인입니다.\n\n신규 오류 코드는 400에 `\"INVALID_ARGUMENT\"`, 404에 `\"NOT_FOUND\"`, 예상 밖 실패에 500과 `\"INTERNAL\"`을 제안합니다. 기존 코드값·메시지가 확인되면 그 계약을 우선 보존합니다. 내부 예외·경로·토큰 원문을 오류 본문에 노출하지 않습니다.\n\n**구조와 대안**\n\n작은 handler 대상에 맞춰 다음 책임을 함수 단위로 나눕니다. 별도 계층이나 저장소 인터페이스를 강제하지 않습니다.\n\n| 경계 | 입력 → 출력·책임 |\n|---|---|\n| handler 경계 | 메서드·경로·쿼리·본문 → 상태·JSON 응답. 실제 함수 시그니처는 미확인 |\n| 페이지 처리 | 검증된 크기·토큰 → `items`·다음 토큰. tasks 상태와 독립 |\n| 부분 수정 처리 | task 상태·ID·부분 객체 → 검증 후 갱신된 task |\n| 오류 변환 | 검증·조회·내부 실패 → 기존 오류 외형 |\n\ntask 상태는 테스트마다 독립적으로 주입하고, 응답 객체를 수정해 내부 상태가 바뀌지 않게 합니다. 동일 PATCH를 반복하면 같은 최종 상태를 유지합니다. 영속 저장·다중 프로세스·동시 수정 충돌 해결은 이번 합성 대상에서 보장하지 않습니다.\n\n대안별 판단은 다음과 같습니다.\n\n- 기존 `/tasks`에 페이지 적용: 변경량은 적지만 기존 클라이언트의 배열·전체 조회 계약을 깨므로 배제합니다.\n- 숫자 또는 Base64 offset 토큰: 단순하지만 AIP-158 불투명성 요건에 부족해 배제합니다.\n- DB 토큰 저장·암호화 토큰: 가변 데이터에 유연하지만 현재 고정 데이터에 필요한 의존성과 관리 비용이 커서 채택하지 않습니다.\n- PUT 또는 기본값으로 객체 재생성: 누락 필드를 잃을 수 있으므로 PATCH의 선택 필드 갱신을 사용합니다.\n\n관측이 필요하면 정상 처리·예상된 400/404는 `DEBUG`, 예상 밖 실패는 `ERROR`로 구분합니다. 실패 신호는 상태 코드와 문자열 오류 코드입니다. 본문·토큰은 기록하지 않으며, 별도 메트릭·gauge·파일 로그는 추가하지 않습니다.\n\n**검증 계획 — 아래 항목은 모두 미실행**\n\n| 검증 입력·상태 | 기대 결과 |\n|---|---|\n| `GET /` | 200과 정확한 인사말 객체 |\n| `GET /tasks`, 신규 페이지 호출 전후 | 기존 배열 외형·전체 항목 유지 |\n| `/v1/items`, `page_size=0` | 각각 `[1,2]`, 유효한 다음 토큰 |\n| `page_size=1`, `5`, `6` | 각각 1개, 5개, 5개 반환 |\n| `page_size=-1`, `abc`, `1.5`, 빈 값·중복 값 | 400, 문자열 `code`·`message` |\n| 기본 크기로 토큰 순회 | `[1,2]`부터 `[9,10]`까지 총 5페이지. 중복·누락 없음. 마지막 토큰은 빈 문자열 |\n| 첫 페이지 크기 2 → 다음 크기 5 | `[1,2]` 다음에 `[3,4,5,6,7]` |\n| 같은 토큰 재사용·독립 handler 인스턴스에서 사용 | 동일 계속 위치에서 조회 가능 |\n| 임의·변조·다른 문맥의 토큰 | 400, 내부 정보 노출 없음 |\n| 초기 `{title:\"원래\",completed:true}`에 `{\"completed\":false}` | title 보존, completed는 false |\n| title만 수정·두 필드 수정·`{}` | 지정 필드만 변경·모두 변경·전체 보존 |\n| 유효 title과 잘못된 completed를 함께 전달 | 400, 두 필드 모두 원래 상태 유지 |\n| `null`·배열 본문·잘못된 타입·알 수 없는 필드 | 400, 상태 불변 |\n| 존재하지 않는 task·같은 PATCH 반복 | 404·동일 최종 상태 |\n| 반환 객체를 호출자가 수정 | 내부 task 상태 불변 |\n\n구현 후에는 handler를 직접 호출하는 계약 테스트로 검증합니다. 테스트 파일이 마련되고 쓰기 부작용이 없음을 확인한 경우에만 `PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v` 같은 명령을 사용할 수 있습니다. 이는 **예정 명령**이며 이번에 실행하지 않았습니다.\n\n개발 서버·DB가 없는 과제이므로 포트·바인딩·HTTP 직렬화·실제 연결은 별도 검증 대상입니다. handler 테스트 결과로 실제 HTTP 연결 성공을 주장할 수 없습니다.\n\n**AIP 적용·예외 근거**\n\n아래 원문은 모두 반입본의 `template/.agents/skills/google-api-design/references/aip/`에서 직접 읽었습니다. 번들 `snapshot.json`은 기준 커밋을 `2ccc61a4e09882bdd63aea1a42dceebc37bf3bd5`로 기록합니다. 원격 최신성은 확인하지 않았습니다.\n\n| 읽은 원문·절 | 적용 위치·예외 | 검증 연결 |\n|---|---|---|\n| AIP-121 `Guidance`, `Methods`, `Stateless protocol` | 책임·스키마 일관성 적용. 단건 GET 추가 등 전체 리소스 규격은 과제 범위상 제외 | 상태 독립성·수정 후 조회 |\n| AIP-132 `Request/Response message`, `Ordering` | `/v1/items`의 GET·페이지 객체·고정 오름차순 | 크기·응답 외형 검사 |\n| AIP-158 `Guidance`, `Opacity`, `Backwards compatibility` | 0·음수·상한·크기 변경·불투명 토큰 적용. 기존 `/tasks`는 호환성 예외로 유지 | 페이지 경계·순회·토큰 검사 |\n| AIP-134 `Guidance`, `Request message`, `PATCH and PUT`, `Errors` | 선택 필드 수정·404 적용. Proto `update_mask` 대신 JSON 키 존재로 표현 | false·누락·실패 시 상태 보존 |\n| AIP-149 `Guidance` | 누락과 기본값의 구분 원칙 적용. Proto optional은 도입하지 않음 | false·빈 문자열·누락 구분 |\n| AIP-180 `Guidance`, `Adding components`, `Semantic changes` | 기존 경로·외형·의미 보존 | 기존 클라이언트 회귀 |\n| AIP-193 `Guidance`, `Error messages`, `HTTP/1.1+JSON representation` | 오류 일관성 적용. 숫자 code·Status·details는 README와 충돌해 예외 | 상태와 문자열 오류 외형 |\n\n**실행과 한계**\n\n실제로 실행한 것은 `pwd`, 파일 목록·본문 조회, `rg`, `sed`, `git --no-optional-locks log/show/ls-tree`입니다. 조회는 성공했고, 설치 경로 확인용 `ls`는 세 디렉터리 부재로 종료 코드 1을 반환했습니다.\n\n코드·테스트·서버 실행, 스타일 검사, 설치·훅·영수증 생성, 파일·캐시 쓰기, Git 변경, 외부 네트워크 사용은 하지 않았습니다. 사용자 지정에 따라 다른 에이전트 호출과 독립 A/B 검토·감사도 미실행입니다. 역할 파일의 모델 요청값은 `gpt-6.1-sol`이며, 실제 실행 모델 식별값은 확인하지 못했습니다. effort는 지정하지 않았습니다.\n\n설계와 검증 계획은 이 대화에만 반환했습니다. 실제 코드와의 정합성·테스트 통과·독립 검토 승인은 미확인입니다."
+    },
+    {
+      "case": "review_a",
+      "role": "reviewer",
+      "mode": "installed",
+      "exit_code": 0,
+      "seconds": 50.42,
+      "task_and_git_unchanged": true,
+      "model_requested": "gpt-6.1-sol",
+      "effort_override": null,
+      "thread_id": "01a18e1f-7834-74f2-aad4-02899bfd0d09",
+      "runtime_observed": {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "sandbox_policy": {
+          "type": "read-only"
+        },
+        "approval_policy": "never"
+      },
+      "task_cache_directories_after": [],
+      "fixture_hashes": {
+        "handlers.py": "227328b0fba70fe50efae39324a35858dda85b11b1e8a5e92fb7f161594dcf1b",
+        "README.md": "610aa83763defd03052f8327fbb22326ba21c8e318ab1fd6c14ebf7aa90bd2d2"
+      },
+      "original_read_commands": [
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/google-api-design/references/aip/0121.md .agents/skills/google-api-design/references/aip/0158.md .agents/skills/google-api-design/references/aip/0134.md .agents/skills/google-api-design/references/aip/0149.md .agents/skills/google-api-design/references/aip/0180.md .agents/skills/google-api-design/references/aip/0193.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"sed -n '60,145p' .agents/skills/google-api-design/references/aip/0134.md; cat .agents/skills/google-api-design/references/aip/0149.md; sed -n '1,155p' .agents/skills/google-api-design/references/aip/0180.md; rg -n '2.4|Exceptions|3.16|Naming|3.19|Type' .agents/skills/google-styleguide/references/pyguide.md; sed -n '250,340p' .agents/skills/google-styleguide/references/pyguide.md; cat .agents/skills/kty-harness/references/vendor/ecc/coding-style.md .agents/skills/kty-harness/references/vendor/ecc/testing.md .agents/skills/kty-harness/references/vendor/ecc/security.md; cat .agents/skills/google-styleguide/scripts/check_style.py\"",
+          "exit_code": 0
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "result": "**판정: 보류.** README와 현재 `handlers.py`를 대조했고, 다음 결함을 직접 재현했습니다.\n\n| 심각도 | 위치 | 지적과 실제 근거 |\n|---|---|---|\n| HIGH | [handlers.py:6](<harness>/tmp/api-forward/review/task/handlers.py:6) | **부분 수정 시 누락 필드가 초기화됩니다.** 기존 값이 `{\"id\":1,\"title\":\"keep\",\"completed\":true}`일 때 `{}`를 전달하면 `title=\"\"`, `completed=false`가 됩니다. `{\"completed\":false}`도 기존 제목을 지웁니다. README의 누락 필드 보존 요구 위반입니다. |\n| HIGH | [handlers.py:11](<harness>/tmp/api-forward/review/task/handlers.py:11) | **기본 페이지 요청이 실패합니다.** `list_items()`와 `list_items(0)` 모두 400을 반환합니다. 기대 결과는 기본 크기 2에 따른 200과 `[1,2]`입니다. README 및 AIP-158 Guidance의 명시적 요구 위반입니다. |\n| MEDIUM | [handlers.py:11](<harness>/tmp/api-forward/review/task/handlers.py:11) | **최대 크기 초과를 오류로 처리합니다.** `list_items(6)`이 400을 반환합니다. 채택한 AIP-158 Guidance는 최대값 5로 제한하도록 권고합니다(`should`). |\n| MEDIUM | [handlers.py:13](<harness>/tmp/api-forward/review/task/handlers.py:13) | **잘못된 토큰이 오류 응답 계약을 벗어납니다.** `list_items(2,\"abc\")`는 상태·오류 본문 대신 `ValueError`를 발생시킵니다. `\"−1\"`이 아닌 ASCII `\"-1\"` 입력은 빈 목록과 동일한 다음 토큰 `\"-1\"`을 반환해 진행하지 못합니다. |\n| MEDIUM | [handlers.py:16](<harness>/tmp/api-forward/review/task/handlers.py:16) | **페이지 토큰이 내부 위치를 그대로 노출합니다.** 첫 페이지 토큰은 `\"2\"`이며 다음 요청에서 정수 위치로 직접 사용됩니다. AIP-158 Opacity의 사용자 해석 불가능한 토큰 요구(`must`) 위반입니다. |\n\n`GET /tasks` 배열 계약은 **구현 근거를 찾지 못했습니다.** 현재 소스의 함수는 `greeting`, `patch_task`, `list_items`뿐이며 호출자·라우팅 코드도 없습니다. 따라서 해당 요구의 충족을 확인할 수 없습니다. 과거 삭제 여부는 단정하지 않습니다.\n\n직접 실행한 검사는 다음과 같습니다.\n\n- `python3 -B -c '…'`: 메모리 내 원본 코드 호출, 종료 코드 **0**. 위 결함을 관찰했습니다. 종료 코드 0은 검사 스크립트 정상 종료이며 요구사항 전체 통과를 뜻하지 않습니다.\n- 정상 동작 확인: 인사말 `(200, {\"message\":\"hello\"})`, 음수 페이지 크기의 400 오류, 명시적 크기 2로 데이터 1부터 10까지 순회, 후속 페이지 크기 변경, 마지막 빈 토큰.\n- `python3 -B .agents/skills/google-styleguide/scripts/check_style.py --root .`: 종료 코드 **0**, 출력은 `NOT_APPLICABLE`입니다. Go 파일이 없어 Python 스타일 통과 근거가 아닙니다.\n- Git 읽기 검사: 대상 diff 없음, 관련 이력은 `9b68596 Synthetic API fixture` 확인. `.harness/checks.json`의 검사는 빈 배열이며 `.harness/work`는 없습니다.\n\n역할 TOML과 연결된 하네스·읽기 전용·프로필·원칙·ECC·스타일·글쓰기·API 지침을 직접 읽었습니다. API 원문은 로컬 `google-api-design/references/aip/`의 **121 Guidance/Methods/Stateless protocol, 158 Guidance/Opacity/Backwards compatibility, 134 Request message/PATCH and PUT, 149 Guidance, 180 Guidance, 193 HTTP/1.1+JSON representation**을 확인했습니다. 부분 수정은 README의 JSON 필드 존재 여부 계약을 우선하며, Proto 필드 마스크는 강제하지 않았습니다. 문자열 오류 코드도 README를 우선하므로 AIP-193의 숫자 코드와 다르다는 지적은 하지 않았습니다.\n\n**미실행:** HTTP 연결 검증, 별도 테스트·타입 검사, 영수증을 쓰는 `harness.py verify`, 다른 에이전트 호출. 서버·테스트·타입 검사 설정이 없으며 이번 요청은 단일 reviewer 범위입니다.\n\n파일·캐시·Git 상태를 변경하는 명령과 외부 네트워크는 사용하지 않았습니다. README와 `handlers.py`의 검사 전후 SHA-256도 동일했습니다."
+    },
+    {
+      "case": "review_b",
+      "role": "reviewer",
+      "mode": "installed",
+      "exit_code": 0,
+      "seconds": 67.13,
+      "task_and_git_unchanged": true,
+      "model_requested": "gpt-6.1-sol",
+      "effort_override": null,
+      "thread_id": "01a18e1f-7834-74d0-bf7a-f639ca64e0b2",
+      "runtime_observed": {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "sandbox_policy": {
+          "type": "read-only"
+        },
+        "approval_policy": "never"
+      },
+      "task_cache_directories_after": [],
+      "fixture_hashes": {
+        "handlers.py": "227328b0fba70fe50efae39324a35858dda85b11b1e8a5e92fb7f161594dcf1b",
+        "README.md": "610aa83763defd03052f8327fbb22326ba21c8e318ab1fd6c14ebf7aa90bd2d2"
+      },
+      "original_read_commands": [
+        {
+          "command": "/bin/zsh -lc 'cat .agents/skills/google-api-design/references/aip/0121.md .agents/skills/google-api-design/references/aip/0158.md .agents/skills/google-api-design/references/aip/0149.md .agents/skills/google-api-design/references/aip/0193.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"sed -n '1,170p' .agents/skills/google-api-design/references/aip/0134.md; sed -n '1,100p' .agents/skills/google-api-design/references/aip/0149.md; sed -n '1,100p' .agents/skills/google-api-design/references/aip/0193.md; rg -n 'HTTP/1.1|JSON representation|2.4|3.6|3.16' .agents/skills/google-api-design/references/aip/0193.md .agents/skills/google-styleguide/references/pyguide.md\"",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"sed -n '350,405p' .agents/skills/google-styleguide/references/pyguide.md; sed -n '1125,1160p' .agents/skills/google-styleguide/references/pyguide.md; sed -n '295,332p' .agents/skills/google-api-design/references/aip/0193.md; sed -n '64,113p' .agents/skills/google-api-design/references/aip/0158.md; sed -n '135,163p' .agents/skills/google-api-design/references/aip/0158.md\"",
+          "exit_code": 0
+        }
+      ],
+      "command_exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "result": "판정: **보류**. 단일 reviewer로 검수했으며, 다른 에이전트 호출·파일 쓰기·외부 네트워크 사용은 하지 않았습니다.\n\n1. **HIGH / 데이터 보존 — [handlers.py:6](<harness>/tmp/api-forward/review/task/handlers.py:6)**  \n   `patch_task({\"id\":1,\"title\":\"old\",\"completed\":True}, {})`가 `title=\"\"`, `completed=False`를 반환합니다. 제목만 전달해도 완료 상태가 초기화됩니다. `{\"completed\":False}`는 수용하지만 기존 제목을 지웁니다. README의 “누락 필드 보존” 요구 위반을 직접 재현했습니다.\n\n2. **HIGH / 기본 요청 실패 — [handlers.py:11](<harness>/tmp/api-forward/review/task/handlers.py:11)**  \n   `list_items()`와 `list_items(0)` 모두 400을 반환합니다. 기대 결과는 기본 크기 2의 정상 페이지입니다. README 및 AIP-158 Guidance의 “생략·0에 오류를 반환하면 안 된다”는 **must not** 위반입니다.\n\n3. **MEDIUM / 페이지 상한 처리 — [handlers.py:11](<harness>/tmp/api-forward/review/task/handlers.py:11)**  \n   `list_items(6)`이 400을 반환합니다. 채택한 AIP-158 Guidance는 상한 초과를 최대 크기로 제한하도록 **should**로 규정합니다. 최대 5개 반환이 기대되며, 명시된 예외는 없습니다.\n\n4. **MEDIUM / 입력·오류 경계 — [handlers.py:13](<harness>/tmp/api-forward/review/task/handlers.py:13)**  \n   `list_items(2, \"abc\")`가 `ValueError`를 함수 밖으로 전파합니다. README의 HTTP 상태와 문자열 `error.code/message` 응답을 반환하지 못합니다. 실제 HTTP 500 여부는 서버가 없어 확인하지 않았습니다.\n\n5. **MEDIUM / 페이지 토큰 계약 — [handlers.py:16](<harness>/tmp/api-forward/review/task/handlers.py:16)**  \n   정상 응답이 내부 위치를 그대로 드러내는 `\"2\"`를 토큰으로 반환합니다. AIP-158 Opacity의 불투명 토큰 **must** 위반입니다. 또한 `list_items(2, \"-1\")`은 빈 목록과 동일 토큰 `\"-1\"`을 반환해, 그 토큰을 계속 따르면 진행되지 않습니다.\n\n6. **MEDIUM / 기존 기능 누락 — [handlers.py:1](<harness>/tmp/api-forward/review/task/handlers.py:1)**  \n   README는 기존 `GET /tasks`의 배열 응답 유지를 요구하지만, 제공 파일 전체에는 `greeting`, `patch_task`, `list_items`만 있습니다. 과제 파일 검색에서도 다른 구현·호출자는 발견하지 못했습니다. 구현 부재는 정적으로 확인했으며, HTTP 404를 재현한 것은 아닙니다.\n\n실제 검증과 한계는 다음과 같습니다.\n\n- `python3 -B -c '…'`로 파일을 메모리에서 실행했습니다. 기대값 비교 **11건 중 4건 일치, 7건 불일치**였고, 토큰 관련 관찰 2건을 추가했습니다. 검사 스크립트 종료 코드 0은 실행 완료를 뜻하며 전체 통과가 아닙니다.\n- 인사말 `(200, {\"message\":\"hello\"})`, 음수 페이지 크기 거부, 후속 페이지의 크기 변경, 마지막 페이지의 빈 토큰은 통과했습니다.\n- 스타일 검사 직접 실행: 종료 0, `NOT_APPLICABLE`—Go 파일 없음. Python 자동 스타일·타입 검사 통과를 의미하지 않습니다.\n- `.harness/checks.json`은 빈 검사 목록입니다. `verify`는 영수증을 쓰므로 실행하지 않았습니다. HTTP·DB 검증도 수행하지 않았습니다.\n- 검수 전후 README·`handlers.py`의 SHA-256이 동일했고, 두 파일의 Git diff는 비어 있었습니다.\n\n실제로 읽은 근거는 지정 reviewer TOML, 읽기 전용 지침·프로필·원칙, 하네스 workflow/roles/ECC, Google 스타일·글쓰기·API 스킬입니다. Python 원문은 2.4.4·2.14.4, API 원문은 로컬 `references/aip/`의 **121 Guidance/Methods/Stateless protocol, 134 Guidance/Request message/PATCH and PUT, 149 Guidance, 158 Guidance/Opacity/Backwards compatibility, 193 Guidance/HTTP JSON 표현**을 확인했습니다. PATCH는 README의 JSON 필드 존재 기준을 우선하고, Proto·field mask·숫자 오류 코드는 강제하지 않았습니다. 선택한 설치 지침 7개는 반입본 `template/`과 바이트 단위로 일치했습니다."
+    }
+  ]
+}

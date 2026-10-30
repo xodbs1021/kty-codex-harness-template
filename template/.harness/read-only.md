@@ -27,7 +27,8 @@
    workflow.md로 요청을 분류하고 필요한 역할 TOML·research.md·explanation.md를 직접 읽는다.
    코드·문서 작업이면 반입본 `template/.agents/skills/google-styleguide/SKILL.md`와
    해당 원문을 읽고, 설명·문서는 `readable-writing/SKILL.md`도 읽는다.
-   설치된 경로가 없다는 이유로 두 스킬을 생략하지 않는다.
+   API 설계·구현·검수는 `template/.agents/skills/google-api-design/SKILL.md`와 관련 원문도 읽는다.
+   설치된 경로가 없다는 이유로 해당 스킬을 생략하지 않는다.
    새 작업이면 decision-memory.md에 따라 과제 내부 과거 시도와 이미 반입된 기준본을
    한 번 대조한다. 기존 이력·기준본 부재는 미확인으로 남기며 쓰기·외부 접속으로 보충하지 않는다.
    역할 이름 미등록이면 같은 지침을 제공 독립 도구에 전달하고 실제 응답을 기다린다.

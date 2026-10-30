@@ -1,0 +1,120 @@
+{
+  "repository": "https://github.com/aip-dev/google.aip.dev",
+  "commit": "2ccc61a4e09882bdd63aea1a42dceebc37bf3bd5",
+  "retrieved_date": "2026-10-31",
+  "files": {
+    "LICENSE.md": {
+      "source_path": "LICENSE.md",
+      "git_blob_sha": "00b03d3de7b8fea72c374b24babb1da85d589039",
+      "sha256": "c80d18310bc29da5c83a5c66dff8e43c79ae0a66b6cd1a5c5fe21df3d58aa32a"
+    },
+    "0001.md": {
+      "source_path": "aip/general/0001.md",
+      "git_blob_sha": "8bdaa751ee22e6b28c55e899a5385f02a753996e",
+      "url": "https://google.aip.dev/1",
+      "sha256": "711f65d63c23a5c342565b5574983b9f0da091da6e5f1092b07dc2bf832373e2"
+    },
+    "0121.md": {
+      "source_path": "aip/general/0121.md",
+      "git_blob_sha": "f36ff7e1820a41f0e189db9777ab31765e80c44e",
+      "url": "https://google.aip.dev/121",
+      "sha256": "118217a474dabd41105a4d8d7d271f878c8a4e3a6e09013e196c781f155241fd"
+    },
+    "0122.md": {
+      "source_path": "aip/general/0122.md",
+      "git_blob_sha": "06e7e0e590999d72046d449974928022e5d5b518",
+      "url": "https://google.aip.dev/122",
+      "sha256": "6f744a0878e83fb5ba0561ecd8131d53e7df40f637ff3448df538f98922ac59e"
+    },
+    "0131.md": {
+      "source_path": "aip/general/0131.md",
+      "git_blob_sha": "ebc7c0e90a0057463c733dd36a9d2e26e40386be",
+      "url": "https://google.aip.dev/131",
+      "sha256": "a33b9814cc00d96ff5304f6eadfabd6bdaf56a9ec780509c86984e2b3dc914bc"
+    },
+    "0132.md": {
+      "source_path": "aip/general/0132.md",
+      "git_blob_sha": "495797501b50961cf9a0613397638ada79a0709e",
+      "url": "https://google.aip.dev/132",
+      "sha256": "2e3d4b33c81800da76a5b3f045672bef18644fa1f76aaa05aef7524d4664d744"
+    },
+    "0133.md": {
+      "source_path": "aip/general/0133.md",
+      "git_blob_sha": "07aa21b4acbbb73b796c4cd967dfb71f5d3f1647",
+      "url": "https://google.aip.dev/133",
+      "sha256": "3048153ace34095c3b7d04efb4f025abfb02ceceb8a7c5e6a856e49d4878848f"
+    },
+    "0134.md": {
+      "source_path": "aip/general/0134.md",
+      "git_blob_sha": "45832490d608fe627b9f7d41a1bd82b339279913",
+      "url": "https://google.aip.dev/134",
+      "sha256": "5c5a679a2888f72d3ac302bde2df3b8d8d9da4596b66507393ffd1dadd9c59d5"
+    },
+    "0135.md": {
+      "source_path": "aip/general/0135.md",
+      "git_blob_sha": "f209831edc26400da72efb8b7a401c00edf24793",
+      "url": "https://google.aip.dev/135",
+      "sha256": "1937e5b8f9fd9815086eed98baf88ab7adfb9c5eb0f48acdc766b3c0f080d022"
+    },
+    "0136.md": {
+      "source_path": "aip/general/0136.md",
+      "git_blob_sha": "c1edb8a34abea4680c4977af9d6be089a5f8c159",
+      "url": "https://google.aip.dev/136",
+      "sha256": "7bac1100566898ab049f65c3a33d66bb0926c133475fe68442ea7f3ac16941e6"
+    },
+    "0140.md": {
+      "source_path": "aip/general/0140.md",
+      "git_blob_sha": "82a95616d1f288666ee2ee69c5a01083b3f6f421",
+      "url": "https://google.aip.dev/140",
+      "sha256": "4740f61060f1804d972a909d22d0a5e518501efbeb6821507e85541f87114900"
+    },
+    "0149.md": {
+      "source_path": "aip/general/0149.md",
+      "git_blob_sha": "10e7f31ec7c18dab6f277c3b3ce0f53f16d87f97",
+      "url": "https://google.aip.dev/149",
+      "sha256": "6a98c437da7a9ca368102bd6e35bfb2ccb6dc8e7ddf1166a12a0c0f231e3c358"
+    },
+    "0154.md": {
+      "source_path": "aip/general/0154.md",
+      "git_blob_sha": "22726c979b5f6f48abaf1047b0d6c3dda5128774",
+      "url": "https://google.aip.dev/154",
+      "sha256": "63d1f35de6f7ee0f37a5e285effb64445eb4cb52b368cd45144c14f59580ef13"
+    },
+    "0155.md": {
+      "source_path": "aip/general/0155.md",
+      "git_blob_sha": "ed253a4ebe7b4ea4140e1a4c8e5268ff3a19733f",
+      "url": "https://google.aip.dev/155",
+      "sha256": "031a0e49e3827eb671ec972a2f03a2b1b2a9a0d1daf0bfd33584f27208827d1c"
+    },
+    "0158.md": {
+      "source_path": "aip/general/0158.md",
+      "git_blob_sha": "6ed881e211e16f6731575ab8a0590b864e6c466f",
+      "url": "https://google.aip.dev/158",
+      "sha256": "3275e7ac12a1f9f8b3f10e36edb47d942e83293ab5a27aa3aea3107f0f0e7b76"
+    },
+    "0180.md": {
+      "source_path": "aip/general/0180.md",
+      "git_blob_sha": "62fe33bf84b808643631f1d0b859b574edbf366f",
+      "url": "https://google.aip.dev/180",
+      "sha256": "36d325d519ed3f1100b50156258a6bf4e81224ebef5fa277ad94dfa970d954b3"
+    },
+    "0193.md": {
+      "source_path": "aip/general/0193.md",
+      "git_blob_sha": "317cfb7beb6403ab3bbd5edec69b15147f952e3e",
+      "url": "https://google.aip.dev/193",
+      "sha256": "d76399f08a3a01256f75f567596e95f57eec9deb6f6f3b28333d80e8f012018a"
+    },
+    "0194.md": {
+      "source_path": "aip/general/0194.md",
+      "git_blob_sha": "a5aba5c1ec1b49f9a224a953093e212d50d707a9",
+      "url": "https://google.aip.dev/194",
+      "sha256": "8c3b8c2cf07a694dd28ee28e7eacd583cd7fe57ed74de870ae6ca0ea59da8050"
+    },
+    "0211.md": {
+      "source_path": "aip/general/0211.md",
+      "git_blob_sha": "3eee873a5e5aa2b0586abbb1028a4c5666a2b129",
+      "url": "https://google.aip.dev/211",
+      "sha256": "7a03970b4a0de40592413da7c4b013f08224fab52136d9814a1ec35573c895a9"
+    }
+  }
+}
