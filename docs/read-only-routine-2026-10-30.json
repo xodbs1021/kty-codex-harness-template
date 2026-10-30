@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-30",
+  "environment": "local macOS, Codex CLI 0.165.0; not Probe",
+  "prompt": "하네스 설치해줘",
+  "source_base_commit": "85fd7835c8cfca54b81649dfd4082b9014099d95",
+  "overlaid_document_sha256": {
+    "README.md": "59365ffc31efd3b4d8acc616b12909e9be43521c78ee8658eabe0f21ae525e98",
+    "template/.harness/setup.md": "86d64aa9c5f79641ac6807ccd9016ad1d132445a1012353f9f800e11f02ae366",
+    "template/.harness/read-only.md": "1a22a9d81a821e67ec2382187026151b2e0f18ecfcbbf8a27b121162f1660fe9"
+  },
+  "seconds": 129.241,
+  "main_sandbox": "read-only",
+  "approval_policy": "never",
+  "extra_user_prompts": 0,
+  "task_files_unchanged": true,
+  "tests": {
+    "methods_passed": 2,
+    "exit_code": 0,
+    "command": "/bin/zsh -lc 'PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v'"
+  },
+  "reviews": [
+    {
+      "path": "/root/review_b",
+      "session_sha256": "8e5609096eb5005d2a7f68fa494e83342b00af1455211f37169d341f499cf645",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "completed": true
+    },
+    {
+      "path": "/root/review_a",
+      "session_sha256": "e1a5178d18e46af84a6a8cd9126442812ec0472d57cbeb1ec8ea441a6fe51f65",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "completed": true
+    }
+  ],
+  "automatic_hooks": false,
+  "installed_files": false,
+  "verification_receipt": false,
+  "completion_check": "agent instruction-based check in final response; not an enforced Stop hook",
+  "events_sha256": "165048c9d51520c52e96d5f31c27caef2017a235ccb88b41a5aa1fd2b7276a10",
+  "limitations": [
+    "Synthetic task, pre-cloned package; no discovery/clone/human timing included.",
+    "Requires provided independent-agent tools; not guaranteed in Probe.",
+    "No implementation/file saving, write-dependent builds, hook activation, skill registration or permission changes.",
+    "Model/effort and sandbox independently confirmed from runtime records; parent may report telemetry unavailable."
+  ]
+}
