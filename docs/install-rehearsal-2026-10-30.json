@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-30",
+  "environment": "local macOS, Codex CLI 0.165.0; not Probe",
+  "source_commit": "36b2f9fcb542ef6a9cf59226da7a047e0689c6e5",
+  "prompt": "하네스 설치해줘",
+  "fixture": "Python yield percentage function with two unittest methods; repository pre-cloned anonymously from public GitHub",
+  "effort": "not forced; runtime observed low",
+  "records": {
+    "readonly": {
+      "session_sha256": "52830d37f0f075dcf218f49d2ebcb58d1823d68ad157f75827af66b3e62b7d21",
+      "events_sha256": "08e7c5cd6869f860b8ad6fbbdb2bc16252d895d282ae4c5a7c2da0ec3ff9c9ee",
+      "completed": true
+    },
+    "writable": {
+      "session_sha256": "93bcf85a093e083772d13935ebcf2dcc3a028031c65418d2faeaec4522d9fc3f",
+      "events_sha256": "6f3a47b28bac0fe8ac8719bcc8dab03c89a0acc3b4ba3ec0e0cd792ac3f563cf",
+      "completed": true
+    },
+    "terminal": {
+      "session_sha256": "7a88a387320587cc1f970c4ad8b26d96c7e7f4cc97f0b79356cc1e1850bd0282",
+      "events_sha256": "2fe8c00e92179173c76bb0d1eb94b09b5ee4ff2f10698d5b99d72d146ab41113",
+      "completed": true
+    },
+    "hook": {
+      "session_sha256": "5743b8ae66c41bff77922f796b520474d80dd4ee727b80f915bd13836048a88d",
+      "events_sha256": "840cd7e631f6b8e764f38ac045ec1ae983c000d21da5755320fab8deaf2ee7f2",
+      "completed": true
+    }
+  },
+  "cases": {
+    "read_only": {
+      "seconds": 39.166,
+      "full_install": false,
+      "task_tests_passed": 2,
+      "dual_review": false,
+      "files_changed": false
+    },
+    "workspace_write": {
+      "seconds": 173.618,
+      "full_install": false,
+      "protected_paths": [
+        ".codex",
+        ".agents"
+      ],
+      "document_mode": true,
+      "task_tests_passed": 2,
+      "independent_sol_reviews": 2
+    },
+    "terminal_assisted": {
+      "seconds_after_manual_install_and_trust": 110.702,
+      "manual_install_exit_code": 0,
+      "manual_actions": [
+        "installer executed outside agent sandbox by local test controller, representing an authorized user terminal",
+        "normal project trust and hooks trust via Codex TUI",
+        "new session launch"
+      ],
+      "bypass_flags": false,
+      "settings_and_dual_review_completed_without_extra_prompt": true,
+      "task_tests_passed": 2,
+      "independent_sol_reviews": 2,
+      "named_role": "kty_reviewer"
+    }
+  },
+  "review_runtime_evidence": [
+    {
+      "case": "writable",
+      "role": null,
+      "path": "/root/review_a",
+      "session_sha256": "ebad57fac1cb7e3e3700bfdd25bd57b3ffcd8c60b46b4b56ca91a414ac849dc9",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "workspace-write"
+      ],
+      "completed": true
+    },
+    {
+      "case": "terminal",
+      "role": "kty_reviewer",
+      "path": "/root/review_a",
+      "session_sha256": "e698a44cb0f3759299f5c829d600e996a58ffb51fb585fbc0b16cd8af7e6147d",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "workspace-write"
+      ],
+      "completed": true
+    },
+    {
+      "case": "writable",
+      "role": null,
+      "path": "/root/review_b",
+      "session_sha256": "2e69f521abaf5214a8efba6f3eb5d2a1545c519c8a7d36c8b5ba33d164b0df86",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "workspace-write"
+      ],
+      "completed": true
+    },
+    {
+      "case": "terminal",
+      "role": "kty_reviewer",
+      "path": "/root/review_b",
+      "session_sha256": "4c5039a66e9cc07dea831c239205051db0422f4a4cac053662f80adc2a097574",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "workspace-write"
+      ],
+      "completed": true
+    }
+  ],
+  "hook_test": {
+    "seconds": 27.462,
+    "extra_prompt_separate_from_install": true,
+    "definition": "unchanged installed SessionStart and Stop command; no trace wrapper",
+    "actual_session_start_baseline": true,
+    "actual_stop_feedback": true,
+    "feedback_reason": "작업 파일이 변경됐지만 최신 코드의 검증 성공 기록이 없습니다. .harness/checks.json을 확인하고 python3 .harness/harness.py verify를 실행하세요. 실행 불가능한 환경 제약이면 실패 사실과 남은 검증을 사용자에게 보고하세요.",
+    "followup_verify_passed": true,
+    "receipt_matches_current_code": true,
+    "completed": true,
+    "fabricated_events": false
+  },
+  "sandbox_diagnostic": [
+    {
+      "mode": "read-only",
+      "profile": ":read-only",
+      "exit_code": 0,
+      "stdout": "{\"path\": \"ordinary.txt\", \"write\": \"denied\", \"error\": \"[Errno 1] Operation not permitted: 'ordinary.txt'\"}\n{\"path\": \".codex/probe.txt\", \"write\": \"denied\", \"error\": \"[Errno 1] Operation not permitted: '.codex'\"}\n{\"path\": \".agents/probe.txt\", \"write\": \"denied\", \"error\": \"[Errno 1] Operation not permitted: '.agents'\"}\n",
+      "stderr": ""
+    },
+    {
+      "mode": "workspace-write",
+      "profile": ":workspace",
+      "exit_code": 0,
+      "stdout": "{\"path\": \"ordinary.txt\", \"write\": \"allowed\"}\n{\"path\": \".codex/probe.txt\", \"write\": \"denied\", \"error\": \"[Errno 1] Operation not permitted: '.codex'\"}\n{\"path\": \".agents/probe.txt\", \"write\": \"denied\", \"error\": \"[Errno 1] Operation not permitted: '.agents'\"}\n",
+      "stderr": ""
+    }
+  ],
+  "limits": [
+    "Not a no-intervention install success. Protected configuration paths and hook trust require user/platform support.",
+    "Task repo and imported package prepared before timing; not discovery/clone or human UI timing.",
+    "Native reviewers inherited workspace-write; no-edit review instructions are not an OS read-only sandbox.",
+    "Reviewer model and effort confirmed from local runtime records by controller; parent did not have this telemetry.",
+    "Review target was installation settings, not an entire exam task.",
+    "Hook test added a separate behavior-preserving comment and is not an extra full dual review.",
+    "Public report excludes raw local rollouts and personal instructions.",
+    "Permission guidance documentation updated after tested commit; runtime code unchanged."
+  ],
+  "cleanup": {
+    "temporary_project_trust_entries_removed": 2,
+    "temporary_hook_trust_entries_removed": 2,
+    "unrelated_config_preserved": true,
+    "all_test_cli_processes_finished": true
+  },
+  "validation": {
+    "unit_tests_passed": 33,
+    "failed": 0
+  }
+}
