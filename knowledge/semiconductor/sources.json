@@ -313,5 +313,149 @@
     "checked_at": "2026-10-30",
     "source_type": "primary_educational",
     "used_for": "FEOL·MOL·BEOL의 연결 역할만 사용. 2021년 로드맵을 현행 전망으로 사용하지 않음"
+  },
+  {
+    "id": "S36",
+    "publisher": "Carnegie Mellon University / Liu et al.",
+    "title": "RAIDR: Retention-Aware Intelligent DRAM Refresh",
+    "url": "https://users.ece.cmu.edu/~omutlu/pub/raidr-dram-refresh_isca12.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_research",
+    "used_for": "§2.1–2.2 DRAM 셀·행 버퍼·복원·리프레시 배경만 사용. 2012년 실험 수치·64 ms를 현행 보편 규격으로 사용하지 않음"
+  },
+  {
+    "id": "S37",
+    "publisher": "SK hynix",
+    "title": "How Innovative Convergence Technology Is Tackling DRAM Scaling Challenges",
+    "url": "https://news.skhynix.com/en/how-innovative-convergence-technology-is-tackling-dram-scaling-challenges/",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "셀 정전용량과 누설의 역할. 2023년 연구 재료를 양산 제품 사양으로 사용하지 않음"
+  },
+  {
+    "id": "S38",
+    "publisher": "Micron",
+    "title": "FAQs",
+    "url": "https://www.micron.com/sales-support/sales/faqs",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "bank/rank 구분, NAND 동작 후 상태 확인·read disturb·제품별 ECC 요구만 사용. FAQ의 구형 제품 수치·일반화는 제외"
+  },
+  {
+    "id": "S39",
+    "publisher": "Microchip",
+    "title": "DDR Memory — DDR Memory Timing",
+    "url": "https://onlinedocs.microchip.com/oxy/GUID-AFCB5DCC-964F-4BE7-AA46-C756FA87ED7B-en-US-21/GUID-A29420D1-4E36-4920-B9BB-DD0B63F5E787.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "tRCD/tRP/tRAS/tREFI/tRFC의 구분. 특정 컨트롤러 설정값과 세대별 제약은 일반화하지 않음"
+  },
+  {
+    "id": "S40",
+    "publisher": "Kingston",
+    "title": "Desktop/Notebook Memory — DRAM frequency FAQ",
+    "url": "https://www.kingston.com/en/support/technical/products/desktop-notebook-memory",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "DDR 버스 클록과 MT/s 구분만 사용"
+  },
+  {
+    "id": "S41",
+    "publisher": "KIOXIA",
+    "title": "What is NAND Flash Memory?",
+    "url": "https://www.kioxia.com/en-jp/rd/technology/nand-flash.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "전하 저장·문턱전압 판정·직렬 셀 구조. 단순 SLC 비트 대응을 모든 셀의 부호화로 일반화하지 않음"
+  },
+  {
+    "id": "S42",
+    "publisher": "KIOXIA",
+    "title": "What is Multi-level Cell Technology Realizing Larger Capacity Flash Memory?",
+    "url": "https://www.kioxia.com/en-jp/rd/technology/multi-level-cell.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "문턱전압 분포와 다중 상태 저장. 전압·분포 그림을 재배포하지 않음"
+  },
+  {
+    "id": "S43",
+    "publisher": "Micron",
+    "title": "Choosing the right NAND",
+    "url": "https://www.micron.com/products/storage/nand-flash/choosing-the-right-nand",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "SLC/MLC/TLC/QLC의 bit/cell, raw NAND와 관리 기능 구분. 성능·수명 순위를 보편 보증하지 않음"
+  },
+  {
+    "id": "S44",
+    "publisher": "KIOXIA",
+    "title": "ゼロから学ぶSSD：構造、動作、耐久性のポイント",
+    "url": "https://www.kioxia.com/content/dam/kioxia/ja-jp/business/ssd/asset/SNIA-seminar-202502.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2025년 교육 자료 pp.8–18의 페이지/블록, 쓰기/소거, 주소 변환·GC·wear leveling·예약 공간 개념만 자체 요약. 원문·도표 재배포 없음"
+  },
+  {
+    "id": "S45",
+    "publisher": "KIOXIA",
+    "title": "Why Data Retention is Becoming More Critical in Automotive Applications",
+    "url": "https://tw.kioxia.com/content/dam/kioxia/shared/business/memory/automotive/asset/KIOXIA_Automotive_NAND_Data_Retention_White_Paper.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2020년 자료 pp.3–5의 시간·온도·P/E 이력과 retention 관계. 수명·온도별 보증 수치는 사용하지 않음"
+  },
+  {
+    "id": "S46",
+    "publisher": "Microchip",
+    "title": "Fabric DDR Subsystem — ECC",
+    "url": "https://onlinedocs.microchip.com/oxy/GUID-FF8061A7-7A15-470F-A6F5-E733C24D85F0-en-US-11/GUID-B6C8D87D-26CF-4615-8DDA-D79C915B85CE.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "SECDED와 코드워드 단위, 64 data+8 check의 구현 예. 모든 메모리가 같은 ECC 구성이라는 뜻은 아님"
+  },
+  {
+    "id": "S47",
+    "publisher": "Micron",
+    "title": "DDR5 DRAM — Feature differences",
+    "url": "https://www.micron.com/products/memory/dram-components/ddr5-sdram",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "on-die ECC의 칩 내부 SEC 보호 범위만 사용. 제품 속도·용량 수치 제외"
+  },
+  {
+    "id": "S48",
+    "publisher": "Kingston",
+    "title": "KC2500 Support — What is TRIM and Garbage Collection?",
+    "url": "https://www.kingston.com/en/support/technical/products/kc2500",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "GC의 유효 데이터 정리와 TRIM의 무효 데이터 통지 역할. 구형 RAID 지원 설명은 제외"
+  },
+  {
+    "id": "S49",
+    "publisher": "KIOXIA",
+    "title": "Analyzing Managed Flash Device Lifetime Reliability Part 1: The Fundamentals of TBW, WAF and NAND Flash Memory Endurance",
+    "url": "https://americas.kioxia.com/content/dam/kioxia/en-us/business/memory/mlc-nand/asset/KIOXIA_TBW_WAF_NAND_Endurance_Technical_Brief.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2024년 자료의 charge trap 구분·P/E 마모·물리/호스트 쓰기 비율. TBW 근사식을 실제 수명 보증으로 사용하지 않음"
+  },
+  {
+    "id": "S50",
+    "publisher": "Kingston",
+    "title": "The Difference Between Enterprise & Client SSD",
+    "url": "https://www.kingston.com/en/blog/pc-performance/enterprise-versus-client-ssd",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "RBER와 ECC 적용 후 UBER의 측정 위치 구분만 사용. 제품 등급별 수치 제외"
+  },
+  {
+    "id": "S51",
+    "publisher": "Linux kernel documentation",
+    "title": "MTD NAND Driver Programming Interface — nand_sdr_timings",
+    "url": "https://www.kernel.org/doc/html/v4.19/driver-api/mtdnand.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "tR_max/tPROG_max/tBERS_max 필드의 읽기·프로그램·소거 시간 정의만 사용. v4.19 API를 현재 실행 환경으로 가정하지 않음"
   }
 ]

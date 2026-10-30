@@ -1,7 +1,7 @@
 # 반도체 지식 패키지 — 해커톤 환경용
 
-현재 **4단계 중 1–2단계**를 제공한다. 확인일: 2026-10-30.
-기초 11개와 소자·공정 14개, 총 25개 개념에 공개 1차 자료 35개의 출처를 연결했다.
+현재 **5단계 중 1–3단계**를 제공한다. 확인일: 2026-10-30.
+기초 11개·소자/공정 14개·메모리 동작 13개, 총 38개 개념에 공개 1차 자료 51개의 출처를 연결했다.
 이는 공개 기초 지식이며 SK하이닉스의 출제 내용·채점 기준·내부 공정 자료가 아니다.
 
 ## 제공 Codex가 사용하는 순서
@@ -56,6 +56,19 @@ rg -n -i '정전용량|capacitance|fF' knowledge/semiconductor/index.jsonl
 | CD·overlay·결함 검출 | P12 |
 | EPM·wafer test·bin·retest | P13 |
 | 세정·particle·잔사 | P14 |
+| 1T1C·sense amplifier·셀 복원 | M01 |
+| channel/rank/bank·row hit | M02 |
+| tRCD/tRP/tRAS·CL·첫 데이터 지연 | M03 |
+| refresh·tREFI/tRFC·retention | M04 |
+| MT/s·버스트·버스 폭·대역폭 | M05 |
+| NAND·floating gate/charge trap·문턱전압 | M06 |
+| page/block·geometry·물리 용량 | M07 |
+| program/erase·상태 확인·NAND 지연 | M08 |
+| SLC/MLC/TLC/QLC·상태 수 | M09 |
+| NAND retention·read disturb·P/E 이력 | M10 |
+| ECC·SECDED·codeword·on-die | M11 |
+| FTL·GC·TRIM·WAF | M12 |
+| RBER/UBER·오류 수·노출량 | M13 |
 
 ## 파일 안내
 
