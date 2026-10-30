@@ -16,7 +16,7 @@
 | source_ids | `sources.json`에서 찾을 출처 ID 배열 |
 | checked_at | YYYY-MM-DD, 실제 출처 확인일 |
 | evidence | 현재 `primary-source-synthesis`: 공개 1차 자료를 자체 종합 |
-| scope | `general-fundamentals`: 기초 원리, `general-devices-process`: 소자·공정 원리, `general-memory-operation`: DRAM·NAND 동작 |
+| scope | `general-fundamentals`: 기초 원리, `general-devices-process`: 소자·공정 원리, `general-memory-operation`: DRAM·NAND 동작, `general-packaging-reliability`: HBM·패키징·신뢰성 원리 |
 | problem_signals | 적용 전에 물어볼 질문 배열. 실제 출제 예측이 아님 |
 | metrics | 관련 측정량과 단위의 검색용 이름. 실제 데이터 컬럼명이 아님 |
 

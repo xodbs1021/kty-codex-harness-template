@@ -7,7 +7,7 @@
 | 1 | 전기·반도체·단위·디지털·제품 분류 기초 | 본문·색인 제공 |
 | 2 | PN 접합·MOSFET·CMOS·제조 공정·계측·검사 | 본문·색인 제공 |
 | 3 | DRAM·NAND 동작·리프레시·타이밍·오류·ECC 기초 | 본문·색인 제공 |
-| 4 | HBM·TSV·적층·본딩·패키징·열/전력·신뢰성 | 미작성 |
+| 4 | HBM·TSV·적층·본딩·패키징·열/전력·신뢰성 | 본문·색인 제공 |
 | 5 | 수율·불량·장비 시계열 등 데이터 문제 적용·통합 검증 | 미작성 |
 
 ## 1단계 읽기 지도
@@ -24,7 +24,7 @@
 - [F10 메모리·로직·휘발성 구분](fundamentals/memory-map.md) — 선수: F07, F09
 - [F11 용량·대역폭·지연시간](fundamentals/capacity-bandwidth-latency.md) — 선수: F07, F08, F10
 
-문제를 받은 뒤에는 전부 순서대로 읽지 말고 index.jsonl의 problem_signals와 aliases로 필요한 항목을 고른다. 단계 4–5의 주제가 검색돼도 앞 단계 정의를 심화 검증 자료로 취급하지 않는다.
+문제를 받은 뒤에는 전부 순서대로 읽지 말고 index.jsonl의 problem_signals와 aliases로 필요한 항목을 고른다. 검색된 정의만으로 실제 과제의 원인이나 성능을 확정하지 말고 해당 단계 본문의 적용 조건을 읽는다.
 
 ## 2단계 읽기 지도
 
@@ -61,3 +61,26 @@
 
 DRAM은 M01 → M02 → M03/M04/M05, NAND는 M06 → M07/M09 → M08/M10/M12 순으로 읽는다.
 오류 지표를 해석할 때는 M11 → M13을 함께 읽는다. 실측 원인 분석·통계 검증은 5단계 범위다.
+
+## 4단계 읽기 지도
+
+- [H01 HBM 적층·용량·대역폭](packaging-reliability/hbm-architecture.md) — 선수: M02, M05, F09
+- [H02 TSV·수직 연결·박막화](packaging-reliability/tsv.md) — 선수: P08, P11, H01
+- [H03 2.5D·3D 패키징·인터포저·RDL](packaging-reliability/package-interposer.md) — 선수: F09, P11, H01
+- [H04 마이크로범프·하이브리드 본딩·정렬](packaging-reliability/hybrid-bonding.md) — 선수: P10, P12, P14, H02
+- [H05 MR-MUF·TC-NCF·언더필·몰딩](packaging-reliability/muf-ncf.md) — 선수: H04, P14
+- [H06 열팽창·휨·박리·접합 피로](packaging-reliability/thermomechanical.md) — 선수: H03, H05
+- [H07 접합온도·열저항·열경로](packaging-reliability/thermal-metrics.md) — 선수: F04, H05, H06
+- [H08 전원망·IR drop·인덕턴스·디커플링](packaging-reliability/power-delivery.md) — 선수: F02, F03, H02
+- [H09 KGD·적층 검사·조립 수율](packaging-reliability/stack-test-yield.md) — 선수: P13, H04
+- [H10 EM·TDDB·BTI·열화 메커니즘](packaging-reliability/failure-mechanisms.md) — 선수: P02, P11, H06
+- [H11 HTOL·HTSL·TC·습도·ESD 시험](packaging-reliability/reliability-tests.md) — 선수: H10, P13
+- [H12 고장률·FIT·MTTF·무고장 신뢰한계](packaging-reliability/reliability-metrics.md) — 선수: H11, F07
+- [H13 Weibull·형상모수·특성수명](packaging-reliability/weibull-life.md) — 선수: H12
+- [H14 가속시험·Arrhenius·수명 외삽](packaging-reliability/accelerated-life.md) — 선수: H10, H12
+- [H15 불량 분석·비파괴 검사·원인 증거](packaging-reliability/failure-analysis.md) — 선수: H02, H05, H10, P12
+
+구조는 H01 → H02/H03 → H04/H05, 열·전력은 H06 → H07/H08 순으로 연결한다.
+검사·신뢰성은 H09/H10 → H11 → H12 → H13/H14를 읽고, 원인 증거는 H15로 점검한다.
+현재 세대 제품 사양·제조 레시피·수명 보증값을 제공하는 자료가 아니다.
+5단계 데이터 문제 적용·통합 검증은 아직 작성하지 않았다.

@@ -457,5 +457,158 @@
     "checked_at": "2026-10-30",
     "source_type": "primary_educational",
     "used_for": "tR_max/tPROG_max/tBERS_max 필드의 읽기·프로그램·소거 시간 정의만 사용. v4.19 API를 현재 실행 환경으로 가정하지 않음"
+  },
+  {
+    "id": "S52",
+    "publisher": "SK hynix",
+    "title": "Creating New Values in DRAM Using Through-Silicon-Via Technology for Continued Scaling in Memory System Performance and Capacity",
+    "url": "https://news.skhynix.com/en/creating-new-values-in-dram-using-through-silicon-via-technology-for-continued-scaling-in-memory-system-performance-and-capacity/",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2019년 자료의 TSV 수직 연결·HBM 인터페이스와 적층 개념. 당시 제품 수치를 최신 세대 사양으로 사용하지 않음"
+  },
+  {
+    "id": "S53",
+    "publisher": "TSMC",
+    "title": "CoWoS",
+    "url": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2.5D 통합·인터포저·RDL/국소 연결 구조의 역할만 사용. 제품 옵션·생산능력·로드맵 제외"
+  },
+  {
+    "id": "S54",
+    "publisher": "imec",
+    "title": "Wafer-to-wafer hybrid bonding: pushing the boundaries to 400nm interconnect pitch",
+    "url": "https://www.imec-int.com/en/articles/wafer-wafer-hybrid-bonding-pushing-boundaries-400nm-interconnect-pitch",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "Cu/유전체 접합, CMP·정렬·표면 준비의 역할. 연구 시연 치수를 HBM 양산 규격으로 사용하지 않음"
+  },
+  {
+    "id": "S55",
+    "publisher": "SK hynix",
+    "title": "How MR-MUF’s Heat Control Breakthrough Elevated HBM to New Heights",
+    "url": "https://news.skhynix.com/en/rulebreaker-revolutions-mr-muf-unlocks-hbm-heat-control/",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2024년 설명의 MR-MUF·TC-NCF·EMC 역할. 비교 제품의 개선율을 일반 보증값으로 사용하지 않음"
+  },
+  {
+    "id": "S56",
+    "publisher": "Texas Instruments",
+    "title": "nFBGA Packaging (SPRAA99C)",
+    "url": "https://www.ti.com/lit/pdf/spraa99",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2021년 문서 §3의 열팽창 불일치·휨·솔더 피로. 패키지별 시험 수치·수명 계수는 HBM에 전용하지 않음"
+  },
+  {
+    "id": "S57",
+    "publisher": "Texas Instruments",
+    "title": "Semiconductor and IC Package Thermal Metrics (SPRA953D)",
+    "url": "https://www.ti.com/lit/pdf/spra953",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2024년 문서의 θJA/θJC/ΨJT 구분과 측정 조건. 표의 패키지 수치는 HBM에 전용하지 않음"
+  },
+  {
+    "id": "S58",
+    "publisher": "Texas Instruments",
+    "title": "Power Delivery Network Analysis (SWPA222A)",
+    "url": "https://www.ti.com/lit/an/swpa222a/swpa222a.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2012년 자료의 DC 저항·루프 인덕턴스·주파수별 임피던스 개념. 특정 OMAP 전원망 목표값 제외"
+  },
+  {
+    "id": "S59",
+    "publisher": "Siemens",
+    "title": "Affordable and comprehensive design for test of 3D stacking die devices",
+    "url": "https://resources.sw.siemens.com/pl-PL/white-paper-affordable-and-comprehensive-testing-of-3d-stacked-die-devices/",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "공개 소개 페이지의 KGD 재검사·D2D 연결 검사 필요성만 사용. 미취득 본문이나 규격 전체를 읽었다고 주장하지 않음"
+  },
+  {
+    "id": "S60",
+    "publisher": "Toshiba",
+    "title": "Reliability Handbook (Apr 2026 Ver.4)",
+    "url": "https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/knowledge/reliability/reliability-handbook-tdsc-en.pdf",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "§1.1 FIT/수명, §2.1 EM·TDDB·NBTI의 기초 정의. 제품별 가속계수·고장률을 전용하지 않음"
+  },
+  {
+    "id": "S61",
+    "publisher": "Texas Instruments",
+    "title": "Reliability testing",
+    "url": "https://www.ti.com/quality-reliability/reliability/testing.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "HTOL·HTSL·TC·THB/BHAST/uHAST·ESD의 스트레스 차이. 연결 규격의 최신 판정 조건을 대신하지 않음"
+  },
+  {
+    "id": "S62",
+    "publisher": "NIST/SEMATECH",
+    "title": "Maximum likelihood estimation",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section4/apr412.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "검열 데이터와 지수모형의 고장 수/총 시험시간 추정식"
+  },
+  {
+    "id": "S63",
+    "publisher": "NIST/SEMATECH",
+    "title": "Constant repair rate (HPP/exponential) model",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section4/apr451.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "지수/HPP 가정과 무고장 고정시간 시험의 단측 신뢰한계. 다른 중단 규칙에 무조건 적용하지 않음"
+  },
+  {
+    "id": "S64",
+    "publisher": "NIST/SEMATECH",
+    "title": "Arrhenius",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr151.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "동일 메커니즘의 온도 가속 모형. 섭씨→켈빈은 273.15를 사용하며 예제 활성화에너지는 가정값"
+  },
+  {
+    "id": "S65",
+    "publisher": "Texas Instruments",
+    "title": "Failure analysis",
+    "url": "https://www.ti.com/quality-reliability/faqs/failure-analysis.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "불량 재현·비파괴 검사·고장 위치 분석·물리 증거 결합 절차"
+  },
+  {
+    "id": "S66",
+    "publisher": "NIST/SEMATECH",
+    "title": "Exponential",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr161.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "일정 hazard 가정의 R(t)·MTTF 식. 마모 구간 전체에 적용하지 않음"
+  },
+  {
+    "id": "S67",
+    "publisher": "NIST/SEMATECH",
+    "title": "How do you choose an appropriate physical acceleration model?",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section2/apr24.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "실패 메커니즘·스트레스에 맞춘 가속 모형 선택"
+  },
+  {
+    "id": "S68",
+    "publisher": "NIST/SEMATECH",
+    "title": "Weibull",
+    "url": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "2모수 Weibull의 생존함수·hazard·특성수명. 원문의 alpha/gamma를 본문 eta/beta로 명시해 대응"
   }
 ]

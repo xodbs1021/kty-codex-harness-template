@@ -1,7 +1,8 @@
 # 반도체 지식 패키지 — 해커톤 환경용
 
-현재 **5단계 중 1–3단계**를 제공한다. 확인일: 2026-10-30.
-기초 11개·소자/공정 14개·메모리 동작 13개, 총 38개 개념에 공개 1차 자료 51개의 출처를 연결했다.
+현재 **5단계 중 1–4단계**를 제공한다. 확인일: 2026-10-30.
+기초 11개·소자/공정 14개·메모리 동작 13개·HBM/패키징/신뢰성 15개,
+총 53개 개념에 공개 1차 자료 68개의 출처를 연결했다.
 이는 공개 기초 지식이며 SK하이닉스의 출제 내용·채점 기준·내부 공정 자료가 아니다.
 
 ## 제공 Codex가 사용하는 순서
@@ -69,6 +70,21 @@ rg -n -i '정전용량|capacitance|fF' knowledge/semiconductor/index.jsonl
 | ECC·SECDED·codeword·on-die | M11 |
 | FTL·GC·TRIM·WAF | M12 |
 | RBER/UBER·오류 수·노출량 | M13 |
+| HBM·스택·다이 수·대역폭 | H01 |
+| TSV·박막화·체인 저항 | H02 |
+| 2.5D/3D·interposer·RDL | H03 |
+| microbump·hybrid bonding·Cu-Cu | H04 |
+| MR-MUF·TC-NCF·underfill·void | H05 |
+| CTE·warpage·delamination·피로 | H06 |
+| θJA/θJC/ΨJT·접합온도·hotspot | H07 |
+| PDN·IR drop·ESR/ESL·전압 변동 | H08 |
+| KGD·D2D·적층 수율·검사 범위 | H09 |
+| EM·TDDB·NBTI·열화 | H10 |
+| HTOL·HTSL·TC·BHAST·ESD HBM | H11 |
+| FIT·MTTF·검열·무고장 신뢰상한 | H12 |
+| Weibull·β/η·특성수명 | H13 |
+| Arrhenius·AF·활성화에너지·수명 환산 | H14 |
+| FA·X-ray·SAM·불량 원인 증거 | H15 |
 
 ## 파일 안내
 
