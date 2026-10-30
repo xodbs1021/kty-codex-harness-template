@@ -136,6 +136,10 @@ class ApplicationChecks(unittest.TestCase):
     def test_spc_and_capability_are_separate(self):
         self.assertEqual(p_limits(.02, 100), (0, .062))
         self.assertGreater(8 / 100, p_limits(.02, 100)[1])
+        # The sparse discrete tail differs from a normal upper 3-sigma tail.
+        tail = sum(math.comb(100, k) * .02**k * .98**(100-k) for k in range(7, 101))
+        self.assertAlmostEqual(tail, .0040620540801008355)
+        self.assertGreater(tail, .00135)
         self.assertLess(p_limits(.02, 400)[1], p_limits(.02, 100)[1])
         cp, cpk = capability(90, 110, 102, 2)
         self.assertAlmostEqual(cp, 5 / 3)
@@ -209,6 +213,19 @@ class ApplicationChecks(unittest.TestCase):
         self.assertEqual(peak_bytes_s / 1e9, 512)
         self.assertEqual(measured_bytes_s / peak_bytes_s, .625)
         self.assertNotEqual(peak_bytes_s, peak_bytes_s * 8)
+
+    def test_observed_bandwidth_already_includes_latency(self):
+        from pathlib import Path
+        data_bytes, stream_bytes_s, latency_s = 100e6, 2e9, .01
+        total_s = latency_s + data_bytes / stream_bytes_s
+        observed_bytes_s = data_bytes / total_s
+        self.assertAlmostEqual(total_s, .06)
+        self.assertAlmostEqual(data_bytes / observed_bytes_s, total_s)
+        self.assertAlmostEqual(latency_s + data_bytes / observed_bytes_s, .07)
+        # Limited text linkage for this repaired example, not a semantic proof.
+        body = (Path(__file__).resolve().parents[1] / 'fundamentals/capacity-bandwidth-latency.md').read_text()
+        for token in ('B_obs = D/t_total', 'L + D/B_stream', '0.06 s', '0.07 s'):
+            self.assertIn(token, body)
 
     def test_submission_contract(self):
         validate_submission(['a', 'b', 'c'], [('a', .1), ('b', .2), ('c', .3)])

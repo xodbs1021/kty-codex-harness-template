@@ -108,6 +108,7 @@ rg -n -i '정전용량|capacitance|fF' knowledge/semiconductor/index.jsonl
 - [메타데이터 계약](metadata.md)
 - [출처 목록](sources.json): 확인 날짜·자료 사용 범위
 - [검증 기록](VALIDATION.md)
+- [Sol + Sol 독립 검토·수정 기록](../../docs/reviews/semiconductor-2026-10-30/README.md)
 
 출처 원문·그림·강의 파일을 재배포하지 않고 짧은 자체 요약과 링크를 제공한다.
 예제·질문은 자체 작성이다. 제품별 최신 수치·실제 공정 레시피는 포함하지 않는다.
