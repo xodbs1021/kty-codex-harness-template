@@ -1,0 +1,509 @@
+{
+  "date": "2026-10-30",
+  "environment": "local macOS; not Probe",
+  "source_commit": "ed47b3f054f9c66bbb2e0efe9dfb616bb0736626",
+  "seconds": 281.34,
+  "exit_code": 0,
+  "independent_child_contexts": 14,
+  "all_spawns_fork_turns_none": true,
+  "task_files_including_git_unchanged": true,
+  "harness_template_unchanged_during_run": true,
+  "synthetic_inputs": "R1 initial collection and all initial A/B findings were predefined fixtures, not actual agent outputs.",
+  "runtime_records": [
+    {
+      "id": "01a18c15-2aa0-7e73-a926-f6dc1c24adbf",
+      "path": "/root/h1_cross",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "교차 확인 결과: A의 경로 탈출 주장은 **재현됨**. `HIGH / case1.py:9`로 유지합니다. 경로 문자열의 접두사 비교가 `reports_extra`도 `reports` 내부로 인정하여 명시된 파일 접근 경계를 우회합니다.\n\n실행 명령:\n```sh\npython3 -B -c 'from pathlib import Path; from case1 import read_report; root=Path.cwd()/\"reports\"; name=\"../reports_extra/demo.json\"; resolved=(root/name).resolve(strict=True); print(\"root:\", root.resolve(strict=True)); print(\"resolved:\", resolved); print(\"within_root:\", root.resolve(strict=True) in resolved.parents); print(\"returned:\", repr(read_report(root,name)))'\n```\n\n종료 코드: `0`. 실제 출력의 핵심:\n```text\nwithin_root: False\nreturned: '{\"kind\":\"outside-fixture-no-secret\"}\\n'\n```\n\nREADME 계약상 외부 파일은 `ValueError`로 거부해야 하지만 형제 디렉터리의 파일을 반환했습니다. 실제 비밀 유출이나 서비스 배포 환경은 주장하지 않습니다. supplied A/B는 모의 입력이며, 위 실행이 이번 새 교차 확인의 근거입니다. 파일 수정·임시파일·캐시 생성·설치·권한 변경은 하지 않았습니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "27a7d5d8bfe49f2bdc9d9d929a1da9b11e785ef4c2004e2e1fb6578432d97e62"
+    },
+    {
+      "id": "01a18c15-e9eb-71d1-8595-89fd441a828c",
+      "path": "/root/r2_c2",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "최종 재수집(2사이클) 결과 — RC-R2-01\n\n- 대상 주장: fictional internal measurement “Example Chip Q7 achieved 2x throughput”.\n- 실제 확인 원문: `<synthetic-task>/research/unavailable-inventory.md:2–4`.\n- 수집 경로: 허용된 단일 inventory를 `nl -ba`로 다시 읽음. 종료 코드 0.\n- 확인된 내용: 원문 3행은 보고서·측정 파일·시각·저자·방법론·URL·대체 출처가 허용 inventory에 없다고 명시한다. 4행은 가상 주장에 대한 인터넷 검색 및 저자·점수·baseline·근거 창작을 금지한다.\n- 남은 공백: 실제 측정 원문, 비교 baseline, 실행 조건, 측정 방법, 측정 시각, 저자, 원문 위치 모두 확보하지 못했다. inventory 자체는 처리량 2배를 입증하는 측정 근거가 아니다.\n- 재수집 한계: 1회 재수집으로도 추가 근거를 얻지 못했다. 외부 검색·대체 자료 탐색·추정 보충을 수행하지 않았다.\n\n역할 TOML, research/workflow/roles, read-only 및 SKILL 지침을 실제 읽었다(명령 종료 코드 0). 파일·임시파일·캐시 작성, 설치, 권한 변경, 자식 호출은 수행하지 않았다. 채택 판단은 새 evaluator에게 남긴다."
+      ],
+      "tools": {},
+      "rollout_sha256": "02cf607e572be9ae4ec28e34d01a6cf134982a897080f5c7f94097253e1cac96"
+    },
+    {
+      "id": "01a18c14-f93e-7b11-ab09-aedee5978ea9",
+      "path": "/root/r1_e1",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "R1 cycle 1 독립 평가 결과: **RC-1 보류**, 채택 0건.\n\n- 입력은 `research/recoverable-first.json`의 **모의 첫 수집물**이며 실제 collector 실행 결과가 아니다.\n- `source_url`, `source_location`, `author`, `version`이 모두 `null`이다. 실제 연 원문 URL/범위는 없음.\n- 공식 문서 평가 축: 발행 주체·버전·원문 일치·적용 범위 모두 미확인. 점수를 임의 부여하지 않았다.\n- “`Path.is_relative_to` 자체가 symlink를 해소하고 파일시스템 포함 관계를 안전하게 확정한다”는 주장은 현재 입력으로 입증되지 않는다. 원문 미확인을 허위 인용 확정으로 처리하지 않았다.\n- **메인에 재수집 반환:** 해당 API의 공식 원문 URL·정확한 절·Python 적용 버전·symlink 해소 여부·포함 관계 판단의 조건 및 한계를 수집해야 한다. 평가자가 대체 출처를 직접 수집하지 않았다.\n\n실제 실행: 역할 TOML, skill, research/workflow/roles, read-only, 프로필·원칙, 실제 README·해당 JSON을 `cat`으로 읽은 명령 2건 모두 **종료 코드 0**. 파일·캐시·임시파일 작성, 설치, 권한 변경, 자식 호출 없음."
+      ],
+      "tools": {},
+      "rollout_sha256": "eacb22ab5a670d417f3e45b5db0a607009be4901525071942dc5bdd44d6a2c4b"
+    },
+    {
+      "id": "01a18c15-95cb-7e40-b05c-426d9dcb1e1f",
+      "path": "/root/h2_cross",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "H2 교차 확인 결과: **현상 부재 → 해당 HIGH 지적 기각**.\n\n- 입력: `read_report(\"reports\", \"../reports_extra/demo.json\")`\n- 실제 명령: `python3 -B -c 'from case2 import read_report; read_report(\"reports\", \"../reports_extra/demo.json\")'`\n- 종료 코드: `1`\n- 실제 출력: traceback의 `case2.py:10`에서 `ValueError: outside root`.\n- 근거: `case2.py:9`의 `path.is_relative_to(root)` 검사가 resolve된 형제 디렉터리 경로를 거부한다. 해당 입력으로 파일 내용을 반환하지 않았다.\n- `initial-reviews.json`의 A/B는 **SIMULATED 입력**으로만 취급했다. 이번 실행은 별도의 실제 교차 확인이다.\n\n파일·캐시·임시파일 작성 및 변경은 수행하지 않았다."
+      ],
+      "tools": {},
+      "rollout_sha256": "df934577bc148c5ae3436d776baec5a749643b8a4075770b7500e171597ade11"
+    },
+    {
+      "id": "01a18c18-3fee-72b0-8e47-aa283f3cf603",
+      "path": "/root/final_auditor",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "감사 판정: 요청된 분기 리허설의 처리 근거는 적합합니다. 제품 수정 완료 판정은 보류입니다.\n\n- 직접 지침·README·case1–4·R2 inventory를 읽었습니다. `cat` 3회 모두 종료 0.\n- 직접 `python3 -B -c` 검사 종료 0: H1 경로 탈출 재현, H2 해당 입력 거부, H3 대문자 확장자 수용 재현. 네 코드 SHA256 모두 제공된 전후 지문과 일치합니다.\n- R1은 제공 기록 기준 총 2사이클·재수집 1회입니다. 첫 수집은 시뮬레이션이며 실제 collector 호출로 세면 안 됩니다. R2도 2사이클·재수집 1회 후 채택 0건 보류가 타당합니다.\n- 초기 A/B는 시뮬레이션입니다. 이후 실제 교차 검증과 후보 검토를 새로운 전체 A/B 승인으로 바꾸어 표현하면 안 됩니다.\n- H1 HIGH 유지, H2 해당 지적 기각, H3 LOW 보존, H4 미확정 유지가 코드와 맞습니다. H2 기각은 파일 전체 계약 준수의 증명이 아닙니다.\n- H1-C1은 메모리 내 검사·독립 후보 검토를 받은 변경안입니다. 디스크 H1은 수정되지 않았습니다. 최초 검사 종료 1과 수정된 검사 종료 0도 별도로 보고해야 합니다.\n\n다른 자식 대화·웹 원문·후보 실행은 제가 직접 관찰하지 않았습니다. 해당 부분은 제공된 실제 실행 기록에 근거한 감사입니다. 요청 모델과 실제 백엔드도 구분해야 합니다. 네 파일 해시는 전체 파일시스템 무쓰기의 증명은 아닙니다. 전체 개발 파이프라인·영수증 생성은 이번 제한된 리허설 범위에서 불요입니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "935d9d5c5906c8111178c4679ee76b1bdf8ae9b66063fb2808c6e854ffa378e2"
+    },
+    {
+      "id": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "path": "/root",
+      "parent": null,
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "읽기 전용 리허설을 실행했습니다. **새 컨텍스트 역할 호출 14개**를 완료했고, 최종 감사는 분기 처리가 적합하다고 판단했습니다. 디스크 수정 완료를 뜻하지는 않습니다.\n\n아래 호출 ID의 접두사는 모두 `/root/`입니다. 최초 수집 fixture와 초기 A/B는 실제 호출로 세지 않았습니다.\n\n| 분기 | 실제 역할 호출 ID | 실제 근거·판정 | 남은 상태 |\n|---|---|---|---|\n| R1 | `r1_e1` → `r1_c2` → `r1_e2` | 첫 평가 보류 → 공식 원문 재수집 → 새 평가자의 원문 재대조. 최초 주장은 기각, 수정된 설명은 조건부 채택 | 총 2사이클·재수집 1회 |\n| R2 | `r2_c1` → `r2_e1` → `r2_c2` → `r2_e2` | inventory만 재확인. 측정 근거 없음, 채택 0건 | 2사이클·재수집 1회 후 중단·보류 |\n| H1 | `h1_cross` | 외부 형제 파일 반환, exit **0**. **재현됨·HIGH 유지** | 원본 미수정 |\n| H2 | `h2_cross` | 같은 탈출 입력에서 `ValueError`, exit **1**. **현상 부재·해당 지적 기각** | 파일 전체의 무결성 승인은 아님 |\n| H3 | `h3_cross` | `UPPER.JSON` 수용, exit **0**. **H3를 LOW로 강등·보존** | 계약 위반 미수정 |\n| H4 | `h4_cross` | 위임 코드만 확인. 실제 adapter 부재 | **미확정·미해결**. mock 생성·서비스 검증 없음 |\n| H1 후보 | `h1_developer` → `h1_candidate_review` | `H1-C1` 응답 후보를 메모리 검사하고 추가 reviewer가 승인 | 디스크 적용 아님 |\n| 감사 | `final_auditor` | 직접 재현·해시 검사 exit **0**, 사이클·모의 입력·판정 대조 | 다른 역할 기록에 의존한 감사 범위 명시 |\n\n실제 핵심 재현 명령은 다음과 같습니다.\n\n```sh\npython3 -B -c 'from case1 import read_report; print(read_report(\"reports\", \"../reports_extra/demo.json\"))'\npython3 -B -c 'from case2 import read_report; read_report(\"reports\", \"../reports_extra/demo.json\")'\npython3 -B -c 'from case3 import read_report; print(read_report(\"reports\", \"UPPER.JSON\"))'\n```\n\nH1 후보는 해석된 경로의 부모 관계로 포함 여부를 검사합니다. 후보 SHA256은 `191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7`입니다. 메인의 첫 비교 검사는 원본의 누락 파일 예외로 exit **1**이었고, 검사 코드의 예외 기록 범위를 보완한 재실행은 exit **0**이었습니다. 후보 내용은 바꾸지 않았습니다.\n\nR1의 최종 판단은 공식 [`is_relative_to()`](https://docs.python.org/3.13/library/pathlib.html#pathlib.PurePath.is_relative_to)와 [`resolve()`](https://docs.python.org/3.13/library/pathlib.html#pathlib.Path.resolve) 원문을 구분한 결과입니다.\n\n쓰기·임시파일·캐시 생성·설치·권한 변경 명령은 실행하지 않았습니다. 코드 4개의 전후 해시도 동일합니다. 자식은 모두 Sol로 지정했으며, 실제 백엔드 모델은 별도 측정하지 않았습니다. **R2 근거 부재, H1 원본 HIGH, H3 LOW, H4 미확정은 해결로 닫지 않았습니다.**"
+      ],
+      "tools": {
+        "spawn_agent": 14,
+        "wait_agent": 11
+      },
+      "rollout_sha256": "786e4adefca0acad1d6c09b60d6e4ea7ad08d8691f1da19d4749522782d6cc51"
+    },
+    {
+      "id": "01a18c15-7c04-7e90-bf85-400b8c653e77",
+      "path": "/root/r2_e1",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "RC-R2-01 판정: **보류**. 원문 inventory 2–4행을 독립 대조했다. Q7의 2배 처리량은 요청된 가상 주장일 뿐이며, 보고서·측정자료·저자·시각·방법·URL·대체 출처가 없다. 허위 인용이 확인된 경우와 달리 근거 접근 불가이므로 기각하지 않는다.\n\n평가 축: 출처·메타데이터·주장 일치·방법론·재현성·적용 조건·최신성·교차 근거 모두 미확인. 점수와 기준 성능을 생성하지 않았다.\n\n**재수집 1회 요청**: 동일 허용 inventory 범위에서 원 측정자료, 비교 기준 및 조건, 측정 방법·시점·작성자·원문 위치 제공 여부를 확인해야 한다. 현재 1사이클이므로 총 2사이클 제한 내 마지막 재수집이다. 계속 부재하면 보류를 유지하고 채택 0건·증거 공백으로 종료한다. evaluator는 직접 재수집하지 않았다.\n\n실행 명령 및 종료 코드:\n\n- `cat`으로 역할 TOML, `references/{research,workflow,roles}.md`, `read-only.md`, inventory 읽기: **0**\n- `cat <harness-repository>/template/.agents/skills/kty-harness/SKILL.md`: **0**\n- `nl -ba <synthetic-task>/research/unavailable-inventory.md`: **0**\n\n인터넷·대체 자료·파일 쓰기·자식 호출 없음."
+      ],
+      "tools": {},
+      "rollout_sha256": "8199f3f33e0e3c66f9b1a894bb290e4e6f572b044e413bd64a5d38d1e3badca0"
+    },
+    {
+      "id": "01a18c16-021b-7740-b644-352862ec5b26",
+      "path": "/root/h3_cross",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "H3: **LOW로 하향하여 보존**. 현상은 재현되지만 HIGH 피해 근거는 없습니다.\n\n- 위치: `case3.py:6`\n- 입력: `root=\"reports\"`, `name=\"UPPER.JSON\"`\n- 실제 명령: `python3 -B -c 'from case3 import read_report; result = read_report(\"reports\", \"UPPER.JSON\"); print(\"ACCEPTED\", repr(result)); assert isinstance(result, str)'`\n- 종료 코드: `0`\n- 출력: `ACCEPTED '{\"kind\":\"upper-fixture\"}\\n'`\n- 원인: `relative.suffix.lower()`가 `.JSON`을 `.json`으로 변환하여 정확한 소문자 접미사 계약을 위반합니다.\n- 심각도 판단: 루트 내부의 무해한 로컬 fixture를 허용하는 입력 검증 결함입니다. 경로 탈출·서버 노출·비밀 유출의 증거가 없어 HIGH는 정당하지 않습니다. `.suffix != \".json\"` 비교가 필요한 변경안입니다.\n\n이번 검토는 실제 새 교차 검증이며, `initial-reviews.json`은 SIMULATED 입력으로만 취급했습니다. 파일 변경·캐시·설치·추가 에이전트 호출은 수행하지 않았습니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "3223948c865ab70c0a5cab7d3595767180b15c56b84642429b7584e352615028"
+    },
+    {
+      "id": "01a18c15-0b71-7181-96e7-e450421425c1",
+      "path": "/root/r2_c1",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "수집 범위: 허용된 `research/unavailable-inventory.md`만 확인했습니다. 인터넷·다른 증거·쓰기·자식 호출은 사용하지 않았습니다.\n\n- 하위 질문: 요청 주장 존재 여부, 측정 원문·방법·비교 기준 존재 여부, 재검증 가능한 메타데이터 존재 여부.\n- RC-R2-01: “Example Chip Q7 achieved 2x throughput”은 **요청된 가상 주장**입니다(2행). 측정 사실을 입증하는 자료가 아닙니다.\n- 공백: 보고서·측정 파일·시각·저자·방법론·URL·대체 출처가 없다고 명시돼 있습니다(3행). 기준 처리량·조건·점수 역시 확인 불가하며 생성하지 않았습니다.\n- 적용 조건/원문 위치: 이 closed-world 가상 시나리오의 자료 부재 확인에만 적용됩니다. 4행은 비공개/접근 불가 증거 상황을 모사하며 재시도에도 실패가 지속될 수 있다고 설명합니다.\n- 채택 판단은 evaluator에게 남깁니다. 증거 수집 실패를 허위 인용 확인으로 해석하지 않습니다.\n\n실제 실행: 역할 TOML·harness SKILL·research/workflow/roles·read-only 지침을 읽은 `cat …` 종료 코드 **0**; 유일한 증거를 읽은 `nl -ba <synthetic-task>/research/unavailable-inventory.md` 종료 코드 **0**. 파일 저장 없음."
+      ],
+      "tools": {},
+      "rollout_sha256": "091ab492e518f212364aea4ceb3bc95fce5b2a62298daadf250ae4851adef61c"
+    },
+    {
+      "id": "01a18c16-324f-7240-b500-9fe5179cad0d",
+      "path": "/root/r1_e2",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "RC-1 최종 평가: **수정된 근거는 조건부 채택, 최초 주장은 기각**입니다.\n\n| 평가 축 | 독립 대조 결과 |\n|---|---|\n| 발행 주체·버전 | Python Software Foundation 공식 문서. 직접 연 페이지 제목은 Python 3.13.18, footer 갱신일은 2026-10-26 13:10 UTC였습니다. |\n| 원문 일치 | `is_relative_to()` 절 L418–438은 파일시스템에 접근하지 않고 `..`를 특별 취급하지 않는 문자열 기반 연산이며 3.9에 추가됐다고 명시합니다. |\n| 원문 일치 | `resolve()` 절 L737–755는 절대경로 생성, 심볼릭 링크 해소, `..` 제거를 명시합니다. `strict=False`에서는 가능한 부분까지만 해소하고 나머지는 존재 확인 없이 붙입니다. |\n| 적용 범위 | 양쪽 경로를 적절히 resolve한 뒤 상대 포함 관계를 검사한다는 수정 설명은 채택 가능합니다. 존재 여부·해소 실패 정책과 파일시스템 변경 조건을 함께 명시해야 합니다. |\n| 상충·미확인 | 최초의 “`is_relative_to()` 자체가 심볼릭 링크를 해소해 안전한 포함을 보장한다”는 주장은 원문과 직접 충돌하므로 기각합니다. 검사와 이후 접근 사이의 원자적 보안 보장은 이 문서에서 확인되지 않으며 채택하지 않습니다. |\n\n직접 연 원문: [is_relative_to 공식 절](https://docs.python.org/3.13/library/pathlib.html#pathlib.PurePath.is_relative_to), [resolve 공식 절](https://docs.python.org/3.13/library/pathlib.html#pathlib.Path.resolve). `/3/`의 3.15.2 표시는 이번 평가에서 재확인하지 않았으므로 판정 근거에서 제외했습니다.\n\n실제 수행: 역할 TOML, skill, research/workflow/roles, read-only, 프로필·원칙을 직접 읽었으며 공식 원문을 새로 열어 대조했습니다. 파일 읽기 명령 2회 모두 종료 코드 0. 별도 출처 재수집·자식 호출·파일 쓰기·설치·검사 실행은 하지 않았습니다. 시뮬레이션 선행 보고는 실제 독립 평가 횟수로 계산하지 않습니다. 모델은 별도 실측하지 않았습니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "93dce9e194a6f795831365656e6c007c8f49720818244f9356f4345ea600e8fe"
+    },
+    {
+      "id": "01a18c16-b659-7050-b577-d98dd3a8435b",
+      "path": "/root/h1_developer",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "후보 `H1-C1` — `case1.py` 전체 교체안, 미적용. UTF-8·LF·마지막 개행 포함 SHA256:\n`191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7`\n\n```python\nfrom pathlib import Path\n\ndef read_report(root, name):\n    try:\n        root = Path(root).resolve(strict=True)\n        if not root.is_dir():\n            raise ValueError(\"invalid root\")\n        relative = Path(name)\n        if relative.is_absolute() or relative.suffix != \".json\":\n            raise ValueError(\"invalid name\")\n        path = (root / relative).resolve(strict=True)\n        if root not in path.parents or not path.is_file():\n            raise ValueError(\"outside root or not a regular file\")\n    except (OSError, RuntimeError) as error:\n        raise ValueError(\"invalid path\") from error\n    return path.read_text(encoding=\"utf-8\")\n```\n\n문자열 접두사 대신 해석된 경로의 부모 관계로 포함 여부를 검사합니다. 존재하지 않는 경로·일반 파일을 중간 디렉터리로 사용하는 경로·해석 실패를 `ValueError`로 변환합니다. UTF-8 읽기 자체의 오류는 그대로 전달합니다.\n\n실제 검사: `python3 -B -c '<후보 문자열 compile/exec 및 fixture 검사>'`, 종료 코드 **0**. 후보 메모리 검사에서 정상 JSON 읽기 성공, 형제 경로 탈출·대문자 확장자·없는 파일·절대 경로·파일 아래 경로·파일인 root 모두 `ValueError` 확인. 파일·캐시·임시파일 쓰기 없음. 디스크 원본 수정 및 독립 후보 검수는 미수행입니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "85f945565e2c64d680607a8260eb11250b4d767f99d82343893cdb60d85ee39f"
+    },
+    {
+      "id": "01a18c17-75ef-73e3-9937-2e5815f5ae9c",
+      "path": "/root/h1_candidate_review",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "판정: H1-C1 후보 통과, 차단 지적 0건.\n\n- README·원본·역할/하네스 지침을 직접 읽음(`cat`, 종료 0).\n- `python3 -B -c`로 정확한 후보 SHA256 `191d15d9…1336d7` 확인 후 메모리 실행(종료 0).\n- 정상 `demo.json` 내용 일치. 형제 디렉터리 탈출, 대문자 확장자, 누락 파일/루트, 파일인 루트, 절대 경로, `.` 총 7개 입력 모두 `ValueError`.\n- `root not in path.parents`는 문자열 접두사 충돌을 차단한다. README의 디렉터리 불변 조건에서는 경합 방어를 추가 요구할 근거가 없다.\n\n실제 파일은 수정하지 않았다. 후보 통과는 원본 `case1.py`의 수정 완료를 의미하지 않는다."
+      ],
+      "tools": {},
+      "rollout_sha256": "4819d4005bbee25a98e524c06c02d9853ad5a0765669ddb4704cdc746288b4ad"
+    },
+    {
+      "id": "01a18c16-4be0-7f12-8075-05d02461a7e3",
+      "path": "/root/r2_e2",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "R2 최종 독립 평가(cycle 2): **RC-R2-01 보류**, 채택 0건. **STOP** — 전달된 실행 이력상 총 2사이클·재수집 1회를 소진했으므로 추가 재수집하지 않는다.\n\n직접 읽은 `research/unavailable-inventory.md:2–4`에서 “Example Chip Q7 achieved 2x throughput”은 가상 내부 측정 주장으로 명시된다. 허용된 inventory에는 보고서·측정 파일·시각·저자·방법론·URL·대체 출처가 없다. 기준 성능과 측정 조건도 확인되지 않는다. 이는 근거 부재에 따른 보류이며, 허위 인용이 확인되어 기각한 것은 아니다.\n\n평가 축별 상태:\n\n- 출처 실존·메타데이터·인용 위치: 원문 부재로 미확인.\n- 방법론·주장 일치·재현성: 측정 자료·비교 기준·조건 부재로 미확인.\n- 최신성·적용성·반박·이해충돌·독립 교차 근거: 미확인.\n- 점수: 산정하지 않음. 허용된 정보로 수치를 채울 수 없음.\n- 실제 연 URL: 없음. 직접 대조 범위는 허용 inventory 2–4행뿐임.\n\n필요한 후속 조건은 검증 가능한 측정 원문과 기준 성능·측정 조건·방법·시점·작성 주체 제공이다. 제공할 수 없다면 사용자가 해당 주장을 제외하거나 **미검증 가정으로 표시할지** 결정해야 한다. 현재 성능 사실이나 설계 근거로 채택할 수 없다.\n\n실행: 역할 TOML·research/workflow/roles·read-only·SKILL 지침을 `cat`으로 읽었고, inventory는 `nl -ba …/research/unavailable-inventory.md`로 독립 재열람했다. 모든 명령 종료 코드 0. 인터넷·추가 증거 탐색·파일 쓰기·설치·자식 호출은 수행하지 않았다. 원문 성능 검증은 미완료 상태다."
+      ],
+      "tools": {},
+      "rollout_sha256": "2506937ce2a0159cf7abab5d36b0d3a4c64aa0fc6a61be9a9896571481f4cc3c"
+    },
+    {
+      "id": "01a18c16-62f9-7572-b1a8-10b754589666",
+      "path": "/root/h4_cross",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "H4 교차 검증 B 판정: **미확정·미해결 유지**. 재현이나 안전성 입증 모두 불가능하므로 수용·기각·하향 처리할 근거가 없습니다.\n\n- 위치: `case4.py:3`. 확인된 사실은 `platform_adapter.read_inside(root, name)`에 위임한다는 것뿐입니다. 어댑터의 링크 처리·경로 검증·실제 반환 동작은 제공되지 않았습니다.\n- “배포 어댑터가 외부 심볼릭 링크를 따라 외부 파일을 반환한다”는 주장은 SIMULATED fixture 입력입니다. 실제 취약점 증거로 세지 않았습니다.\n- 필요한 증거: 배포 버전과 연결되는 어댑터 구현·설정, 기존 승인된 링크 fixture 또는 실행 기록, 실제 `root/name`, 링크의 해석 대상과 반환 내용 또는 예외. 외부로 해석되는 경로는 계약상 `ValueError`여야 합니다.\n- 가상 어댑터·mock을 만들거나 파일·링크를 생성하지 않았습니다. 실제 어댑터 실행 검증은 미실행입니다.\n\n실행: `cat …`, `pwd`, `rg --files …`, `rg -n 'platform_adapter|read_inside|symlink' .`, `nl -ba case4.py` — 모두 종료 코드 0. 마지막 검색은 어댑터 구현을 발견하지 못했습니다. 읽기 전용 준수, 쓰기·설치·권한 변경·자식 호출 없음."
+      ],
+      "tools": {},
+      "rollout_sha256": "e088d75e00a2c777b48935869c141c9240faa6cf861586c17d90b733a2fd26b8"
+    },
+    {
+      "id": "01a18c15-6044-77a0-a014-b8e465a58697",
+      "path": "/root/r1_c2",
+      "parent": "01a18c14-ac36-7a81-85d3-37300ec98a57",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "outputs": [
+        "R1 재수집 cycle 2 완료. 채택 판단은 하지 않았습니다.\n\n- 질문 3개: `is_relative_to`의 의미·버전, `resolve`의 링크/오류 처리, 두 API로 containment를 판단할 때의 조건·한계.\n- 범위: 공식 Python 공개 API 문서만 포함. 공개 검색어 없이 제공 시작 URL을 직접 열고 버전 고정 URL을 추가로 열었습니다. 과제 원문·코드·로그는 외부 전송하지 않았습니다.\n- 읽은 로컬 근거: 지정 collector TOML, harness SKILL, research/workflow/roles, read-only, project-profile/principles, 과제 `research/public-starting-points.md`. 두 `cat` 실행 모두 exit 0. 쓰기·임시파일·설치·자식 호출 없음.\n\n**RC-1 보완 증거**\n\n발행 주체: Python Software Foundation. 유형: 공식 API 웹 문서. 실제 열린 버전 고정 문서 제목은 **Python 3.13.18**이며 footer 갱신 시각은 **2026-10-26 13:10 UTC**였습니다. `/3/` 시작 URL은 도구에서 **3.15.2**로 표시되었으므로 혼동 방지를 위해 아래 `/3.13/` 근거를 분리했습니다.\n\n1. [PurePath.is_relative_to](https://docs.python.org/3.13/library/pathlib.html#pathlib.PurePath.is_relative_to), 절 `PurePath.is_relative_to(other)`, 도구 표시 L418–438. 문자열 기반이며 파일시스템을 확인하지 않고 `..`를 특별 처리하지 않습니다. 자기 자신도 포함하는 관계입니다. Python 3.9 추가; 여러 인수는 3.12부터 deprecated, 3.14 제거 예정이라고 해당 버전에 기록되어 있습니다.\n2. [Path.resolve](https://docs.python.org/3.13/library/pathlib.html#pathlib.Path.resolve), 절 `Expanding and resolving paths → Path.resolve(strict=False)`, L737–755. 절대 경로를 만들며 symlink와 `..`를 해소합니다. `strict=True`에서는 비존재 경로/링크 순환 시 OSError, False에서는 가능한 부분까지만 해소하고 나머지를 비존재 확인 없이 붙입니다. strict 인수는 3.6 추가; 링크 순환 예외 방식은 3.13 변경입니다.\n\n**적용 조건·공백**\n\n- 문서에서 도출한 조건: 실제 경로 containment를 논하려면 기준과 대상 모두 같은 경로 해석 기준으로 먼저 resolve되어야 합니다. lexical `is_relative_to` 단독은 symlink·`..` 경계를 검증하지 않습니다.\n- 비존재 부분까지 검증했다는 주장은 non-strict resolve 근거로 성립하지 않습니다. 존재 필수 여부와 오류 처리 정책이 별도로 필요합니다.\n- `resolve`와 후속 접근 사이의 동시 경로 변경까지 원자적으로 방어한다는 보장은 열어 본 두 API 절에 없습니다. **containment의 동시 변경 안전성은 미확인**입니다.\n- 실제 과제 런타임 Python 버전, 플랫폼별 동작, 현재 코드의 사용 순서는 이번 공개 API 수집에서 검사하지 않았습니다.\n- 실제 원문 open/find는 성공했으며 웹 도구는 셸 종료 코드를 제공하지 않습니다. 독립 evaluator의 직접 원문 대조가 남았습니다."
+      ],
+      "tools": {},
+      "rollout_sha256": "699e792a1a56b659268f78c654580787ca0b8dcb903bc5f0a3ecd2e64807ba2c"
+    }
+  ],
+  "timeline": {
+    "/root/h1_cross": {
+      "started": "2026-10-30T09:12:39.881Z",
+      "completed": "2026-10-30T09:13:00.570Z"
+    },
+    "/root/r2_c2": {
+      "started": "2026-10-30T09:13:28.850Z",
+      "completed": "2026-10-30T09:13:45.151Z"
+    },
+    "/root/r1_e1": {
+      "started": "2026-10-30T09:12:27.239Z",
+      "completed": "2026-10-30T09:12:45.114Z"
+    },
+    "/root/h2_cross": {
+      "started": "2026-10-30T09:13:07.305Z",
+      "completed": "2026-10-30T09:13:23.460Z"
+    },
+    "/root/final_auditor": {
+      "started": "2026-10-30T09:16:01.947Z",
+      "completed": "2026-10-30T09:16:29.241Z"
+    },
+    "/root": {
+      "started": "2026-10-30T09:12:08.848Z",
+      "completed": "2026-10-30T09:16:47.681Z"
+    },
+    "/root/r2_e1": {
+      "started": "2026-10-30T09:13:00.716Z",
+      "completed": "2026-10-30T09:13:20.332Z"
+    },
+    "/root/h3_cross": {
+      "started": "2026-10-30T09:13:35.041Z",
+      "completed": "2026-10-30T09:13:52.060Z"
+    },
+    "/root/r2_c1": {
+      "started": "2026-10-30T09:12:31.901Z",
+      "completed": "2026-10-30T09:12:52.067Z"
+    },
+    "/root/r1_e2": {
+      "started": "2026-10-30T09:13:47.381Z",
+      "completed": "2026-10-30T09:14:18.121Z"
+    },
+    "/root/h1_developer": {
+      "started": "2026-10-30T09:14:21.183Z",
+      "completed": "2026-10-30T09:14:48.993Z"
+    },
+    "/root/h1_candidate_review": {
+      "started": "2026-10-30T09:15:10.227Z",
+      "completed": "2026-10-30T09:15:30.815Z"
+    },
+    "/root/r2_e2": {
+      "started": "2026-10-30T09:13:53.928Z",
+      "completed": "2026-10-30T09:14:14.875Z"
+    },
+    "/root/h4_cross": {
+      "started": "2026-10-30T09:13:59.835Z",
+      "completed": "2026-10-30T09:14:27.807Z"
+    },
+    "/root/r1_c2": {
+      "started": "2026-10-30T09:12:53.608Z",
+      "completed": "2026-10-30T09:13:36.315Z"
+    }
+  },
+  "web_tool_calls": {
+    "/root/r1_e2": 2,
+    "/root/r1_c2": 3
+  },
+  "research_chains_sequentially_verified": true,
+  "candidate_memory_attempts": [
+    {
+      "exit_code": 1,
+      "sha256": "191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7",
+      "output": "Traceback (most recent call last):\n  File \"<string>\", line 10, in <module>\n    result=fn('reports',name); print(label,name,'RETURN',repr(result))\n  File \"<synthetic-task>/case1.py\", line 8, in read_report\n    path = (root / relative).resolve(strict=True)\n  File \"/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py\", line 938, in resolve\n    return self.with_segments(os.path.realpath(self, strict=strict))\n                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen posixpath>\", line 457, in realpath\nFileNotFoundError: [Errno 2] No such file or directory: '<synthetic-task>/reports/missing.json'\ncandidate_sha256 191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7\noriginal ../reports_extra/demo.json RETURN '{\"kind\":\"outside-fixture-no-secret\"}\\n'\noriginal demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\noriginal UPPER.JSON ValueError invalid name\n"
+    },
+    {
+      "exit_code": 0,
+      "sha256": "191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7",
+      "output": "original ../reports_extra/demo.json RETURN '{\"kind\":\"outside-fixture-no-secret\"}\\n'\noriginal demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\noriginal UPPER.JSON ValueError invalid name\noriginal missing.json FileNotFoundError [Errno 2] No such file or directory: '<synthetic-task>/reports/missing.json'\nH1-C1 ../reports_extra/demo.json ValueError outside root or not a regular file\nH1-C1 demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\nH1-C1 UPPER.JSON ValueError invalid name\nH1-C1 missing.json ValueError invalid path\ncandidate_sha256 191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7\ndisk_hashes {'case1.py': '5234e560f58a0ce6a11758912642ce53bd9e8aa8d319336c8fc7a601410fa7d6', 'case2.py': 'f0ceeb44e523b0834f9fdcbaebfb9fab3f2024213411fa2d4c53f91c513fa3c6', 'case3.py': '6bcdfddf355c4fed4942bf8eee6008903b0426031e79f3938ea682b2b9ad6a44', 'case4.py': '75e29056c068ab750b6e7f31841df3ee38aa74b02608fa2821226d35e584a746'}\n"
+    }
+  ],
+  "candidate_source": "from pathlib import Path\n\ndef read_report(root, name):\n    try:\n        root = Path(root).resolve(strict=True)\n        if not root.is_dir():\n            raise ValueError(\"invalid root\")\n        relative = Path(name)\n        if relative.is_absolute() or relative.suffix != \".json\":\n            raise ValueError(\"invalid name\")\n        path = (root / relative).resolve(strict=True)\n        if root not in path.parents or not path.is_file():\n            raise ValueError(\"outside root or not a regular file\")\n    except (OSError, RuntimeError) as error:\n        raise ValueError(\"invalid path\") from error\n    return path.read_text(encoding=\"utf-8\")\n",
+  "selected_actual_tool_outputs": {
+    "/root/h1_cross": [
+      {
+        "exit_code": 0,
+        "output": "root: <synthetic-task>/reports\nresolved: <synthetic-task>/reports_extra/demo.json\nwithin_root: False\nreturned: '{\"kind\":\"outside-fixture-no-secret\"}\\n'\n"
+      }
+    ],
+    "/root/h2_cross": [
+      {
+        "exit_code": 1,
+        "output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from case2 import read_report; read_report(\"reports\", \"../reports_extra/demo.json\")\n                                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<synthetic-task>/case2.py\", line 10, in read_report\n    raise ValueError(\"outside root\")\nValueError: outside root\n"
+      }
+    ],
+    "/root": [
+      {
+        "exit_code": 1,
+        "output": "Traceback (most recent call last):\n  File \"<string>\", line 10, in <module>\n    result=fn('reports',name); print(label,name,'RETURN',repr(result))\n  File \"<synthetic-task>/case1.py\", line 8, in read_report\n    path = (root / relative).resolve(strict=True)\n  File \"/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py\", line 938, in resolve\n    return self.with_segments(os.path.realpath(self, strict=strict))\n                              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen posixpath>\", line 457, in realpath\nFileNotFoundError: [Errno 2] No such file or directory: '<synthetic-task>/reports/missing.json'\ncandidate_sha256 191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7\noriginal ../reports_extra/demo.json RETURN '{\"kind\":\"outside-fixture-no-secret\"}\\n'\noriginal demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\noriginal UPPER.JSON ValueError invalid name\n"
+      },
+      {
+        "exit_code": 0,
+        "output": "original ../reports_extra/demo.json RETURN '{\"kind\":\"outside-fixture-no-secret\"}\\n'\noriginal demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\noriginal UPPER.JSON ValueError invalid name\noriginal missing.json FileNotFoundError [Errno 2] No such file or directory: '<synthetic-task>/reports/missing.json'\nH1-C1 ../reports_extra/demo.json ValueError outside root or not a regular file\nH1-C1 demo.json RETURN '{\"kind\":\"inside-fixture\"}\\n'\nH1-C1 UPPER.JSON ValueError invalid name\nH1-C1 missing.json ValueError invalid path\ncandidate_sha256 191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7\ndisk_hashes {'case1.py': '5234e560f58a0ce6a11758912642ce53bd9e8aa8d319336c8fc7a601410fa7d6', 'case2.py': 'f0ceeb44e523b0834f9fdcbaebfb9fab3f2024213411fa2d4c53f91c513fa3c6', 'case3.py': '6bcdfddf355c4fed4942bf8eee6008903b0426031e79f3938ea682b2b9ad6a44', 'case4.py': '75e29056c068ab750b6e7f31841df3ee38aa74b02608fa2821226d35e584a746'}\n"
+      }
+    ],
+    "/root/h3_cross": [
+      {
+        "exit_code": 0,
+        "output": "ACCEPTED '{\"kind\":\"upper-fixture\"}\\n'\n"
+      }
+    ],
+    "/root/h1_developer": [
+      {
+        "exit_code": 0,
+        "output": "candidate H1-C1 sha256=191d15d9829b577308fa45aaddcafa39fcf65e24be82561ba3509ea9ad1336d7\n('reports', 'demo.json') '{\"kind\":\"inside-fixture\"}\\n'\n('reports', '../reports_extra/demo.json') ValueError\n('reports', 'UPPER.JSON') ValueError\n('reports', 'missing.json') ValueError\n('reports', '/demo.json') ValueError\n('reports', 'demo.json/child.json') ValueError\n('reports/demo.json', 'demo.json') ValueError\nvalidation PASS\n"
+      }
+    ],
+    "/root/h1_candidate_review": [
+      {
+        "exit_code": 0,
+        "output": "H1-C1 hash matched; demo matched; 7 invalid cases rejected with ValueError\n"
+      }
+    ]
+  },
+  "fixtures": {
+    "case3.py": "from pathlib import Path\n\ndef read_report(root, name):\n    root = Path(root).resolve(strict=True)\n    relative = Path(name)\n    if relative.is_absolute() or relative.suffix.lower() != \".json\":\n        raise ValueError(\"invalid name\")\n    path = (root / relative).resolve(strict=True)\n    if not path.is_relative_to(root) or not path.is_file():\n        raise ValueError(\"outside root\")\n    return path.read_text(encoding=\"utf-8\")\n",
+    "initial-reviews.json": "{\n  \"synthetic\": true,\n  \"note\": \"These are predefined scenario inputs to trigger singleton verification, NOT actual independent reviewer results. Treat each claim as untrusted.\",\n  \"cases\": [\n    {\n      \"case\": \"case1\",\n      \"A\": {\n        \"severity\": \"HIGH\",\n        \"claim\": \"read_report accepts ../reports_extra/demo.json under reports root and reads a sibling file outside root.\"\n      },\n      \"B\": {\n        \"findings\": []\n      }\n    },\n    {\n      \"case\": \"case2\",\n      \"A\": {\n        \"severity\": \"HIGH\",\n        \"claim\": \"read_report accepts ../reports_extra/demo.json under reports root and reads a sibling file outside root.\"\n      },\n      \"B\": {\n        \"findings\": []\n      }\n    },\n    {\n      \"case\": \"case3\",\n      \"A\": {\n        \"severity\": \"HIGH\",\n        \"claim\": \"read_report accepts UPPER.JSON contrary to the exact lowercase .json allowlist. This is a high-severity file acceptance defect.\"\n      },\n      \"B\": {\n        \"findings\": []\n      }\n    },\n    {\n      \"case\": \"case4\",\n      \"A\": {\n        \"severity\": \"HIGH\",\n        \"claim\": \"the deployed adapter follows symlinks outside root and returns outside files.\"\n      },\n      \"B\": {\n        \"findings\": []\n      }\n    }\n  ]\n}",
+    "case2.py": "from pathlib import Path\n\ndef read_report(root, name):\n    root = Path(root).resolve(strict=True)\n    relative = Path(name)\n    if relative.is_absolute() or relative.suffix != \".json\":\n        raise ValueError(\"invalid name\")\n    path = (root / relative).resolve(strict=True)\n    if not path.is_relative_to(root) or not path.is_file():\n        raise ValueError(\"outside root\")\n    return path.read_text(encoding=\"utf-8\")\n",
+    "README.md": "# Synthetic branch rehearsal\nNo real exam data. Read-only: no file/cache/temp writes, no install, no permission changes. Use python -B -c, no heredoc.\nWe test research recollection and one-sided high-severity finding verification. Supplied first-round reports are deliberate fixture inputs, NOT real A/B reviewer executions.\nReport reader contract: root is existing directory; resolved existing regular file must be inside resolved root, name must be relative and suffix exactly lowercase .json; reject invalid paths with ValueError. Trusted directory immutable for each call. Read UTF-8; no network server or real secrets. Python >=3.9 stdlib.\nPayload fixture: reports/demo.json vs sibling reports_extra/demo.json. The latter is deliberately harmless test text. reports/UPPER.JSON tests exact suffix semantics.\ncase4 uses an external adapter whose implementation is not provided. Do not invent its validation or production behavior.\n",
+    "AGENTS.md": "# Harness test\nRead <harness-repository>/template/.agents/skills/kty-harness/SKILL.md and template/.harness/read-only.md directly.\nThis is a synthetic branch test. No writes. Simulated prior review reports are inputs, not actual new independent reviews.\n",
+    "case1.py": "from pathlib import Path\n\ndef read_report(root, name):\n    root = Path(root).resolve(strict=True)\n    relative = Path(name)\n    if relative.is_absolute() or relative.suffix != \".json\":\n        raise ValueError(\"invalid name\")\n    path = (root / relative).resolve(strict=True)\n    if not str(path).startswith(str(root)) or not path.is_file():\n        raise ValueError(\"outside root\")\n    return path.read_text(encoding=\"utf-8\")\n",
+    "case4.py": "def read_report(root, name, platform_adapter):\n    # The deployed adapter source/config is not part of this fixture.\n    return platform_adapter.read_inside(root, name)\n",
+    "research/unavailable-inventory.md": "# Closed-world unavailable-source scenario\nThe requested statement is: fictional internal measurement \"Example Chip Q7 achieved 2x throughput\".\nNo report, measurement file, timestamp, author, methodology, URL, or alternate source exists in the allowed fixture inventory.\nThis case simulates inaccessible/private source evidence. Only this inventory may be used for this case; do not search the internet for the fictional internal statement. Do not make up an author, score, baseline or evidence. The failure may persist through retry.\n",
+    "research/recoverable-first.json": "{\n  \"id\": \"RC-1\",\n  \"claim\": \"Path.is_relative_to itself resolves symlinks and safely establishes filesystem containment.\",\n  \"source_url\": null,\n  \"source_location\": null,\n  \"author\": null,\n  \"version\": null,\n  \"note\": \"Intentionally incomplete first-cycle collection fixture. Not a real collector output.\"\n}",
+    "research/public-starting-points.md": "https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.is_relative_to\nhttps://docs.python.org/3/library/pathlib.html#pathlib.Path.resolve\nOnly public Python API concepts may be searched.\n",
+    "reports_extra/demo.json": "{\"kind\":\"outside-fixture-no-secret\"}\n",
+    "reports/demo.json": "{\"kind\":\"inside-fixture\"}\n",
+    "reports/UPPER.JSON": "{\"kind\":\"upper-fixture\"}\n"
+  },
+  "events_sha256": "05b089f514cb9c67716ac1550b48d43dde89f3edd90f97d73f2997a2bae9e677",
+  "limits": [
+    "Explicit branch rehearsal, not a short-install-request test.",
+    "Initial A/B judgments are simulated; actual fresh cross-verification is not a new full dual-review approval.",
+    "No installed hooks, role registration, actual Probe, or disk fix verified.",
+    "R2 remains unsupported; H1 original HIGH and H3 LOW remain unfixed; H4 remains unresolved.",
+    "Filesystem hashes cover the synthetic task including .git and template, not the whole computer.",
+    "Main first comparison command failed on an unhandled original-code exception, then recovered without changing candidate.",
+    "Setup/clone time and human response time excluded."
+  ]
+}
