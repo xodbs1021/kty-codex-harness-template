@@ -1,0 +1,420 @@
+{
+  "date": "2026-10-30",
+  "environment": "local macOS, Codex CLI 0.165.0, Python 3.14.5; not Probe",
+  "source_commit": "89be120584ea365e06d0f48e25748514c9330f6f",
+  "seconds": 642.74,
+  "exit_code": 0,
+  "main": {
+    "id": "01a18c00-0b99-7fa0-88e1-103985fc338a",
+    "models": [
+      "gpt-6.1-sol"
+    ],
+    "efforts": [
+      "low"
+    ],
+    "sandbox_modes": [
+      "read-only"
+    ],
+    "approval_policies": [
+      "never"
+    ],
+    "completed": true
+  },
+  "unique_role_types": 13,
+  "independent_child_contexts": 17,
+  "children": [
+    {
+      "role": "clarifier",
+      "call_name": "clarifier",
+      "id": "01a18c00-50b6-7c62-90c4-b7de5e00a289",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "44b5c5c907a997ef8288c29442542683fd480c5f4df2be57be43afcb03a73cc3",
+      "rollout_sha256": "83e2df0c003143d2ac084f36eaa04eaae6be3063c351c89c77af96ac8fd704bd"
+    },
+    {
+      "role": "research-collector",
+      "call_name": "collector",
+      "id": "01a18c00-77ef-74a1-a03c-b17002813ed6",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "9b62d543865c29f9529b09adf55192b1da8d0682d341f42567d59583d17b7aba",
+      "rollout_sha256": "5e7c31ad676c6fe75f319017161866f7911304d11afe426b429435c79e0262ec"
+    },
+    {
+      "role": "research-evaluator",
+      "call_name": "evaluator",
+      "id": "01a18c01-677f-7631-8c88-b4011a08bb07",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "7b7fc21ef883ea86465bb7c89f9f40c25c87315a23fcb2848085a06e60eb3994",
+      "rollout_sha256": "6b5dfff405b221ff148904262150fd1c783bfaf8bc4aefed5d4b20b0144f6c5a"
+    },
+    {
+      "role": "architect",
+      "call_name": "architect",
+      "id": "01a18c02-1c92-7572-8f0e-a6ce5aeeb4d7",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "7761c304572cd32508ab228fc2fbf1ce22bb03611d78db2ff4130e553db32329",
+      "rollout_sha256": "b7c28e84c4fa1722aec11ac3d03235ec5315278e93d180d0982be4b0aca77f45"
+    },
+    {
+      "role": "plan-reviewer",
+      "call_name": "design_a",
+      "id": "01a18c02-d9cb-7af2-88eb-39e85c015a89",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "63add39960b71411c31ecc6c35c71429dade916ed79e7271b01debd49986e64c",
+      "rollout_sha256": "691cfffb1d5991545daef60bcfe92d67eb15111a6346ed5907a5069bbb4688af"
+    },
+    {
+      "role": "plan-reviewer",
+      "call_name": "design_b",
+      "id": "01a18c02-fa3f-7352-a9d6-55e23104a74c",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "933f03bb75e42fec2ea5fe8f5ab16f5ca8ae8097da5597f2b39507d035312a7c",
+      "rollout_sha256": "ea7ce15d64b9b1d106ee6b4ca63ff6ee817c4f6090e78c4ddb019858fdb64394"
+    },
+    {
+      "role": "planner",
+      "call_name": "planner",
+      "id": "01a18c03-5b8d-7e82-b979-a8d777e90220",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "6bc1ee7b8fadadb076a58ff9a14ea43567608d09a146f6797aac006f1f7648cd",
+      "rollout_sha256": "703b85f81c4be5e3cdc6b7f077658745ccb0c87fdedcec2cddf61c3d93182b84"
+    },
+    {
+      "role": "plan-reviewer",
+      "call_name": "plan_a",
+      "id": "01a18c04-4d1c-7671-ace6-652b1f4fb11e",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "eac0c5c40f055c1a629ef048362d8e1ca7f6039b8d89fd96a5ff2a1be50d78a2",
+      "rollout_sha256": "c1dceb62c43ff076421c11b90a92e15caf1c6c659ad522627ca11d9e689ae48b"
+    },
+    {
+      "role": "plan-reviewer",
+      "call_name": "plan_b",
+      "id": "01a18c04-6fd0-70c3-8569-4a992ffa4127",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "ec94b50a3e784a924b3888528360983e28a336899567d1fbcb978d6ca96d65be",
+      "rollout_sha256": "9b8446366306c37890f02c4709af7c7268212607e9902fc83b5a59652ba846e7"
+    },
+    {
+      "role": "developer",
+      "call_name": "developer",
+      "id": "01a18c04-f1e9-73b2-9e3d-a6375bd98365",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "3070bf77974053daea28167907900e7e092f5d0264b60bb3e11d66513799d28a",
+      "rollout_sha256": "68dad03b8cc44fd1983f1a0a42714eb7f0d8fc71e02a376a593064e018428fda"
+    },
+    {
+      "role": "reviewer",
+      "call_name": "review_a",
+      "id": "01a18c06-6850-7f51-9c69-ca94cce918e3",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "ca0c5dfec05a04471dc262ea51c4359709673dfda3db01d64a4efcb40eed7240",
+      "rollout_sha256": "8642b3fb83c90f719ad2c832ddb1b5ab3146de8b32ca11ef7efb75bfb897534b"
+    },
+    {
+      "role": "reviewer",
+      "call_name": "review_b",
+      "id": "01a18c06-919b-7f41-934a-543621d44993",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "28a842225abe71bc1cd29b3387e294409c613aacc57e8840078167a7f00530cc",
+      "rollout_sha256": "091cdf86e6b85d385ee7e885de61cc2aaa6caba89537d723f5671731193bdeb6"
+    },
+    {
+      "role": "security-reviewer",
+      "call_name": "security",
+      "id": "01a18c06-c4e0-76d1-a8f9-6d35fc8b3691",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "e270bac842711851becfad0c96fa9b960cdd69dc83e3edab057122edd264e8af",
+      "rollout_sha256": "6f665a698ec83fcc65da5a606fdda6b76595966601bb0594f87cac07d39cfa86"
+    },
+    {
+      "role": "test-analyzer",
+      "call_name": "test_analyzer",
+      "id": "01a18c07-1810-7c42-abce-dac2a47217be",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "3dcc219e898cb4009745f1414d4474bdc56c637563997a537e6c215d43244a0c",
+      "rollout_sha256": "06c96bec7fae4fd40918f267b123d86e19cbc422c50fadab57c659737b86158d"
+    },
+    {
+      "role": "change-explainer",
+      "call_name": "explainer",
+      "id": "01a18c07-7e0d-7aa3-8ee7-00c91dec14a0",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "9cc4d4f1921fa632e8e3bae217f8f1c4206414390358e8f577064b9f66839cf2",
+      "rollout_sha256": "9a2c80838a83ef6766abc9ae0e8fc09261d6211e40cf123d622387da10c90290"
+    },
+    {
+      "role": "architecture-guide",
+      "call_name": "guide",
+      "id": "01a18c07-ad1d-7d62-a8e7-f5c6de65e941",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "244188126739218ab0e31f13cb5bc31fab7edaa377365e397e7d77e536a0eac3",
+      "rollout_sha256": "eda9df11078719b72a82bb28129885788440e3bfcba07706af434b5f0f2b3029"
+    },
+    {
+      "role": "auditor",
+      "call_name": "auditor",
+      "id": "01a18c08-a6ad-7f81-8992-44aa691ced7c",
+      "models": [
+        "gpt-6.1-sol"
+      ],
+      "efforts": [
+        "low"
+      ],
+      "sandbox_modes": [
+        "read-only"
+      ],
+      "approval_policies": [
+        "never"
+      ],
+      "completed": true,
+      "result_sha256": "485093d592bc94e9042188378abf9bd063245fac3e8c1cb0332569b47d9c82a6",
+      "rollout_sha256": "ca5e0f96071dcdfddbae3b101e5730de7f79a11a0ca2e114ff978081b6875d8a"
+    }
+  ],
+  "all_spawns_fork_turns_none": true,
+  "scripted_answers": {
+    "clarifier_completed": "2026-10-30T08:50:14.912Z",
+    "answers_read": "2026-10-30T08:50:18.233Z",
+    "source": "prewritten fictional business-owner answers; not actual user answers"
+  },
+  "web_tool_calls": {
+    "/root/collector": 4,
+    "/root/evaluator": 3
+  },
+  "task_files_including_git_unchanged": true,
+  "harness_template_unchanged_during_run": true,
+  "candidate_versions": [
+    {
+      "command_item": "item_35",
+      "sha256": "4a471fd01e93ba353ffb6928989a8f096c839e856e4959f08fc20114bae0e217"
+    },
+    {
+      "command_item": "item_39",
+      "sha256": "4a471fd01e93ba353ffb6928989a8f096c839e856e4959f08fc20114bae0e217"
+    }
+  ],
+  "disk_test": {
+    "count": 5,
+    "failed": 4,
+    "exit_code": 1,
+    "output": "test_empty (test_wafer.WaferTests.test_empty) ... FAIL\ntest_escape (test_wafer.WaferTests.test_escape) ... FAIL\ntest_invalid (test_wafer.WaferTests.test_invalid) ... FAIL\ntest_missing_excluded (test_wafer.WaferTests.test_missing_excluded) ... FAIL\ntest_ratio (test_wafer.WaferTests.test_ratio) ... ok\n\n======================================================================\nFAIL: test_empty (test_wafer.WaferTests.test_empty)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<synthetic-task>/tests/test_wafer.py\", line 11, in test_empty\n    self.assertIsNone(summarize([])[\"ratio\"])\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0.0 is not None\n\n======================================================================\nFAIL: test_escape (test_wafer.WaferTests.test_escape)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<synthetic-task>/tests/test_wafer.py\", line 15, in test_escape\n    with self.assertRaises(ValueError): load_report(Path(__file__).resolve().parents[1]/\"data\", \"../outside.json\")\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_invalid (test_wafer.WaferTests.test_invalid)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<synthetic-task>/tests/test_wafer.py\", line 13, in test_invalid\n    with self.assertRaises(ValueError): summarize([{\"result\":\"oops\"}])\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n======================================================================\nFAIL: test_missing_excluded (test_wafer.WaferTests.test_missing_excluded)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<synthetic-task>/tests/test_wafer.py\", line 9, in test_missing_excluded\n    self.assertEqual(summarize([{\"result\":\"pass\"},{\"result\":\"fail\"},{\"result\":None}])[\"ratio\"], 0.5)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0.3333333333333333 != 0.5\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nFAILED (failures=4)\n"
+  },
+  "candidate_memory_test": {
+    "count": 12,
+    "failed": 0,
+    "exit_code": 0,
+    "output": "test_empty (test_wafer.WaferTests.test_empty) ... ok\ntest_escape (test_wafer.WaferTests.test_escape) ... ok\ntest_invalid (test_wafer.WaferTests.test_invalid) ... ok\ntest_missing_excluded (test_wafer.WaferTests.test_missing_excluded) ... ok\ntest_ratio (test_wafer.WaferTests.test_ratio) ... ok\ntest_content_errors_with_read_text_only_mocked (__main__.CandidateTests.test_content_errors_with_read_text_only_mocked) ... ok\ntest_invalid_real_paths (__main__.CandidateTests.test_invalid_real_paths) ... ok\ntest_invalid_rows (__main__.CandidateTests.test_invalid_rows) ... ok\ntest_real_fixture_reports (__main__.CandidateTests.test_real_fixture_reports) ... ok\ntest_resolved_directory_rejected_with_mock (__main__.CandidateTests.test_resolved_directory_rejected_with_mock) ... ok\ntest_resolver_errors_normalized (__main__.CandidateTests.test_resolver_errors_normalized) ... ok\ntest_summaries_and_input_immutability (__main__.CandidateTests.test_summaries_and_input_immutability) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.003s\n\nOK\n"
+  },
+  "heredoc_failure": {
+    "timestamp": "2026-10-30T08:56:11.903Z",
+    "error": "zsh:1: can't create temp file for here document: operation not permitted",
+    "exit_code": 1
+  },
+  "recovery": "One retry with Python -B -c; no permission escalation",
+  "audit_outcome": "Read-only rehearsal audit performed; implementation completion withheld",
+  "events_sha256": "686784745c580da586a5af3eb9263b0ee95d71a39282750ac51ae6633ea5a1c7",
+  "scope_limits": [
+    "No install, automatic role registration or automatic hook activation inside read-only session.",
+    "Developer produced response-only candidate; code/tests were not applied.",
+    "Live official web research and source recheck were performed; research re-collection and blocked-review recovery branches did not trigger.",
+    "No singleton HIGH/CRITICAL findings, so cross-verification branch was not exercised.",
+    "No actual Python 3.9 run; several real filesystem error scenarios remained untested.",
+    "This is explicit full-role rehearsal prompting, not proof that a short install request automatically triggers all roles.",
+    "Setup/clone time and real human response time excluded.",
+    "One write-attempt side effect of zsh heredoc was blocked; cannot claim zero attempted writes.",
+    "Subagent close tool unavailable; completed agents freed running capacity."
+  ]
+}
