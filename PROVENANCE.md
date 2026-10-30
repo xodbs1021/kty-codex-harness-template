@@ -84,3 +84,14 @@ Google 스타일 원문 7개와 FETCHED·LICENSE는 위 원본 커밋의 바이�
 SKILL·검사/갱신 스크립트는 Codex 경로·실행 계약에 맞게 수정한 파생물이다.
 readable-writing의 개인 프로젝트 독자 예시는 일반 응시자 문맥으로 바꿨다.
 개인 작업 이력·PR 역할·외부 메모리·시험 안내 원문은 추가하지 않았다.
+
+
+## Python·Java·Go 스타일 원문
+
+2026-10-31 사용자의 우선 준비 언어는 코드 스타일 기준 Python·Java·Go다.
+언어 실행 환경을 설치하거나 기존 과제의 언어를 교체하라는 뜻이 아니다.
+Python·Go 사본은 그대로 유지하고 Java 원문을 공식 저장소 고정 커밋
+`0de02b3671a9c28e17c331c0c6f3318ccbfcd50d`에서 추가했다.
+Git blob SHA `6c64db7a5527328a81d20889742434afee7604f9`와 실제 저장 파일이 일치한다.
+파일별 출처·SHA-256은 Google Skill의 snapshot.json에 있다.
+Go 자동 포맷 검사와 Python·Java 원문 기반 검토를 같은 검증 수준으로 표현하지 않는다.

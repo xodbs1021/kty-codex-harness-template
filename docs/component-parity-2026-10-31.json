@@ -557,7 +557,9 @@
         "template/.agents/skills/kty-harness/references/roles.md",
         "template/.agents/skills/kty-harness/references/research.md",
         "template/.agents/skills/kty-harness/references/explanation.md",
-        "template/.agents/skills/kty-harness/references/decision-memory.md"
+        "template/.agents/skills/kty-harness/references/decision-memory.md",
+        "template/.agents/skills/kty-harness/references/plan-gates.md",
+        "template/.agents/skills/kty-harness/references/cross-verification.md"
       ],
       "status": "limited",
       "rationale": "Codex role pipeline, Sol A/B and read-only fallback replace Claude orchestration; PR/external transfer/effort/zero-finding quotas excluded. Restored decision-memory contracts; automatic hook enforcement remains non-equivalent.",
@@ -568,7 +570,9 @@
         "template/.agents/skills/kty-harness/references/roles.md": true,
         "template/.agents/skills/kty-harness/references/research.md": true,
         "template/.agents/skills/kty-harness/references/explanation.md": true,
-        "template/.agents/skills/kty-harness/references/decision-memory.md": true
+        "template/.agents/skills/kty-harness/references/decision-memory.md": true,
+        "template/.agents/skills/kty-harness/references/plan-gates.md": true,
+        "template/.agents/skills/kty-harness/references/cross-verification.md": true
       }
     },
     {
@@ -603,5 +607,6 @@
     "Portable mapping is not proof of behavioral equivalence; limited hooks retain explicit enforcement differences.",
     "Actual Probe runtime is inaccessible and unverified."
   ],
-  "source_repository": "xodbs1021/kty-claude-harness-template"
+  "source_repository": "xodbs1021/kty-claude-harness-template",
+  "semantic_followup": "docs/semantic-parity-2026-10-31.md"
 }

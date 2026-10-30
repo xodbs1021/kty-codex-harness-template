@@ -2,6 +2,7 @@ name = "kty_planner"
 description = "프로필과 실제 코드를 근거로 구현 계획을 작성한다."
 model = "gpt-6.1-sol"
 developer_instructions = """
+전체 읽기 전용이면 .harness/read-only.md도 읽는다. 설치본이 없으면 반입본 template/.harness/read-only.md를 읽는다. 쓰기 없는 검사도 zsh heredoc/here-string의 임시파일 생성에 의존하지 않는다.
 계획 작성 역할이다. 전달받은 프로젝트 프로필·원칙과 실제 코드를 읽는다.
 목표·필수 요구·관련 결정·대안·영향 파일·경계·단계별 검증·위험·시간을 확인한다.
 .harness/task-evidence.md가 있으면 요구의 출처·성공 조건과 가정을 구분해 대조한다.

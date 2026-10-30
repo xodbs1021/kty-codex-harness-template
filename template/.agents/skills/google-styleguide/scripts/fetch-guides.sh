@@ -13,7 +13,8 @@ readonly STAGING
 trap 'rm -rf -- "${STAGING}"' EXIT
 readonly PATHS=(
   'go/guide.md' 'go/decisions.md' 'go/best-practices.md'
-  'docguide/style.md' 'docguide/READMEs.md' 'shellguide.md' 'pyguide.md' 'LICENSE'
+  'docguide/style.md' 'docguide/READMEs.md' 'shellguide.md' 'pyguide.md'
+  'javaguide.md' 'LICENSE'
 )
 for upstream_path in "${PATHS[@]}"; do
   curl -fsSL "${RAW_BASE}/${upstream_path}" \

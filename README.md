@@ -58,7 +58,7 @@ Sol A/B 코드 검수와 조건부 보안·테스트 검토 → 설명 → 완�
 독립 호출이 없으면 대체 검수라고 밝힌다. 작은 작업에 불필요한 역할을 전부 실행하지 않는다.
 실행 계약은 [workflow.md](template/.agents/skills/kty-harness/references/workflow.md)가 정본이다.
 
-- 코드·문서 작성/검수: [Google 스타일 Skill](template/.agents/skills/google-styleguide/SKILL.md)과 해당 원문.
+- 코드·문서 작성/검수: [Google 스타일 Skill](template/.agents/skills/google-styleguide/SKILL.md). Python·Java·Go 원문 포함.
 - 사용자 설명·문장 품질: [readable-writing](template/.agents/skills/readable-writing/SKILL.md).
 - 결정·진행·반복 지적: [기록 계약](template/.agents/skills/kty-harness/references/decision-memory.md).
 - 서비스 과제: 구현뿐 아니라 실행·연결·응답을 검증한다. 주소·포트·스택은 고정하지 않는다.

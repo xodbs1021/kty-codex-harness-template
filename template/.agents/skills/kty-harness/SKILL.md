@@ -13,6 +13,8 @@ description: Codex 개발 하네스. 기능 구현·수정·계획·검수, 관�
 코드·문서 작성 및 검수 전에 `../google-styleguide/SKILL.md`와 해당 언어 원문을 읽는다.
 사용자 대면 글·설명은 `../readable-writing/SKILL.md`도 적용한다.
 둘 다 이 패키지에 포함된 Skill이며 자동 등록 실패 시 직접 읽는다.
+새 작업의 초기 실행은 [decision-memory.md](references/decision-memory.md)에 따라
+이미 반입된 기준본 대조와 과제 내부의 유사 작업 이력 회수를 한 번 수행한다.
 
 ## 오케스트레이션
 
@@ -69,6 +71,8 @@ python3 .harness/harness.py audit '완료 주장과 단계별 실제 근거'
   쓰기가 제한되면 read-only.md의 직접 검사 경로로 진행한다. 빈 검사·미실행은 통과가 아니다.
 - A/B는 같은 상태를 서로의 첫 결론 없이 검토한다. 새로 수정했으면 필요한 검사·검토를 다시 수행한다.
 - 조건부 security-reviewer·test-analyzer, 한쪽에만 있는 고위험 지적의 교차 검증을 workflow대로 수행한다.
+  [계획 게이트](references/plan-gates.md)와 [교차 검증 계약](references/cross-verification.md)의 단계별 적용 범위·의존 해시·
+  기각 재사용 조건·같은 결함 유형 확인을 적용한다.
 - 변경 설명은 실제 diff와 검사 결과로 작성해 사용자에게 전달한 뒤 완료 감사한다.
   최종 감사는 명료화·조사·계획 검토·검수·설명 근거가 빠진 사실도 확인한다.
 - 각 단계의 수행·불요·미실행과 이유를 남긴다. 제약을 감추거나 횟수를 채워 통과시키지 않는다.

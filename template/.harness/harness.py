@@ -209,6 +209,7 @@ def readonly_role(root, role, task, effort=None):
     prompt = ("이 호출은 독립된 읽기 전용 " + role + " 작업이다. "
               "시작 전에 " + str(path) + "의 역할 지침, .harness/project-profile.md와 "
               ".harness/principles.md를 읽어 적용하라. "
+              "전체 읽기 전용 절차인 .harness/read-only.md도 읽어라. "
               "파일을 수정하거나 권한을 확대하지 말고 결과만 응답으로 반환하라. "
               "다른 에이전트를 만들지 마라. 실행할 수 없는 검증은 그 한계를 밝혀라.\n\n"
               "역할 요청:\n" + task)

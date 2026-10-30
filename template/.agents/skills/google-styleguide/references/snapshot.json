@@ -10,6 +10,16 @@
     "go-guide.md": "f12051c22045953c3688a85f9eba94f7cf61b6a769762671cdbf1ca4d2b3aa1b",
     "docguide-READMEs.md": "f828604e0642fe7901257a6b262ceb62d3d856a7d14a4f68f3aee7a20538d041",
     "pyguide.md": "7ac0ba7803a5118a6c68c2aef8d8767a1d5a0026e9b3cea813796959a76ee896",
-    "FETCHED": "e50283f94f63bda1c8a554e973e71fd597b05dc640299f896c2ad32300132d03"
+    "FETCHED": "e50283f94f63bda1c8a554e973e71fd597b05dc640299f896c2ad32300132d03",
+    "javaguide.md": "57801727d3275876d40436b6080b68694d1f68e8148520d2d610083bb3cf3e10"
+  },
+  "additional_sources": {
+    "javaguide.md": {
+      "repository": "https://github.com/google/styleguide",
+      "commit": "0de02b3671a9c28e17c331c0c6f3318ccbfcd50d",
+      "path": "javaguide.md",
+      "git_blob_sha": "6c64db7a5527328a81d20889742434afee7604f9",
+      "retrieved_date": "2026-10-31"
+    }
   }
 }

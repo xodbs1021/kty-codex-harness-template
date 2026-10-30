@@ -49,16 +49,30 @@ description: 코드·문서를 쓰거나 고치거나 검수할 때 반드시 �
 | 언어 | 정본 |
 |------|------|
 | **Go** | `references/go-guide.md` (핵심) → `go-decisions.md` (구체 판정) → `go-best-practices.md` (패턴) |
-| **Shell** | `references/shellguide.md` — 하네스 훅 `하네스의 Shell 스크립트` 도 이 대상이다 |
+| **Shell** | `references/shellguide.md` — 하네스의 Shell 스크립트도 대상이다 |
 | **Markdown** | `references/docguide-style.md`, `docguide-READMEs.md` |
 | **Python** | `references/pyguide.md` |
-| Java | https://google.github.io/styleguide/javaguide.html |
+| **Java** | `references/javaguide.md` — 공식 원문 사본, 버전·해시는 snapshot.json |
 | TypeScript | https://google.github.io/styleguide/tsguide.html |
 | JavaScript | https://google.github.io/styleguide/jsguide.html |
 | C++ | https://google.github.io/styleguide/cppguide.html |
 
-로컬 사본이 없는 언어(HTML 문서라 받지 않은 것들)는 위 URL 을 제공된 읽기 도구 로 읽는다.
+Python·Java·Go는 위 번들 원문을 직접 읽는다. 언어를 바꾸라는 지시가 아니다.
+로컬 사본이 없는 TypeScript·JavaScript·C++는 위 URL을 제공된 읽기 도구로 읽는다.
 읽지 못했으면 **"스타일 정본 미확인"이라고 적고** 추측으로 쓰지 않는다.
+
+## Python·Java·Go 적용과 검사 범위
+
+작업 언어의 원문만 필요한 절부터 읽고, 지적에 파일·조항을 붙인다.
+세 언어의 명명·들여쓰기·주석 규칙을 서로 섞지 않는다.
+Python은 `pyguide.md`, Java는 `javaguide.md`, Go는 Go 원문 3개가 정본이다.
+
+번들 기계 검사는 Go의 gofmt만 실행한다. Python·Java 원문이 있다는 사실을
+그 언어의 자동 검사까지 통과했다는 뜻으로 보고하지 않는다.
+Python·Java는 기존 프로젝트의 linter·formatter·검사 명령과 설정을 확인하고,
+사용 가능한 검사만 checks에 연결한다. 설정의 Google 준수 범위를 확인하지 않은
+도구를 Google 스타일 전체 검사라고 부르지 않는다. 도구가 없으면 원문 대조와
+자동 검사 미실행을 분리하며, 필요 없이 새 도구·런타임을 설치하지 않는다.
 
 ## Go — 반드시 지키는 핵심 (원문: `references/go-guide.md`)
 
