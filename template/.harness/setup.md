@@ -29,6 +29,9 @@
 
 - `.agents/skills/kty-harness/SKILL.md`, `.harness/project-profile.md`, `.harness/principles.md`를 직접 읽는다.
   Skill 자동 발견이 안 돼도 파일 읽기가 가능하면 절차를 적용한다. 직접 읽기를 자동 등록이라고 보고하지 않는다.
+- 번들 `google-styleguide`·`readable-writing` Skill과 작업 언어의 정본도 읽는다.
+  재설치 시 보존된 프로필은 최신 원칙과 대조하되 확인된 과제 사실을 덮어쓰지 않는다.
+  verify의 필수 Go 스타일 검사와 실제 과제 검사는 별개이며 스타일만으로 설치 검증을 끝내지 않는다.
 - 실제 과제 README·기존 지침·관련 코드에서 도메인·필수 요구·스택·실행 경로·제출물을 확인해
   **`.harness/project-profile.md`**를 갱신한다 (`project.profile.md`가 아니다).
   확인된 과제 사실만 기록하고 미확인 업무 기준은 가정·영향을 표시한다.

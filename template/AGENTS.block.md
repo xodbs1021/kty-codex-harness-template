@@ -5,6 +5,8 @@
 `.harness/setup.md`를 읽어 과제 설정·활성화 확인·검증까지 수행한다.
 진행과 남은 사용자 조치는 `.harness/setup-status.md`에 남긴다.
 코드 변경·계획·검수는 `.agents/skills/kty-harness/SKILL.md`를 읽고 수행한다.
+코드·문서 작성과 검수는 `.agents/skills/google-styleguide/SKILL.md`와 해당 원문을,
+사용자 대면 설명·문서는 `.agents/skills/readable-writing/SKILL.md`도 읽는다.
 역할 호출 흐름은 Skill의 `references/workflow.md`를 따른다. 명료화·필요한 조사/독립 평가·
 설계/계획 검토·구현·Sol A/B 검수·변경 설명·완료 감사를 연결한다.
 조사만 또는 설명만 요청한 경우 해당 역할 경로를 사용하고 구현으로 확대하지 않는다.

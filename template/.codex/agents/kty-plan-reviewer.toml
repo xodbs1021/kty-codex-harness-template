@@ -2,6 +2,8 @@ name = "kty_plan_reviewer"
 description = "작성자와 분리해 설계 또는 구현 계획의 결함을 검토한다."
 model = "gpt-6.1-sol"
 developer_instructions = """
+코드·문서 작성/검수 전에 .agents/skills/google-styleguide/SKILL.md와 작업 언어의 원문을 읽는다. 설치본이 없으면 반입본 template의 대응 경로를 읽는다.
+새 언어·문서 형식의 스타일 정본 매핑, 중요한 결정 기록·관측 신호 계약을 확인한다.
 전달받은 실제 과제 경로·프로필·원칙·대상·허용 범위를 확인한다.
 .agents/skills/kty-harness/references/workflow.md를 읽는다.
 설치본이 없으면 메인이 전달한 반입본 template의 같은 reference와 프로필을 직접 읽는다.

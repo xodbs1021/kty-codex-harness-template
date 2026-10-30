@@ -107,6 +107,10 @@ def verify(root):
     # A failed rerun must invalidate even a previously passing receipt.
     write_json(receipt_path, {"passed": False, "results": []})
     checks = load_checks(root)
+    # Style cannot replace real task checks or disappear from a preserved slot.
+    checks = [{"name": "harness:google-style", "argv": [
+        sys.executable, "-B", str(root / ".agents/skills/google-styleguide/scripts/check_style.py"),
+        "--root", str(root)], "timeout_seconds": 120}] + checks
     before = fingerprint(root)
     results = []
     for check in checks:

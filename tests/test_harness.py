@@ -228,7 +228,8 @@ class HarnessTest(unittest.TestCase):
         self.checks("raise SystemExit(7)")
         self.command("verify", success=False)
         self.assertFalse(self.receipt()["passed"])
-        self.assertEqual(self.receipt()["results"][0]["exit_code"], 7)
+        failed = next(item for item in self.receipt()["results"] if item["name"] == "test")
+        self.assertEqual(failed["exit_code"], 7)
 
     def test_missing_command_and_timeout_fail(self):
         self.install()

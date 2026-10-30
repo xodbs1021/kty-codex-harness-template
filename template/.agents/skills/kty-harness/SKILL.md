@@ -10,6 +10,9 @@ description: Codex 개발 하네스. 기능 구현·수정·계획·검수, 관�
 `.harness/work/progress.md`와 기존 문답·검토 결과부터 복구한다.
 설치본이 없으면 반입 저장소 `template/`의 대응 문서를 직접 읽고 실제 과제 경로를 따로 확인한다.
 전체 읽기 전용이면 `.harness/read-only.md` 또는 반입본의 동일 문서를 함께 적용한다.
+코드·문서 작성 및 검수 전에 `../google-styleguide/SKILL.md`와 해당 언어 원문을 읽는다.
+사용자 대면 글·설명은 `../readable-writing/SKILL.md`도 적용한다.
+둘 다 이 패키지에 포함된 Skill이며 자동 등록 실패 시 직접 읽는다.
 
 ## 오케스트레이션
 
@@ -58,6 +61,8 @@ python3 .harness/harness.py audit '완료 주장과 단계별 실제 근거'
 
 ## 구현·검수·완료
 
+- 단계별 진행, 중요한 결정 기록, 반복 지적, 설치본 차이는
+  [decision-memory.md](references/decision-memory.md)를 따른다. 과제 내부만 사용한다.
 - [ECC 기준](references/ecc-quality.md)을 관련 단계에서 읽는다. 실제 사용한 TDD·디버깅 방법을 기록하고
   설치되지 않은 Claude·ECC·superpowers 플러그인을 호출했다고 주장하지 않는다.
 - 실제 검증 명령은 `.harness/checks.json`의 argv 배열로 등록하고 `harness.py verify`를 실행한다.

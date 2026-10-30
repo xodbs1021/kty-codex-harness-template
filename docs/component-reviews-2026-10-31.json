@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-31",
+  "base_commit": "edf603b",
+  "scope": "Working tree restoration code and documentation; final evidence paragraphs added after review.",
+  "reviewers": [
+    {
+      "id": "/root/restore_check_a",
+      "requested_model": "gpt-6.1-sol",
+      "fork_turns": "none",
+      "findings": [],
+      "checks": "Python syntax, TOML model/effort, all 43 original hashes, snapshot hashes, style checker NOT_APPLICABLE, installer and verify/read-only contracts",
+      "limits": "No mutation-based tests, actual Probe, hook activation, or universal behavioral parity verified."
+    },
+    {
+      "id": "/root/restore_check_b",
+      "requested_model": "gpt-6.1-sol",
+      "fork_turns": "none",
+      "findings": [],
+      "checks": "Raw diff, installer, failure handling, readonly, doc links, all 43 original hashes, snapshot hashes, roles, Python syntax, checker NOT_APPLICABLE",
+      "limits": "No mutation-based tests, actual Probe or activation verified."
+    }
+  ]
+}

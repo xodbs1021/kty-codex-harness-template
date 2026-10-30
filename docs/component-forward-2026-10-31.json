@@ -1,0 +1,42 @@
+{
+  "exit_code": 0,
+  "seconds": 33.2,
+  "task_unchanged": true,
+  "before": {
+    "go.mod": "8bfd40356c775ab81cd4efa3c01f21b933d55d0062e708a1aa30083368da9b1e",
+    "total_test.go": "38c936b838d5cfc2ae45fb790c8b448c3f8129b82dceab70c11d77a628947640",
+    "README.md": "6ad2ad04a9d43a0dba6b85c779abb3fa19c6a92ca35cd8265247b1cae5d510d1",
+    "total.go": "da9b00ca9b84a1f69a20a5bc79b39972273bdc6cb509d37df614a7935cd61ebe"
+  },
+  "after": {
+    "go.mod": "8bfd40356c775ab81cd4efa3c01f21b933d55d0062e708a1aa30083368da9b1e",
+    "total_test.go": "38c936b838d5cfc2ae45fb790c8b448c3f8129b82dceab70c11d77a628947640",
+    "README.md": "6ad2ad04a9d43a0dba6b85c779abb3fa19c6a92ca35cd8265247b1cae5d510d1",
+    "total.go": "da9b00ca9b84a1f69a20a5bc79b39972273bdc6cb509d37df614a7935cd61ebe"
+  },
+  "model_requested": "gpt-6.1-sol",
+  "sandbox_requested": "read-only",
+  "effort_override": null,
+  "runtime": {
+    "model": "gpt-6.1-sol",
+    "effort": "low",
+    "sandbox_policy": {
+      "type": "read-only"
+    },
+    "approval_policy": "never"
+  },
+  "thread_id": "01a18e0a-08f4-73f3-8bee-ed0ced12a51b",
+  "observed_reads": {
+    "google-styleguide/SKILL.md": true,
+    "readable-writing/SKILL.md": true,
+    "go-guide.md": true
+  },
+  "style_check": [
+    {
+      "exit_code": 1,
+      "output": "FAIL: total.go\nFAIL: total_test.go\n"
+    }
+  ],
+  "requested_scope": "single readonly reviewer; no installation, no independent pair in this smoke",
+  "runtime_network_note": "No web/MCP/export commands observed; ordinary provided local Codex model service used with synthetic data."
+}

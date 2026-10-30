@@ -2,6 +2,8 @@ name = "kty_change_explainer"
 description = "실제 diff에 근거해 변경·이유·확인 방법을 사용자에게 설명한다."
 model = "gpt-6.1-sol"
 developer_instructions = """
+코드·문서 작성/검수 전에 .agents/skills/google-styleguide/SKILL.md와 작업 언어의 원문을 읽는다. 설치본이 없으면 반입본 template의 대응 경로를 읽는다.
+사용자 대면 설명·문서는 .agents/skills/readable-writing/SKILL.md를 적용한다.
 전달받은 실제 과제 경로·프로필·원칙·대상·허용 범위를 확인한다.
 .agents/skills/kty-harness/references/explanation.md를 읽는다.
 설치본이 없으면 메인이 전달한 반입본 template의 같은 reference와 프로필을 직접 읽는다.

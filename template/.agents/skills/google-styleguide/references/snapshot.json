@@ -1,0 +1,15 @@
+{
+  "source_harness_commit": "ab266415be98badcee06d06253c43921e1449614",
+  "upstream_commit": null,
+  "files": {
+    "shellguide.md": "74d74f3ede1a3f487e3cf92d0d74cc76f1f7e248b1ca7581f77449c5d11101fd",
+    "docguide-style.md": "14e7fa7488371ab2d44beea6774c1c40d07a2bfae325434104968420d3d831c3",
+    "LICENSE": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+    "go-decisions.md": "3a0b54ef41aca49f8bf0a4d4ce2d0b4662721b52197256d121b6cc95616f4850",
+    "go-best-practices.md": "e44180b492c3585b4a20bd44e7cb277a55a9f264ad352f33f287b639e9e75b56",
+    "go-guide.md": "f12051c22045953c3688a85f9eba94f7cf61b6a769762671cdbf1ca4d2b3aa1b",
+    "docguide-READMEs.md": "f828604e0642fe7901257a6b262ceb62d3d856a7d14a4f68f3aee7a20538d041",
+    "pyguide.md": "7ac0ba7803a5118a6c68c2aef8d8767a1d5a0026e9b3cea813796959a76ee896",
+    "FETCHED": "e50283f94f63bda1c8a554e973e71fd597b05dc640299f896c2ad32300132d03"
+  }
+}

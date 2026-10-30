@@ -1,0 +1,607 @@
+{
+  "source_revision": "ab266415be98badcee06d06253c43921e1449614",
+  "inventory_scope": "Every tracked file under template/ and global-agents/ at pinned revision; root operations enumerated separately. Documentation/ADR/examples/tests/_workspace are historical/supporting material, not silently asserted copied.",
+  "source_component_count": 43,
+  "status_semantics": {
+    "portable": "Portable instruction/component mapping; proposed restorations identified in rationale, not execution proof.",
+    "excluded": "Intentionally outside authorized exam profile.",
+    "limited": "Partial replacement or unsupported native enforcement; parity not claimed.",
+    "missing": "No mapped replacement."
+  },
+  "components": [
+    {
+      "original_path": "global-agents/research-collector.md",
+      "target_paths": [
+        "template/.codex/agents/kty-research-collector.toml",
+        "template/.agents/skills/kty-harness/references/roles.md",
+        "template/.agents/skills/kty-harness/references/research.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "89b0201175505eab26843cc1806ae94a5065b1d7f1ef04a7d79d348329cc70eb",
+      "target_exists": {
+        "template/.codex/agents/kty-research-collector.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true,
+        "template/.agents/skills/kty-harness/references/research.md": true
+      }
+    },
+    {
+      "original_path": "global-agents/research-evaluator.md",
+      "target_paths": [
+        "template/.codex/agents/kty-research-evaluator.toml",
+        "template/.agents/skills/kty-harness/references/roles.md",
+        "template/.agents/skills/kty-harness/references/research.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "2e67ed792140cbabcd0b4315e9e443d4e174a0ee29fb1c61ffceb2c095eb91be",
+      "target_exists": {
+        "template/.codex/agents/kty-research-evaluator.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true,
+        "template/.agents/skills/kty-harness/references/research.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/architecture-guide.md",
+      "target_paths": [
+        "template/.codex/agents/kty-architecture-guide.toml",
+        "template/.agents/skills/kty-harness/references/roles.md",
+        "template/.agents/skills/kty-harness/references/explanation.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "ffbf536139a2ee3d6ac4794e49163b8edde9a93ef5d3e172cfb3de9c27a97297",
+      "target_exists": {
+        "template/.codex/agents/kty-architecture-guide.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true,
+        "template/.agents/skills/kty-harness/references/explanation.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/change-explainer.md",
+      "target_paths": [
+        "template/.codex/agents/kty-change-explainer.toml",
+        "template/.agents/skills/kty-harness/references/roles.md",
+        "template/.agents/skills/kty-harness/references/explanation.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "db5bebae234397b4c142464a8617078d714637ac21f9ad83160ac9c7d16242ad",
+      "target_exists": {
+        "template/.codex/agents/kty-change-explainer.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true,
+        "template/.agents/skills/kty-harness/references/explanation.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/clarifier.md",
+      "target_paths": [
+        "template/.codex/agents/kty-clarifier.toml",
+        "template/.agents/skills/kty-harness/references/roles.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "8001dae59d095af1bf24a7c309faf132e3cfe4c6fff1d4e8d9903b7db1d2ef8c",
+      "target_exists": {
+        "template/.codex/agents/kty-clarifier.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/completion-auditor.md",
+      "target_paths": [
+        "template/.codex/agents/kty-auditor.toml",
+        "template/.agents/skills/kty-harness/references/roles.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "b0e26b6aac677a9ae2afad0f8a862b97cabef192238bfa8f1989d677cdfeffa2",
+      "target_exists": {
+        "template/.codex/agents/kty-auditor.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/developer.md",
+      "target_paths": [
+        "template/.codex/agents/kty-developer.toml",
+        "template/.agents/skills/kty-harness/references/roles.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "d9425eaff37b5eb9ac1b1d70204a25be29abddd03e6890577b0a5ccd888b9963",
+      "target_exists": {
+        "template/.codex/agents/kty-developer.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/plan-reviewer.md",
+      "target_paths": [
+        "template/.codex/agents/kty-plan-reviewer.toml",
+        "template/.agents/skills/kty-harness/references/roles.md"
+      ],
+      "status": "portable",
+      "rationale": "Portable logical role mapped to Sol role; plugin calls replaced with explicit local contracts. Actual independent invocation must be evidenced.",
+      "source_sha256": "9dc37e99bf359f16791fd5bd62bf11f66589ced182e2cd1459c25017e908c7c7",
+      "target_exists": {
+        "template/.codex/agents/kty-plan-reviewer.toml": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/pr-author.md",
+      "target_paths": [
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "excluded",
+      "rationale": "Exam profile forbids external PR/push/publishing; local code review, explanation and audit retained elsewhere.",
+      "source_sha256": "9ff581176d37b7a9a202377d63e6ee93467945af9f0c4837de232da228d8df9f",
+      "target_exists": {
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/agents/pr-reviewer.md",
+      "target_paths": [
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "excluded",
+      "rationale": "Exam profile forbids external PR/push/publishing; local code review, explanation and audit retained elsewhere.",
+      "source_sha256": "d453c3e87f96546c08106e45ac4eaa0b039c9b008a04edb4de070611d8d01f67",
+      "target_exists": {
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/harness/harness.env.template",
+      "target_paths": [
+        "template/.harness/checks.json",
+        "template/.harness/project-profile.md",
+        "template/.harness/harness.py"
+      ],
+      "status": "limited",
+      "rationale": "Project/profile/principles preserved with exam-specific slots; JSON argv verification replaces parsed env. External knowledge and extra-repository gate knobs excluded.",
+      "source_sha256": "40e49fd04ad6f2c0ded820b78a38c03f0a0907ddd5219b20e699561d11282474",
+      "target_exists": {
+        "template/.harness/checks.json": true,
+        "template/.harness/project-profile.md": true,
+        "template/.harness/harness.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/harness/principles.md",
+      "target_paths": [
+        "template/.harness/principles.md"
+      ],
+      "status": "portable",
+      "rationale": "Project/profile/principles preserved with exam-specific slots; JSON argv verification replaces parsed env. External knowledge and extra-repository gate knobs excluded.",
+      "source_sha256": "37de99dc2c1209b3ed20417c4db13ba57d4c810219715ad4988e79e408fb61af",
+      "target_exists": {
+        "template/.harness/principles.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/harness/project-profile.template.md",
+      "target_paths": [
+        "template/.harness/project-profile.md"
+      ],
+      "status": "portable",
+      "rationale": "Project/profile/principles preserved with exam-specific slots; JSON argv verification replaces parsed env. External knowledge and extra-repository gate knobs excluded.",
+      "source_sha256": "2590af3dc27472f0747a25ef7a7bc040b3bae7508c3ba3d773801441c6005e7d",
+      "target_exists": {
+        "template/.harness/project-profile.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/_common.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "limited",
+      "rationale": "Claude hook runtime unavailable as equivalent; Codex SessionStart/Stop fingerprint verification and explicit role/audit contracts cover only a subset.",
+      "source_sha256": "38967e09cf8b44bb64b7a8ce37caf4fcf7b4fc8a87279f0bc8e6c54474a6c1bb",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/_extra_gate_dirs.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "limited",
+      "rationale": "Claude hook runtime unavailable as equivalent; Codex SessionStart/Stop fingerprint verification and explicit role/audit contracts cover only a subset.",
+      "source_sha256": "52c8d269bb41e737cca204f9bd17ab02372a0ba17db3e8b6a7563982a5d41a62",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/check-harness-env.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.harness/checks.json"
+      ],
+      "status": "limited",
+      "rationale": "JSON schema/argv validation replaces shell-env parsing and edit hook; verification is explicit, not equivalent post-edit interception.",
+      "source_sha256": "1f12352bd1be1ff82a7ec2b71e48fa8bd9552224412d126ed4f34661272a7e3a",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.harness/checks.json": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-codex-invocation.sh",
+      "target_paths": [
+        "template/.codex/config.toml",
+        "template/.codex/agents/",
+        "template/.harness/harness.py"
+      ],
+      "status": "limited",
+      "rationale": "Sol model declarations and controlled CLI launch replace Claude interception; effort enforcement intentionally removed. Cannot control every native invocation.",
+      "source_sha256": "6cceff750792eecf0a719a19956f4ba91dd98aed24e433c3a4bfbc3352efab66",
+      "target_exists": {
+        "template/.codex/config.toml": true,
+        "template/.codex/agents/": true,
+        "template/.harness/harness.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-codex-mcp.sh",
+      "target_paths": [
+        "template/.codex/config.toml",
+        "template/.codex/agents/",
+        "template/.harness/harness.py"
+      ],
+      "status": "limited",
+      "rationale": "Sol model declarations and controlled CLI launch replace Claude interception; effort enforcement intentionally removed. Cannot control every native invocation.",
+      "source_sha256": "9f20fc6d03580c71327addd1d415d207e93f39fd6baa5c1b46926700573f0994",
+      "target_exists": {
+        "template/.codex/config.toml": true,
+        "template/.codex/agents/": true,
+        "template/.harness/harness.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-design-path.sh",
+      "target_paths": [
+        "template/.agents/skills/kty-harness/references/workflow.md",
+        "template/.agents/skills/kty-harness/references/decision-memory.md"
+      ],
+      "status": "limited",
+      "rationale": "Design/plan routing and retrieval are explicit contracts; no equivalent pre-edit path interception.",
+      "source_sha256": "93c708cd93e4fab23258ebfa3e9cad4bb279b68250518c92fc6c6bef245d7cba",
+      "target_exists": {
+        "template/.agents/skills/kty-harness/references/workflow.md": true,
+        "template/.agents/skills/kty-harness/references/decision-memory.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-harness-drift.sh",
+      "target_paths": [
+        "template/.agents/skills/kty-harness/references/decision-memory.md",
+        "scripts/install.py"
+      ],
+      "status": "limited",
+      "rationale": "Restored explicit drift comparison contract; installer ownership manifest does not equal per-Bash worktree drift enforcement.",
+      "source_sha256": "e52d6dc0f0253e409db55efe52e06e61ce0f6ecee2f4271d31c9722070d26cfc",
+      "target_exists": {
+        "template/.agents/skills/kty-harness/references/decision-memory.md": true,
+        "scripts/install.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-hook-disable.sh",
+      "target_paths": [
+        "template/.harness/project-profile.md",
+        "template/AGENTS.block.md"
+      ],
+      "status": "limited",
+      "rationale": "Preserve platform security/settings instruction; no equivalent generic pre-tool tampering interception.",
+      "source_sha256": "020d4c97208d6292e490b0411784dac4e8aa2ca2d23c435be8547a5a7406283b",
+      "target_exists": {
+        "template/.harness/project-profile.md": true,
+        "template/AGENTS.block.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-master-commit.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "excluded",
+      "rationale": "Original branch/publish workflow omitted under exam no-PR/no-push/no-external-write policy; no equivalent pre-tool enforcement claimed.",
+      "source_sha256": "4f453bf54aad9b87637e40a0bca87012ff642f00043101f32e22133e18f27720",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/guard-publish-review.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "excluded",
+      "rationale": "Original branch/publish workflow omitted under exam no-PR/no-push/no-external-write policy; no equivalent pre-tool enforcement claimed.",
+      "source_sha256": "96812768724c1e913e0d824e340fd7c852a57da970d21e8df4806e9305b7bc16",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/mark-bash-window.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "limited",
+      "rationale": "Claude hook runtime unavailable as equivalent; Codex SessionStart/Stop fingerprint verification and explicit role/audit contracts cover only a subset.",
+      "source_sha256": "c8dbb3d010290eb0c2ae56c59832a8a8d5405e01bb52a565582b6b8df9741f1a",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/mark-needs-audit.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "limited",
+      "rationale": "Claude hook runtime unavailable as equivalent; Codex SessionStart/Stop fingerprint verification and explicit role/audit contracts cover only a subset.",
+      "source_sha256": "651e6ea5388a4c1463ca3e112ab57e0cce154a3ee933fb17aba104b055bab460",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/hooks/verify-before-stop.sh",
+      "target_paths": [
+        "template/.harness/harness.py",
+        "template/.agents/skills/kty-harness/references/workflow.md"
+      ],
+      "status": "limited",
+      "rationale": "Claude hook runtime unavailable as equivalent; Codex SessionStart/Stop fingerprint verification and explicit role/audit contracts cover only a subset.",
+      "source_sha256": "bcacb83e42f88dea2c2269ba7c5f2ae0592953d82e3899d0d7c933dc09a1310a",
+      "target_exists": {
+        "template/.harness/harness.py": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/settings.json",
+      "target_paths": [
+        "template/.codex/config.toml",
+        "template/.harness/harness.py"
+      ],
+      "status": "limited",
+      "rationale": "SessionStart/Stop support only; original PreToolUse/PostToolUse/Failure interception and needs-* lifecycle not ported as native equivalents.",
+      "source_sha256": "e28b58a395165dffb5a503c7afa57e31e3977c06a41ce0ea7f21d1373514ca0c",
+      "target_exists": {
+        "template/.codex/config.toml": true,
+        "template/.harness/harness.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/SKILL.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/SKILL.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "370abde4db17e014630a02c104aaadccb22a4f95f6044a58112890c7062513d7",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/SKILL.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/FETCHED",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/FETCHED"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "e50283f94f63bda1c8a554e973e71fd597b05dc640299f896c2ad32300132d03",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/FETCHED": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/LICENSE",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/LICENSE"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/LICENSE": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/NOTICE.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/NOTICE.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "bcb00c3762fa9dcc4b3bd7c6ae1e864c6c660b940c5c0ec4b81df73dbde1043c",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/NOTICE.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/docguide-READMEs.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/docguide-READMEs.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "f828604e0642fe7901257a6b262ceb62d3d856a7d14a4f68f3aee7a20538d041",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/docguide-READMEs.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/docguide-style.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/docguide-style.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "14e7fa7488371ab2d44beea6774c1c40d07a2bfae325434104968420d3d831c3",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/docguide-style.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/go-best-practices.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/go-best-practices.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "e44180b492c3585b4a20bd44e7cb277a55a9f264ad352f33f287b639e9e75b56",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/go-best-practices.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/go-decisions.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/go-decisions.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "3a0b54ef41aca49f8bf0a4d4ce2d0b4662721b52197256d121b6cc95616f4850",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/go-decisions.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/go-guide.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/go-guide.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "f12051c22045953c3688a85f9eba94f7cf61b6a769762671cdbf1ca4d2b3aa1b",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/go-guide.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/pyguide.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/pyguide.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "7ac0ba7803a5118a6c68c2aef8d8767a1d5a0026e9b3cea813796959a76ee896",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/pyguide.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/references/shellguide.md",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/shellguide.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "74d74f3ede1a3f487e3cf92d0d74cc76f1f7e248b1ca7581f77449c5d11101fd",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/shellguide.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/scripts/check-style.sh",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/scripts/check_style.py"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "10c7590389ff48cdc6fdec5deff60ad685c4b63c9c544be1f7f2412d428e056c",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/scripts/check_style.py": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/google-styleguide/scripts/fetch-guides.sh",
+      "target_paths": [
+        "template/.agents/skills/google-styleguide/references/"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "442935cfa62508ed56bcace484eb6955e7eaedcd879fd17a45f754679f6a7710",
+      "target_exists": {
+        "template/.agents/skills/google-styleguide/references/": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/harness-orchestrator/SKILL.md",
+      "target_paths": [
+        "template/.agents/skills/kty-harness/SKILL.md",
+        "template/.agents/skills/kty-harness/references/workflow.md",
+        "template/.agents/skills/kty-harness/references/roles.md",
+        "template/.agents/skills/kty-harness/references/research.md",
+        "template/.agents/skills/kty-harness/references/explanation.md",
+        "template/.agents/skills/kty-harness/references/decision-memory.md"
+      ],
+      "status": "limited",
+      "rationale": "Codex role pipeline, Sol A/B and read-only fallback replace Claude orchestration; PR/external transfer/effort/zero-finding quotas excluded. Restored decision-memory contracts; automatic hook enforcement remains non-equivalent.",
+      "source_sha256": "577a0e15186e20f7129338cad83a77a42a6945b54dda16391e19d1ffba972093",
+      "target_exists": {
+        "template/.agents/skills/kty-harness/SKILL.md": true,
+        "template/.agents/skills/kty-harness/references/workflow.md": true,
+        "template/.agents/skills/kty-harness/references/roles.md": true,
+        "template/.agents/skills/kty-harness/references/research.md": true,
+        "template/.agents/skills/kty-harness/references/explanation.md": true,
+        "template/.agents/skills/kty-harness/references/decision-memory.md": true
+      }
+    },
+    {
+      "original_path": "template/.claude/skills/readable-writing/SKILL.md",
+      "target_paths": [
+        "template/.agents/skills/readable-writing/SKILL.md"
+      ],
+      "status": "portable",
+      "rationale": "Bundled source reference or Codex-adapted skill/script. See snapshot.json and component report for exact-copy scope and executable changes.",
+      "source_sha256": "880c92cf35c1b0930c93fc63a7f1f966369804ac7ae9264f02cbb9267559a25e",
+      "target_exists": {
+        "template/.agents/skills/readable-writing/SKILL.md": true
+      }
+    },
+    {
+      "original_path": "template/CLAUDE.md.snippet",
+      "target_paths": [
+        "template/AGENTS.block.md",
+        "template/.agents/skills/kty-harness/SKILL.md"
+      ],
+      "status": "portable",
+      "rationale": "Codex AGENTS entry point replaces Claude bootstrap; exam constraints override external writes.",
+      "source_sha256": "d8cd4d48714e7d2a4531a3a3db3da91944fabbc1ef90d12f6c7c774e6d5b3f9b",
+      "target_exists": {
+        "template/AGENTS.block.md": true,
+        "template/.agents/skills/kty-harness/SKILL.md": true
+      }
+    }
+  ],
+  "limitations": [
+    "Inventory covers every tracked template/global-agents file at the pinned source revision, not every historical documentation or test body.",
+    "Portable mapping is not proof of behavioral equivalence; limited hooks retain explicit enforcement differences.",
+    "Actual Probe runtime is inaccessible and unverified."
+  ],
+  "source_repository": "xodbs1021/kty-claude-harness-template"
+}
