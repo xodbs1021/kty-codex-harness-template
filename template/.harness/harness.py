@@ -184,8 +184,12 @@ def launch(root, prompt, effort=None):
         path = root / ".codex/agents" / filename
         if not path.is_file():
             raise ValueError("역할 설정이 없습니다. 재설치하세요: " + str(path))
-    if prompt is not None:
-        command.extend(["--", prompt])
+    if prompt is None:
+        prompt = ("AGENTS.md와 .harness/setup.md, .harness/setup-status.md를 읽고 "
+                  "이전에 요청한 하네스 설치·설정의 남은 단계를 이어가라. "
+                  "완료한 단계는 근거를 확인하고 반복하지 말라. "
+                  "설정이 모두 끝났으면 상태만 짧게 알리고 다음 과제 요청을 기다려라.")
+    command.extend(["--", prompt])
     os.execvp(command[0], command)
 
 

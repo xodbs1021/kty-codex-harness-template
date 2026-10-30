@@ -65,6 +65,7 @@ class HarnessTest(unittest.TestCase):
         self.assertIn("# Existing project instructions", (self.root / "AGENTS.md").read_text())
         self.write(".harness/project-profile.md", "project-specific facts")
         self.write(".harness/task-evidence.md", "R1: user decision and measured evidence")
+        self.write(".harness/setup-status.md", "profile done; hook trust pending")
         self.checks()
         first = (self.root / "AGENTS.md").read_bytes()
         self.install()
@@ -72,6 +73,8 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual((self.root / ".harness/project-profile.md").read_text(), "project-specific facts")
         self.assertEqual((self.root / ".harness/task-evidence.md").read_text(),
                          "R1: user decision and measured evidence")
+        self.assertEqual((self.root / ".harness/setup-status.md").read_text(),
+                         "profile done; hook trust pending")
         self.assertEqual(len(json.loads((self.root / ".harness/checks.json").read_text())["checks"]), 1)
         hooks = json.loads((self.root / ".codex/hooks.json").read_text())["hooks"]
         self.assertEqual(len(hooks["Stop"]), 1)
@@ -166,6 +169,51 @@ class HarnessTest(unittest.TestCase):
         result = subprocess.run([sys.executable, str(INSTALLER), str(child)], capture_output=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(list(child.iterdir()), [])
+
+    def test_import_repository_is_not_an_install_target(self):
+        result = subprocess.run([sys.executable, str(INSTALLER), str(SOURCE)],
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("실제 과제 Git 루트", result.stderr)
+
+    def test_setup_context_records_paths_without_claiming_activation(self):
+        result = self.install("--no-hooks")
+        context = json.loads((self.root / ".harness/state/setup-context.json").read_text())
+        self.assertEqual(context["task_root"], str(self.root.resolve()))
+        self.assertEqual(context["source_root"], str(SOURCE))
+        self.assertEqual(context["knowledge_root"], str(SOURCE / "knowledge/semiconductor"))
+        self.assertFalse(context["hooks_requested"])
+        self.assertIn(".harness/setup.md", result.stdout)
+        self.assertIn("아직 별도", result.stdout)
+        self.assertFalse((self.root / ".harness/state/verification.json").exists())
+
+    def test_setup_context_symlink_is_rejected_before_installation(self):
+        outside = Path(self.temp.name) / "outside.json"
+        outside.write_text("preserve")
+        context = self.root / ".harness/state/setup-context.json"
+        context.parent.mkdir(parents=True)
+        context.symlink_to(outside)
+        self.install(success=False)
+        self.assertEqual(outside.read_text(), "preserve")
+        self.assertFalse((self.root / "AGENTS.md").exists())
+
+    def test_default_launcher_resumes_setup_and_explicit_prompt_is_preserved(self):
+        self.install()
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nimport json,sys\nprint(json.dumps(sys.argv[1:]))\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        result = subprocess.run(["bash", str(self.root / ".harness/codex.sh")],
+                                env=env, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        args = json.loads(result.stdout)
+        self.assertIn(".harness/setup-status.md", args[-1])
+        self.assertEqual(args[-2], "--")
+        self.assertEqual(args[args.index("--cd") + 1], str(self.root.resolve()))
+        self.assertNotIn("--sandbox", args)
+        explicit = json.loads(self.command("codex", "implement only this task", env=env).stdout)
+        self.assertEqual(explicit[-1], "implement only this task")
 
     def test_empty_checks_fail_and_do_not_issue_passing_receipt(self):
         self.install()

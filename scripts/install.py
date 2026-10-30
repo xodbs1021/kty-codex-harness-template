@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 
@@ -12,7 +13,8 @@ import sys
 SOURCE = Path(__file__).resolve().parents[1]
 START = "<!-- kty-codex-harness:start -->"
 END = "<!-- kty-codex-harness:end -->"
-SLOTS = {".harness/project-profile.md", ".harness/checks.json", ".harness/task-evidence.md"}
+SLOTS = {".harness/project-profile.md", ".harness/checks.json", ".harness/task-evidence.md",
+         ".harness/setup-status.md"}
 IGNORE = ["/.harness/state/", "/.harness/work/", "/.harness/vendor/kty-codex-harness/"]
 HOOK_COMMAND = 'python3 "$(git rev-parse --show-toplevel)/.harness/harness.py" hook'
 LEGACY_CONFIG = (b"# Only model defaults; authentication, permissions and platform settings are inherited.\n"
@@ -71,6 +73,8 @@ def install(root, hooks=True):
     if sys.version_info < (3, 9):
         raise ValueError("전체 설치에는 Python 3.9 이상이 필요합니다. README의 문서형 모드도 확인하세요.")
     root = root.resolve(strict=True)
+    if root == SOURCE.resolve():
+        raise ValueError("반입한 하네스 자체에는 설치하지 않습니다. 실제 과제 Git 루트를 지정하세요.")
     actual = subprocess.check_output(
         ["git", "-C", str(root), "rev-parse", "--show-toplevel"], text=True,
     ).strip()
@@ -118,6 +122,14 @@ def install(root, hooks=True):
     if hooks:
         path = safe_path(root, ".codex/hooks.json")
         changes[".codex/hooks.json"] = hook_config(path.read_text() if path.exists() else "").encode()
+    context = {
+        "source_root": str(SOURCE), "task_root": str(root),
+        "knowledge_root": str(SOURCE / "knowledge/semiconductor"),
+        "hooks_requested": hooks,
+    }
+    safe_path(root, ".harness/state/setup-context.json")
+    changes[".harness/state/setup-context.json"] = (
+        json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode()
     # Validate every destination before writing anything; conflicts do not leave partial installs.
     for name, content in changes.items():
         path = safe_path(root, name)
@@ -127,13 +139,16 @@ def install(root, hooks=True):
             path.chmod(0o755)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(managed, indent=2) + "\n")
-    print("설치 완료: " + str(root))
-    print("모델: gpt-6.1-sol / effort 미지정 — bash .harness/codex.sh 로 실행")
-    print("프로필과 checks.json을 채운 뒤 python3 .harness/harness.py verify 실행")
+    print("파일 설치 완료 (과제 설정·런타임 활성화·실행 검증은 아직 별도): " + str(root))
+    print("제공 Codex: 여기서 종료하지 말고 .harness/setup.md를 읽어 남은 설정과 검증을 이어가세요.")
+    print("진행 기록: .harness/setup-status.md / 반입 경로: .harness/state/setup-context.json")
+    print("모델: gpt-6.1-sol / effort 미지정. 현재 세션에서 가능한 단계는 먼저 완료하세요.")
+    print("새 세션이 필요한 경우 사용자 터미널 명령 (에이전트 도구 안에서 중첩 실행 금지):")
+    print("cd " + shlex.quote(str(root)) + " && bash .harness/codex.sh")
     if hooks:
         print("네이티브 훅은 Codex의 /hooks에서 검토·신뢰 후 활성화됩니다.")
     else:
-        print("훅 미설치: 검증 명령을 명시적으로 실행하세요.")
+        print("이번 설치는 훅을 추가하지 않았습니다. 기존 훅 상태는 유지됩니다. 검증은 명시적으로 실행하세요.")
 
 
 def main():

@@ -1,6 +1,9 @@
 <!-- kty-codex-harness:start -->
 ## KTY Codex 하네스
 
+사용자가 하네스 설치·적용·설정 이어가기를 요청하면 파일 복사에서 멈추지 말고
+`.harness/setup.md`를 읽어 과제 설정·활성화 확인·검증까지 수행한다.
+진행과 남은 사용자 조치는 `.harness/setup-status.md`에 남긴다.
 코드 변경·계획·검수는 `.agents/skills/kty-harness/SKILL.md`를 읽고 수행한다.
 프로젝트 사실은 `.harness/project-profile.md`, 원칙은 `.harness/principles.md`,
 검증 명령은 `.harness/checks.json`이 정본이다.
