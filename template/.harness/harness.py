@@ -14,8 +14,11 @@ import time
 
 
 MODEL = "gpt-6.1-sol"
-ROLES = {"kty_" + role: "kty-" + role + ".toml"
-         for role in ("planner", "developer", "reviewer", "auditor")}
+ROLE_NAMES = ("clarifier", "research_collector", "research_evaluator", "architect",
+              "planner", "plan_reviewer", "developer", "reviewer", "security_reviewer",
+              "test_analyzer", "change_explainer", "architecture_guide", "auditor")
+ROLES = {"kty_" + role: "kty-" + role.replace("_", "-") + ".toml" for role in ROLE_NAMES}
+READONLY_ROLES = tuple(role.replace("_", "-") for role in ROLE_NAMES if role != "developer")
 STATE_PREFIXES = (".harness/state/", ".harness/work/")
 
 
@@ -204,9 +207,13 @@ def readonly_role(root, role, task, effort=None):
               ".harness/principles.md를 읽어 적용하라. "
               "파일을 수정하거나 권한을 확대하지 말고 결과만 응답으로 반환하라. "
               "다른 에이전트를 만들지 마라. 실행할 수 없는 검증은 그 한계를 밝혀라.\n\n"
-              "검수·감사 요청:\n" + task)
+              "역할 요청:\n" + task)
     command = ["codex", "exec", "--cd", str(root), "--model", MODEL,
                *effort_args(effort), "--sandbox", "read-only", "--ephemeral", "--", prompt]
+    # These are non-interactive role requests. Do not inherit a terminal/pipe that
+    # can leave codex exec waiting for additional prompt input.
+    with open(os.devnull, "rb") as empty_input:
+        os.dup2(empty_input.fileno(), 0)
     os.execvp(command[0], command)
 
 
@@ -224,6 +231,10 @@ def main():
         command = commands.add_parser(role)
         command.add_argument("--effort", metavar="LEVEL", help="허용된 추론 강도를 명시할 때만 사용")
         command.add_argument("task")
+    role_command = commands.add_parser("role", help="설치된 역할을 독립 읽기 전용 Codex로 실행")
+    role_command.add_argument("role", choices=READONLY_ROLES)
+    role_command.add_argument("--effort", metavar="LEVEL", help="허용된 추론 강도를 명시할 때만 사용")
+    role_command.add_argument("task")
     args = parser.parse_args()
     try:
         root = args.root.resolve()
@@ -233,6 +244,8 @@ def main():
             print(fingerprint(root))
         elif args.command == "codex":
             launch(root, args.prompt, args.effort)
+        elif args.command == "role":
+            readonly_role(root, args.role.replace("-", "_"), args.task, args.effort)
         elif args.command in ("review", "audit"):
             readonly_role(root, "reviewer" if args.command == "review" else "auditor", args.task,
                           args.effort)

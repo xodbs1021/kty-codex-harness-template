@@ -46,7 +46,11 @@
 
 - 현재 세션의 실제 모델·effort·네이티브 역할·훅 지원을 제공 도구의 정보로 확인한다.
   설정 파일은 의도이며 현재 모델의 증거가 아니다. effort를 임의로 고정하지 않는다.
-- 역할 파일 복사, Skill 직접 읽기, 자동 발견, 실제 호출을 구분한다. 자동 발견이 안 돼도
+- 역할 파일 복사, Skill 직접 읽기, 자동 발견, 실제 호출을 구분한다.
+  roles.md의 13개 역할 목록과 설치 파일을 대조하고 필요한 역할만 실제 호출한다.
+  설치 확인을 위해 모든 개발 역할을 불필요하게 실행하지 않는다.
+  clarifier·research-collector/evaluator·architect·plan-reviewer·security-reviewer·test-analyzer·
+  change-explainer·architecture-guide의 호출 조건은 references/workflow.md에 연결돼 있다. 자동 발견이 안 돼도
   직접 읽기와 사용 가능한 독립 리뷰 방식으로 계속한다.
 - 새 세션이 필요한 경우 현재 진행을 setup-status에 기록한다. 사용자가 터미널에서
   `cd <확인한 과제 루트> && bash .harness/codex.sh`를 실행하도록 실제 경로로 한 줄을 제공한다.

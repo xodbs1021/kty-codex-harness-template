@@ -84,3 +84,13 @@
 - 실제 검증 명령: `.harness/checks.json` — 다른 문서에 명령 정본을 중복 관리하지 않는다.
 - 진행 상태: `.harness/work/progress.md`, 검수 결과: `.harness/work/review.md`
 - 외부 개인 지식 저장소 의존은 없다. 과제 작업 공간 안의 사실과 확인된 결정을 사용한다.
+
+## 9. 선행 결정·조사·설명의 연결
+
+- 선행 결정 진입점은 실제 과제 README·기존 AGENTS.md·이 프로필·task-evidence.md와
+  `.harness/work/clarifier-qa.md`, `progress.md`다. 존재하는 자료만 읽고 개인 vault·claude-mem은 요구하지 않는다.
+- 개발 착수 전 clarifier가 중요 모호함을 확인한다. 조사 필요성을 판단하고 필요한 경우
+  collector와 evaluator를 분리한다. 채택 근거를 설계·계획에 연결하고 별도 plan-reviewer가 확인한다.
+- 변경 설명은 실제 diff·검증 결과에 근거해 사용자에게 전달한다. 구조 설명 질문은 architecture-guide가 담당한다.
+- 완료 감사는 위 단계의 실제 근거와 미실행을 확인한다. 자동 훅과 별개의 역할 절차다.
+- 실행 순서와 상세 계약의 정본은 Skill의 `references/workflow.md`, `research.md`, `explanation.md`다.

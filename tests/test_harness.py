@@ -355,6 +355,60 @@ class HarnessTest(unittest.TestCase):
             self.assertIn("kty-" + role + ".toml", args[-1])
             self.assertIn("Inspect current code", args[-1])
 
+    def test_all_readonly_roles_route_to_matching_installed_contract(self):
+        self.install("--no-hooks")
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nimport json,sys\nprint(json.dumps(sys.argv[1:]))\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        roles = ("clarifier", "research-collector", "research-evaluator", "architect", "planner",
+                 "plan-reviewer", "reviewer", "security-reviewer", "test-analyzer",
+                 "change-explainer", "architecture-guide", "auditor")
+        task = "literal request: $(touch forbidden); 'quoted'\nsecond line"
+        for role in roles:
+            with self.subTest(role=role):
+                args = json.loads(self.command("role", role, task, env=env).stdout)
+                self.assertEqual(args[args.index("--sandbox") + 1], "read-only")
+                self.assertEqual(args[args.index("--model") + 1], "gpt-6.1-sol")
+                self.assertIn("kty-" + role + ".toml", args[-1])
+                self.assertTrue(args[-1].endswith(task))
+                self.assertFalse(any("model_reasoning_effort" in arg for arg in args))
+                self.assertTrue((self.root / ".codex/agents" / ("kty-" + role + ".toml")).is_file())
+        self.assertFalse((self.root / "forbidden").exists())
+        args = json.loads(self.command("role", "clarifier", "--effort", "high", "request", env=env).stdout)
+        self.assertEqual(args[args.index("--config") + 1], 'model_reasoning_effort="high"')
+        self.command("role", "developer", "must not launch writable work", success=False, env=env)
+        self.command("role", "not-a-role", "must not launch", success=False, env=env)
+        (self.root / ".codex/agents/kty-clarifier.toml").unlink()
+        self.command("role", "clarifier", "missing contract", success=False, env=env)
+
+    def test_readonly_roles_close_inherited_stdin(self):
+        self.install()
+        fake = self.root / "bin/codex"
+        fake.parent.mkdir()
+        fake.write_text('#!/usr/bin/env python3\nimport sys\nprint(repr(sys.stdin.read()))\n')
+        fake.chmod(0o755)
+        env = dict(os.environ, PATH=str(fake.parent) + os.pathsep + os.environ["PATH"])
+        for args in (("role", "clarifier", "task"), ("review", "task"), ("audit", "task")):
+            result = self.command(*args, stdin="must not become additional prompt", env=env)
+            self.assertEqual(result.stdout.strip(), "''")
+
+    def test_upgrade_adds_roles_and_preserves_existing_task_facts(self):
+        self.install()
+        old_names = ("planner", "developer", "reviewer", "auditor")
+        for path in (self.root / ".codex/agents").glob("*.toml"):
+            if path.stem.removeprefix("kty-") not in old_names:
+                path.unlink()
+        self.write(".harness/project-profile.md", "confirmed task facts")
+        self.write(".harness/work/clarifier-qa.md", "confirmed prior answer")
+        self.install()
+        self.assertEqual(len(list((self.root / ".codex/agents").glob("*.toml"))), 13)
+        self.assertEqual((self.root / ".harness/project-profile.md").read_text(), "confirmed task facts")
+        self.assertEqual((self.root / ".harness/work/clarifier-qa.md").read_text(), "confirmed prior answer")
+        for name in ("workflow.md", "research.md", "explanation.md"):
+            self.assertTrue((self.root / ".agents/skills/kty-harness/references" / name).is_file())
+
     def test_effort_is_forwarded_only_on_explicit_request(self):
         self.install()
         fake = self.root / "bin/codex"

@@ -5,6 +5,8 @@
 
 | 역할 | 할 일 | 완료 조건 |
 | --- | --- | --- |
+| research-collector | 출처·원문 위치·적용 조건 수집 | 재검증 가능한 수집물과 공백 반환 |
+| research-evaluator | 새 컨텍스트에서 원문 대조·평가 | 채택·보류·기각 및 근거 반환 |
 | clarifier | 실제 요구·제약·기존 결정을 확인 | 사용자 판단이 필요한 미확인점이 정리됨 |
 | architect | 구조적 변경의 계약·대안·흐름 검토 | 실제 코드와 불변식에 모순 없음 |
 | planner | 파일·단계·검증·위험·시간 배분 | 필수 동작마다 구현과 확인 방법 존재 |
@@ -12,6 +14,8 @@
 | developer | 승인된 범위의 코드와 의미 있는 검증 작성 | 실제 명령 성공 또는 실패 원인 보고 |
 | reviewer | 변경 양쪽 경계·호출자·오류·회귀 확인 | 차단 지적 해결, 미해결 사항 기록 |
 | security-reviewer | 해당하는 입력·인증·저장·외부 연결 확인 | 구체적 피해 경로를 검증·처리 |
+| test-analyzer | assertion·반례·mock 경계·회귀 방어 확인 | 실제 검증력과 빠진 사례 반환 |
+| architecture-guide | 구조의 이유·대안·장단점·코드 근거 설명 | 의도와 추론을 구분한 설명 |
 | change-explainer | 결과·이유·대안·실행 흐름 설명 | 응시자가 자신의 선택과 한계를 이해 |
 | completion-auditor | 최신 코드·검증·필수 파일 대조 | 코드 완료와 실제 동작·제출 완료 구분 |
 
@@ -22,11 +26,46 @@ CRITICAL·HIGH는 해결 전 완료로 처리하지 않는다. 재현이나 경�
 선행 결정·조사를 했으면 읽은 경로·URL과 이번 작업에 적용한 결론을 적는다.
 조사가 불필요하거나 불가능하면 구체적인 이유를 적는다. 형식만 채운 기록은 근거가 아니다.
 
+## 실제 역할 이름과 실행
+
+| 계약 | 네이티브 이름 | 읽기 전용 CLI role 이름 |
+| --- | --- | --- |
+| clarifier | kty_clarifier | clarifier |
+| research-collector | kty_research_collector | research-collector |
+| research-evaluator | kty_research_evaluator | research-evaluator |
+| architect | kty_architect | architect |
+| planner | kty_planner | planner |
+| plan-reviewer | kty_plan_reviewer | plan-reviewer |
+| developer | kty_developer | 해당 없음: 쓰기 허용된 메인/역할 사용 |
+| reviewer | kty_reviewer | reviewer (`review` 별칭 유지) |
+| security-reviewer | kty_security_reviewer | security-reviewer |
+| test-analyzer | kty_test_analyzer | test-analyzer |
+| change-explainer | kty_change_explainer | change-explainer |
+| architecture-guide | kty_architecture_guide | architecture-guide |
+| completion-auditor | kty_auditor | auditor (`audit` 별칭 유지) |
+
+`python3 .harness/harness.py role <이름> '<실제 입력>'`은 해당 TOML과 관련 reference를 읽는
+별도 Sol CLI를 실행한다. 이름 등록 실패 시에도 [workflow.md](workflow.md)의 직접 전달 경로를 쓴다.
+메인은 맥락·입력·출력·역할별 독립 여부를 기록한다. 파일 복사나 도움말 출력은 실제 실행 증거가 아니다.
+
+## 조건부 보안·테스트 검토
+
+보안 경계 변경은 security-reviewer에게 실제 입력·권한·데이터 흐름을 전달한다.
+인증/인가 누락·입력 검증·쿼리 구성·경로 탈출·비밀 노출·외부 호출 실패 중 관련 항목만 검토한다.
+지적은 구체적인 피해 경로와 코드 근거를 요구한다. 스타일 지적을 보안 결함으로 부풀리지 않는다.
+
+test-analyzer는 검사가 현재 실패를 실제로 잡는지, assertion이 결과를 검증하는지,
+mock이 핵심 경계를 가렸는지, 정상/경계/실패 입력과 회귀 방어가 있는지 확인한다.
+코드 읽기만으로 확인한 것과 실행한 검사를 구분하고 실제 파일 수정은 메인에게 돌려준다.
+
 ## Sol + Sol 검수 호출
 
-이 해커톤 프로필의 검수는 reviewer 두 개의 독립 실행으로 수행한다.
-별도 역할 파일 두 개가 필요한 것은 아니다. `kty_reviewer`를 새 컨텍스트로 두 번 호출하거나,
-아래 읽기 전용 명령을 서로 다른 요청으로 각각 실행한다.
+이 해커톤 프로필의 설계·계획·코드 검수는 각 게이트마다 Sol A/B 두 개의 독립 실행으로 수행한다.
+설계/계획은 plan-reviewer를, 코드는 reviewer를 두 번 새로 호출한다. PR 게이트는 시험 흐름에서 제외한다.
+별도 역할 파일 두 개가 필요한 것은 아니다. 코드 검수는 `kty_reviewer`를 새 컨텍스트로 두 번 호출하거나,
+아래 코드 검수용 읽기 전용 명령을 서로 다른 요청으로 각각 실행한다.
+설계/계획 각 pass는 `harness.py role plan-reviewer`를 A/B로 두 번 호출한다.
+고위험 단독 지적의 교차 확인·기각·미확정 처리는 workflow 4단계를 각 게이트에 적용한다.
 
 ```bash
 python3 .harness/harness.py review '리뷰 A: [대상·요구·판정 기준] 정확성과 보안을 검토하되 요구·계약·호출자·회귀에 중점을 두고, 이전 리뷰 결과를 읽지 말라.'
