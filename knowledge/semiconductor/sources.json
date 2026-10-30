@@ -1,0 +1,128 @@
+[
+  {
+    "id": "S01",
+    "publisher": "OpenStax",
+    "title": "Electrical Current",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-1-electrical-current",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "전하 이동률과 관습적 전류 방향"
+  },
+  {
+    "id": "S02",
+    "publisher": "OpenStax",
+    "title": "Ohm’s Law",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "옴성 물질에서 전압·전류 비례와 적용 한계"
+  },
+  {
+    "id": "S03",
+    "publisher": "OpenStax",
+    "title": "Capacitors and Capacitance",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "전하 저장·정전용량·평행판 근사"
+  },
+  {
+    "id": "S04",
+    "publisher": "OpenStax",
+    "title": "Electric Power",
+    "url": "https://openstax.org/books/physics/pages/19-4-electric-power",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "전력·에너지와 저항에서 소비 전력"
+  },
+  {
+    "id": "S05",
+    "publisher": "OpenStax",
+    "title": "Semiconductors and Doping",
+    "url": "https://openstax.org/books/university-physics-volume-3/pages/9-6-semiconductors-and-doping",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "밴드·전자·정공·도핑의 기본 원리"
+  },
+  {
+    "id": "S06",
+    "publisher": "Toshiba",
+    "title": "What is an N-type semiconductor?",
+    "url": "https://toshiba.semicon-storage.com/us/semiconductor/knowledge/faq/common_common/what-is-an-n-type-semiconductor.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "실리콘의 donor 도핑과 전자"
+  },
+  {
+    "id": "S07",
+    "publisher": "Toshiba",
+    "title": "What is a P-type semiconductor?",
+    "url": "https://toshiba.semicon-storage.com/us/semiconductor/knowledge/faq/common_common/what-is-a-p-type-semiconductor.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "실리콘의 acceptor 도핑과 정공"
+  },
+  {
+    "id": "S08",
+    "publisher": "NIST",
+    "title": "Prefixes for binary multiples",
+    "url": "https://pml.nist.gov/cuu/Units/binary.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "bit/byte와 SI·이진 접두어"
+  },
+  {
+    "id": "S09",
+    "publisher": "ETSU / David Tarnoff",
+    "title": "Digital Signals and Binary Numbers",
+    "url": "https://faculty.etsu.edu/tarnoff/ntes2150/dig_bin/dig_bin.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "주기·주파수·듀티·기본 논리; 2003년 이후 미갱신 자료로 안정적 정의만 사용"
+  },
+  {
+    "id": "S10",
+    "publisher": "NIST",
+    "title": "Semiconductor Glossary",
+    "url": "https://www.nist.gov/semiconductors/semiconductor-glossary",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "wafer·IC·transistor·fab 용어"
+  },
+  {
+    "id": "S11",
+    "publisher": "ASML",
+    "title": "Six crucial steps in semiconductor manufacturing",
+    "url": "https://www.asml.com/en/company/stories/2021/semiconductor-manufacturing-process-steps",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "웨이퍼에서 다이 분리·패키징 개요만 사용; 제품 수치는 사용하지 않음"
+  },
+  {
+    "id": "S12",
+    "publisher": "SK hynix",
+    "title": "Semiconductor 101: What’s What",
+    "url": "https://news.skhynix.com/en/semiconductor-101-sk-hynix-explains-whats-what-in-the-semiconductor-world/",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "메모리·로직 분류와 휘발성·비휘발성"
+  },
+  {
+    "id": "S13",
+    "publisher": "Intel",
+    "title": "Memory Performance in a Nutshell",
+    "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/memory-performance-in-a-nutshell.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "지연시간·대역폭의 정의만 사용; 2016년 제품 설명은 현행 정보로 사용하지 않음"
+  },
+  {
+    "id": "S14",
+    "publisher": "OpenStax",
+    "title": "Electric Potential and Potential Difference",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "전위차와 단위 전하당 에너지"
+  }
+]
