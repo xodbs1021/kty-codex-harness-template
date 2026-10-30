@@ -15,14 +15,14 @@
 | path | 이 폴더 기준 Markdown 경로 |
 | source_ids | `sources.json`에서 찾을 출처 ID 배열 |
 | checked_at | YYYY-MM-DD, 실제 출처 확인일 |
-| evidence | 현재 `primary-source-synthesis`: 1차 교육 자료를 자체 종합 |
-| scope | 현재 `general-fundamentals`: 공개 일반 원리 |
+| evidence | 현재 `primary-source-synthesis`: 공개 1차 자료를 자체 종합 |
+| scope | `general-fundamentals`: 기초 원리, `general-devices-process`: 소자·공정 원리 |
 | problem_signals | 적용 전에 물어볼 질문 배열. 실제 출제 예측이 아님 |
 | metrics | 관련 측정량과 단위의 검색용 이름. 실제 데이터 컬럼명이 아님 |
 
 `sources.json`의 각 객체에는 `id`, `publisher`, `title`, `url`, `checked_at`,
 `source_type`, `used_for`가 있다. 원문 제목·URL과 적용한 범위를 보존한다.
-`primary_educational`은 원 작성 기관의 교육 자료라는 뜻이며 표준 규격과 동급이라는 뜻은 아니다.
+`primary_educational`은 원 작성 기관의 기술·교육 자료, `primary_press_release`는 원 발표 기관의 보도자료다. 표준 규격과 동급이라는 뜻은 아니다.
 확인일과 자료 발행일은 다르다. 오래된 자료는 안정적인 정의만 사용하며 제품 현황은 가져오지 않는다.
 
 숫자·단위가 중요한 계산은 본문의 적용 조건까지 읽는다. 색인 키워드 일치만으로 공식을 선택하지 않는다.

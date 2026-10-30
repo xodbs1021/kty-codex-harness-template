@@ -5,7 +5,7 @@
 | 단계 | 범위 | 상태 |
 | --- | --- | --- |
 | 1 | 전기·반도체·단위·디지털·제품 분류 기초 | 본문·색인 제공 |
-| 2 | PN 접합·MOSFET·CMOS·제조 공정·계측·검사 | 미작성 |
+| 2 | PN 접합·MOSFET·CMOS·제조 공정·계측·검사 | 본문·색인 제공 |
 | 3 | DRAM·NAND 동작·HBM·적층·패키징·신뢰성 | 미작성 |
 | 4 | 수율·불량·장비 시계열 등 데이터 문제 적용·통합 검증 | 미작성 |
 
@@ -23,4 +23,21 @@
 - [F10 메모리·로직·휘발성 구분](fundamentals/memory-map.md) — 선수: F07, F09
 - [F11 용량·대역폭·지연시간](fundamentals/capacity-bandwidth-latency.md) — 선수: F07, F08, F10
 
-문제를 받은 뒤에는 전부 순서대로 읽지 말고 index.jsonl의 problem_signals와 aliases로 필요한 항목을 고른다. 단계 2–4의 주제가 검색돼도 1단계 정의를 심화 검증 자료로 취급하지 않는다.
+문제를 받은 뒤에는 전부 순서대로 읽지 말고 index.jsonl의 problem_signals와 aliases로 필요한 항목을 고른다. 단계 3–4의 주제가 검색돼도 앞 단계 정의를 심화 검증 자료로 취급하지 않는다.
+
+## 2단계 읽기 지도
+
+- [P01 PN 접합·공핍층·바이어스](devices-process/pn-junction.md) — 선수: F01, F05, F06
+- [P02 MOSFET·문턱전압·동작 영역](devices-process/mosfet.md) — 선수: P01, F03
+- [P03 CMOS 인버터·동적 전력·누설](devices-process/cmos-power.md) — 선수: P02, F04, F08
+- [P04 공정 흐름·FEOL·배선·후공정](devices-process/process-flow.md) — 선수: F09, P02
+- [P05 열산화·산화막·절연](devices-process/oxidation.md) — 선수: F03, F05, P04
+- [P06 증착·PVD·CVD·ALD](devices-process/deposition.md) — 선수: P04, F03
+- [P07 포토리소그래피·노광·현상](devices-process/lithography.md) — 선수: P04
+- [P08 식각·선택비·이방성](devices-process/etch.md) — 선수: P06, P07
+- [P09 이온 주입·확산·어닐링](devices-process/implant-anneal.md) — 선수: F06, P04
+- [P10 CMP·평탄화·표면 손상](devices-process/cmp.md) — 선수: P06, P08
+- [P11 금속 배선·컨택·비아·다마신](devices-process/interconnect.md) — 선수: F02, P06, P08, P10
+- [P12 계측·검사·CD·오버레이](devices-process/metrology-inspection.md) — 선수: P07, P08, F09
+- [P13 전기적 검사·EPM·웨이퍼 테스트](devices-process/electrical-test.md) — 선수: P02, P11, P12
+- [P14 세정·오염·잔사](devices-process/cleaning.md) — 선수: P04, P07
