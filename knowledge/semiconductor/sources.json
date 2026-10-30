@@ -610,5 +610,140 @@
     "checked_at": "2026-10-30",
     "source_type": "primary_educational",
     "used_for": "2모수 Weibull의 생존함수·hazard·특성수명. 원문의 alpha/gamma를 본문 eta/beta로 명시해 대응"
+  },
+  {
+    "id": "S69",
+    "publisher": "pandas",
+    "title": "pandas.merge",
+    "url": "https://pandas.pydata.org/docs/reference/api/pandas.merge.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "결합 키·카디널리티 검증·미매칭·null 키 주의. 라이브러리 설치 요구가 아님"
+  },
+  {
+    "id": "S70",
+    "publisher": "NIST/SEMATECH",
+    "title": "Confidence intervals",
+    "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "이항 비율 Wilson 신뢰구간과 표본 수 조건"
+  },
+  {
+    "id": "S71",
+    "publisher": "NIST/SEMATECH",
+    "title": "Proportions Control Charts",
+    "url": "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc332.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "불량 개체 비율·독립 이항 가정·p 관리도. 가변 분모 예제는 해당 식을 각 n에 적용"
+  },
+  {
+    "id": "S72",
+    "publisher": "NIST/SEMATECH",
+    "title": "What is Process Capability?",
+    "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "안정 공정의 Cp/Cpk·정규모형·규격과 변동의 구분"
+  },
+  {
+    "id": "S73",
+    "publisher": "NIST/SEMATECH",
+    "title": "Assessing Process Stability",
+    "url": "https://www.itl.nist.gov/div898/handbook/ppc/section4/ppc45.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "시간 순서·평균/분산·자기상관을 통한 안정성 점검"
+  },
+  {
+    "id": "S74",
+    "publisher": "NIST/SEMATECH",
+    "title": "How do you select an experimental design?",
+    "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri33.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "비교·요인 선별·상호작용 등 목적별 실험 설계 구분"
+  },
+  {
+    "id": "S75",
+    "publisher": "pandas",
+    "title": "pandas.merge_asof",
+    "url": "https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "backward/forward/nearest·그룹·허용 시간차. 이벤트/가용 시각의 추가 검증은 자체 적용 절차"
+  },
+  {
+    "id": "S76",
+    "publisher": "scikit-learn",
+    "title": "Common pitfalls and recommended practices",
+    "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "분할 후 전처리 적합·테스트 누수 방지·재현성"
+  },
+  {
+    "id": "S77",
+    "publisher": "scikit-learn",
+    "title": "Cross-validation: evaluating estimator performance",
+    "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "그룹 분리와 시간 분리의 목적. 두 제약을 동시에 만족하는 설계는 별도 필요"
+  },
+  {
+    "id": "S78",
+    "publisher": "scikit-learn",
+    "title": "Metrics and scoring: quantifying the quality of predictions",
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "precision/recall/F1·AP·MAE/RMSE·R²·MAPE의 정의와 적용 조건"
+  },
+  {
+    "id": "S79",
+    "publisher": "scikit-learn",
+    "title": "Novelty and Outlier Detection",
+    "url": "https://scikit-learn.org/stable/modules/outlier_detection.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "정상 학습 기준의 신규 이상 탐지와 오염된 학습 자료의 이상치 탐지 구분"
+  },
+  {
+    "id": "S80",
+    "publisher": "scikit-learn",
+    "title": "Imputation of missing values",
+    "url": "https://scikit-learn.org/stable/modules/impute.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "결측 대치·결측 표시 변수. 결측 원인을 해결하거나 정답을 대치한다는 뜻은 아님"
+  },
+  {
+    "id": "S81",
+    "publisher": "NIST/SEMATECH",
+    "title": "Gauge R & R studies",
+    "url": "https://www.itl.nist.gov/div898/handbook/mpc/section4/mpc4.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "측정 장비의 반복성·재현성·안정성·편향 점검"
+  },
+  {
+    "id": "S82",
+    "publisher": "NIST/SEMATECH",
+    "title": "Scatter Plot",
+    "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "관계·비선형·조건부 부분집합·산포 탐색. 자체 교란 예제를 원인 증거로 사용하지 않음"
+  },
+  {
+    "id": "S83",
+    "publisher": "scikit-learn",
+    "title": "DummyClassifier",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "입력 특징을 무시하는 단순 분류 기준선의 역할"
   }
 ]

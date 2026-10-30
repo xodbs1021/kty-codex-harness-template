@@ -8,7 +8,7 @@
 | 2 | PN 접합·MOSFET·CMOS·제조 공정·계측·검사 | 본문·색인 제공 |
 | 3 | DRAM·NAND 동작·리프레시·타이밍·오류·ECC 기초 | 본문·색인 제공 |
 | 4 | HBM·TSV·적층·본딩·패키징·열/전력·신뢰성 | 본문·색인 제공 |
-| 5 | 수율·불량·장비 시계열 등 데이터 문제 적용·통합 검증 | 미작성 |
+| 5 | 수율·불량·장비 시계열 등 데이터 문제 적용·통합 검증 | 본문·색인·합성 검사 제공 |
 
 ## 1단계 읽기 지도
 
@@ -83,4 +83,22 @@ DRAM은 M01 → M02 → M03/M04/M05, NAND는 M06 → M07/M09 → M08/M10/M12 순
 구조는 H01 → H02/H03 → H04/H05, 열·전력은 H06 → H07/H08 순으로 연결한다.
 검사·신뢰성은 H09/H10 → H11 → H12 → H13/H14를 읽고, 원인 증거는 H15로 점검한다.
 현재 세대 제품 사양·제조 레시피·수명 보증값을 제공하는 자료가 아니다.
-5단계 데이터 문제 적용·통합 검증은 아직 작성하지 않았다.
+5단계에서 실제 데이터의 집계·분할·검증 절차로 연결한다.
+
+## 5단계 읽기 지도
+
+- [D01 데이터 단위·식별키·결합·결측](data-application/grain-join.md) — 선수: F07, F09, P04
+- [D02 수율·재검사·분모·가중 집계](data-application/yield-retest.md) — 선수: P13, D01, H09
+- [D03 불량 개체·결함 수·비율 불확실성](data-application/defects-uncertainty.md) — 선수: D02, H12, M13
+- [D04 SPC·관리한계·규격한계·시간 순서](data-application/spc.md) — 선수: D02, D03, P12
+- [D05 공정능력·Cp/Cpk·측정 신뢰성](data-application/capability-measurement.md) — 선수: P12, D04
+- [D06 원인 가설·층별 비교·교란·실험 설계](data-application/root-cause.md) — 선수: P04, H15, D01, D02
+- [D07 장비 시계열·가용 시점·시간 결합](data-application/time-alignment.md) — 선수: P04, D01
+- [D08 학습 분할·그룹·미래 검증·누수](data-application/split-leakage.md) — 선수: D01, D07
+- [D09 희소 불량 분류·오탐·미탐·임계값](data-application/classification.md) — 선수: D03, D08
+- [D10 연속값 예측·잔차·MAE/RMSE](data-application/regression.md) — 선수: F07, P12, D08
+- [D11 이상 탐지·분포 변화·알람 운영](data-application/anomaly-drift.md) — 선수: D04, D07, D08
+- [D12 문제 적용·기준선·근거·재현·제출](data-application/task-workflow.md) — 선수: D02, D06, D08, D09, D10, D11
+
+[실제 과제 적용 순서](application-playbook.md)에서 필요한 경로만 고른다.
+1–5단계 수집과 합성 예제 검증을 완료했으며, 실제 과제·Probe 환경 검증은 별도다.

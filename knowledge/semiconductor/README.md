@@ -1,9 +1,11 @@
 # 반도체 지식 패키지 — 해커톤 환경용
 
-현재 **5단계 중 1–4단계**를 제공한다. 확인일: 2026-10-30.
-기초 11개·소자/공정 14개·메모리 동작 13개·HBM/패키징/신뢰성 15개,
-총 53개 개념에 공개 1차 자료 68개의 출처를 연결했다.
+현재 **1–5단계 전체**를 제공한다. 확인일: 2026-10-30.
+기초 11개·소자/공정 14개·메모리 동작 13개·HBM/패키징/신뢰성 15개·데이터 적용 12개,
+총 65개 개념에 공개 1차 자료 83개의 출처를 연결했다.
 이는 공개 기초 지식이며 SK하이닉스의 출제 내용·채점 기준·내부 공정 자료가 아니다.
+
+문제를 받으면 [실제 과제 적용 순서·입력 프롬프트·통합 검증](application-playbook.md)에서 시작한다.
 
 ## 제공 Codex가 사용하는 순서
 
@@ -85,9 +87,22 @@ rg -n -i '정전용량|capacitance|fF' knowledge/semiconductor/index.jsonl
 | Weibull·β/η·특성수명 | H13 |
 | Arrhenius·AF·활성화에너지·수명 환산 | H14 |
 | FA·X-ray·SAM·불량 원인 증거 | H15 |
+| 행 단위·키·join·중복·결측 | D01 |
+| 수율·FPY·retest·가중 집계 | D02 |
+| 불량 개체/결함 수·Wilson·신뢰구간 | D03 |
+| SPC·p 관리도·UCL/LCL | D04 |
+| Cp/Cpk·규격·gauge R&R | D05 |
+| 원인 분석·교란·DOE·wafer map | D06 |
+| event_time/available_at·시간 결합·센서 | D07 |
+| GroupKFold·시간 분할·data leakage | D08 |
+| 희소 불량·precision/recall/F1·임계값 | D09 |
+| MAE/RMSE·잔차·연속값 예측 | D10 |
+| novelty/outlier·drift·알람 이벤트 | D11 |
+| 기준선·실행 근거·제출·재현 | D12 |
 
 ## 파일 안내
 
+- [과제 적용 순서·검증 실행](application-playbook.md)
 - [단계별 범위·읽기 지도](curriculum.md)
 - [검색 메타데이터](index.jsonl): 한 줄에 한 개념, UTF-8 JSON
 - [메타데이터 계약](metadata.md)
