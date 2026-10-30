@@ -104,7 +104,7 @@ python3 knowledge/semiconductor/verify.py
 합성 적용 검사 15개다. 본문 숫자 전체를 자동 대조하는 검사는 아니다. 로그인 없이 새로 clone한 사본에서도 통과했다.
 이 검사는 지식 패키지 검사이므로 **실제 과제의 테스트·빌드·모델 평가를 대체하지 않는다.**
 지식 내용은 Sol + Sol 독립 전수 검토와 수정 후 영향 범위 재검토를 수행했다.
-[리뷰 결과와 확인 범위](docs/reviews/semiconductor-2026-10-30/README.md)에 지적·수정·원문 대조 범위를 기록한다.
+[리뷰 결과와 확인 범위](knowledge/semiconductor/reviews/2026-10-30/README.md)에 지적·수정·원문 대조 범위를 기록한다.
 실제 Probe 환경 검증은 아직 수행하지 않았다.
 
 > 반입한 저장소의 knowledge/semiconductor/README.md를 읽고, 이 과제의 용어·단위와 관련된 항목만 찾아 적용해줘. 일반 지식과 실제 과제 조건을 구분하고 사용한 개념 ID와 검증 결과를 남겨줘.
