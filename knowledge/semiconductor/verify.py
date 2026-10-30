@@ -9,10 +9,10 @@ if sys.flags.optimize:
 r=Path(__file__).resolve().parent
 rows=[json.loads(x) for x in (r/'index.jsonl').read_text().splitlines()]
 sources=json.loads((r/'sources.json').read_text());by={x['id']:x for x in rows};sb={x['id']:x for x in sources}
-assert len(by)==len(rows)==65 and len(sb)==len(sources)==83
+assert len(by)==len(rows)==65 and len(sb)==len(sources)==84
 assert sum(x['stage']==1 for x in rows)==11
 assert sum(x['stage']==2 for x in rows)==14
-assert len({s['url'] for s in sources})==83
+assert len({s['url'] for s in sources})==84
 for s in sources:
  assert s['url'].startswith('https://') and s['used_for'] and s['checked_at']=='2026-10-30'
 for x in rows:

@@ -24,7 +24,7 @@
     "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
     "checked_at": "2026-10-30",
     "source_type": "primary_educational",
-    "used_for": "전하 저장·정전용량·평행판 근사"
+    "used_for": "전하 저장·정전용량·진공 평행판 근사. 유전체 확장은 S84와 함께 대조"
   },
   {
     "id": "S04",
@@ -745,5 +745,14 @@
     "checked_at": "2026-10-30",
     "source_type": "primary_educational",
     "used_for": "입력 특징을 무시하는 단순 분류 기준선의 역할"
+  },
+  {
+    "id": "S84",
+    "publisher": "OpenStax",
+    "title": "Capacitor with a Dielectric",
+    "url": "https://openstax.org/books/university-physics-volume-2/pages/8-4-capacitor-with-a-dielectric",
+    "checked_at": "2026-10-30",
+    "source_type": "primary_educational",
+    "used_for": "§8.4 식8.11의 균일 유전체 완전 충전 시 C=κC0. S03의 진공 평행판 식과 결합해 ε=κ ε0 및 단위·자체 예제를 설명"
   }
 ]

@@ -227,6 +227,19 @@ class ApplicationChecks(unittest.TestCase):
         for token in ('B_obs = D/t_total', 'L + D/B_stream', '0.06 s', '0.07 s'):
             self.assertIn(token, body)
 
+    def test_capacitance_uses_absolute_permittivity(self):
+        from pathlib import Path
+        epsilon0_F_m, relative, area_m2, gap_m = 8.85e-12, 4, 1e-12, 1e-8
+        capacitance_F = (relative * epsilon0_F_m) * area_m2 / gap_m
+        self.assertAlmostEqual(capacitance_F / 1e-15, 3.54)
+        self.assertAlmostEqual(capacitance_F / (epsilon0_F_m * area_m2 / gap_m), relative)
+        wrong_F = relative * area_m2 / gap_m
+        self.assertGreater(wrong_F / capacitance_F, 1e11)
+        # Limited linkage for this example; not full semantic verification.
+        body = (Path(__file__).resolve().parents[1] / 'fundamentals/capacitance.md').read_text()
+        for token in ('ε = κ ε0', 'F/m', '무차원', '3.54 fF', 'S84'):
+            self.assertIn(token, body)
+
     def test_submission_contract(self):
         validate_submission(['a', 'b', 'c'], [('a', .1), ('b', .2), ('c', .3)])
         for bad in ([('a', .1), ('a', .2), ('c', .3)],
