@@ -38,7 +38,7 @@ bash <반입한-패키지>/install.sh <실제-과제-Git-루트>
 ```
 
 전체 설치는 Bash·Python 3.9 이상·Git·제공 Codex를 사용한다.
-Python 외부 패키지·개인 AI 키는 필요 없다. 작업 공간 밖 clone은 필수가 아니다.
+하네스 자체는 Python 외부 패키지·개인 AI 키가 필요 없다. 수학 라이브러리는 선택 의존성이다. 작업 공간 밖 clone은 필수가 아니다.
 새 세션이 필요하고 제공 CLI가 지원하면 사용자가 과제 루트에서 실행한다.
 
 ```bash
@@ -62,6 +62,7 @@ Sol A/B 코드 검수와 조건부 보안·테스트 검토 → 설명 → 완�
 - API 설계·리뷰: [Google API Skill](template/.agents/skills/google-api-design/SKILL.md)의 관련 AIP 원문을 직접 읽고 계약·검증에 연결한다.
 - 사용자 설명·문장 품질: [readable-writing](template/.agents/skills/readable-writing/SKILL.md).
 - 결정·진행·반복 지적: [기록 계약](template/.agents/skills/kty-harness/references/decision-memory.md).
+- 수학 계산: MCP가 막히면 허용된 라이브러리 직접 호출로 이어가고 재검산·Sol A/B 검수를 수행한다. 실행 자체가 금지되면 미실행으로 보고한다.
 - 서비스 과제: 구현뿐 아니라 실행·연결·응답을 검증한다. 주소·포트·스택은 고정하지 않는다.
   [과제 적용 기준](template/.agents/skills/kty-harness/references/probe-workflow.md)을 따른다.
 
@@ -89,7 +90,7 @@ SessionStart·Stop은 최신 검증 기록을 확인하는 보조 장치다.
 | --- | --- |
 | 설치·승인·읽기 전용·CLI 상세 | [설치·운영 가이드](docs/usage.md) |
 | 반도체 개념 65개와 검색 | [지식 패키지](knowledge/semiconductor/README.md) |
-| 수학·알고리즘·최적화 도구 선택 | [오픈소스 7개·MCP 3개와 검증 기준](template/.agents/skills/kty-harness/references/math-tools.md) |
+| 수학·알고리즘·최적화 도구 선택 | [라이브러리 7개·MCP 2개와 전환 절차](template/.agents/skills/kty-harness/references/math-tools.md) · [실행 검증](docs/math-rehearsal-2026-11-05/README.md) |
 | 종료된 과제 회고·문항 OCR | [날짜별 기록](docs/retrospectives/README.md) — 사용자 요청으로 공개한 사후 기록 |
 | 지식을 실제 문제에 적용 | [적용 가이드](knowledge/semiconductor/application-playbook.md) |
 | 사전체험 진단 | [15분 실행표](docs/practice-runbook.md) |

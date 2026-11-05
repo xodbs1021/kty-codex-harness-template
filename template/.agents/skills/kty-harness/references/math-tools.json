@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "checked_on": "2026-11-05",
-  "status": "source_review_only",
-  "scope": "Optional tool catalog; not installed dependencies, not trained prediction model",
+  "status": "source_review_and_scoped_local_execution",
+  "scope": "7 optional libraries and 2 MCP candidates; MCP unavailability falls back to separately permitted direct library execution",
   "tools": [
     {
       "id": "cvxpy",
@@ -22,11 +22,20 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "1.9.3",
+        "source_commit_is_executed_wheel": false
       }
     },
     {
@@ -47,42 +56,21 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
-        "mcp_connected": false,
-        "probe_verified": false,
-        "full_security_audit": false
-      }
-    },
-    {
-      "id": "mcp-optimizer",
-      "repository": "https://github.com/dmitryanchikov/mcp-optimizer",
-      "commit": "65db2231711535033936975e7450032a3a494954",
-      "readme": "README.md",
-      "license_path": "LICENSE",
-      "license_verified": true,
-      "kind": "mcp",
-      "license": "MIT",
-      "python_package": "mcp-optimizer",
-      "purpose": "optimization bridge",
-      "python_requires": ">=3.11",
-      "readme_url": "https://github.com/dmitryanchikov/mcp-optimizer/blob/65db2231711535033936975e7450032a3a494954/README.md",
-      "license_url": "https://github.com/dmitryanchikov/mcp-optimizer/blob/65db2231711535033936975e7450032a3a494954/LICENSE",
-      "verification": {
-        "readme_reviewed": true,
-        "license_reviewed": true,
-        "pyproject_reviewed": true,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
       },
-      "pyproject_url": "https://github.com/dmitryanchikov/mcp-optimizer/blob/65db2231711535033936975e7450032a3a494954/pyproject.toml",
-      "constraints": [
-        "Adoption deferred until platform-specific runtime verification",
-        "Do not execute README system-path/sudo workaround"
-      ]
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "1.15.1",
+        "source_commit_is_executed_wheel": false
+      }
     },
     {
       "id": "mcp-solver",
@@ -102,9 +90,9 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": true,
-        "installed": false,
-        "executed": false,
-        "mcp_connected": false,
+        "installed": true,
+        "executed": true,
+        "mcp_connected": true,
         "probe_verified": false,
         "full_security_audit": false
       },
@@ -113,7 +101,17 @@
         "Source checkout required by inspected README; do not use stale third-party PyPI name",
         "uv required; dynamic backend dependencies require writable cache and permitted network",
         "Use mcp-solver-serve stdio; standalone CLI uses OpenRouter and is excluded"
-      ]
+      ],
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "sdk_stdio": "passed",
+        "codex_native": "blocked_by_approval_policy",
+        "native_tool_execution": false
+      }
     },
     {
       "id": "mcp-sympy",
@@ -133,13 +131,23 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": true,
-        "installed": false,
-        "executed": false,
-        "mcp_connected": false,
+        "installed": true,
+        "executed": true,
+        "mcp_connected": true,
         "probe_verified": false,
         "full_security_audit": false
       },
-      "pyproject_url": "https://github.com/daedalus/mcp-sympy/blob/83530c0b2dbc9b0f2f3943ebdbe104d7bcff5c2e/pyproject.toml"
+      "pyproject_url": "https://github.com/daedalus/mcp-sympy/blob/83530c0b2dbc9b0f2f3943ebdbe104d7bcff5c2e/pyproject.toml",
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "sdk_stdio": "passed",
+        "codex_native": "blocked_by_approval_policy",
+        "native_tool_execution": false
+      }
     },
     {
       "id": "networkx",
@@ -159,11 +167,20 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "3.7",
+        "source_commit_is_executed_wheel": false
       }
     },
     {
@@ -184,11 +201,20 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "9.15.6755",
+        "source_commit_is_executed_wheel": false
       }
     },
     {
@@ -209,11 +235,20 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "1.18.1",
+        "source_commit_is_executed_wheel": false
       }
     },
     {
@@ -234,11 +269,20 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "1.14.0",
+        "source_commit_is_executed_wheel": false
       }
     },
     {
@@ -259,12 +303,34 @@
         "readme_reviewed": true,
         "license_reviewed": true,
         "pyproject_reviewed": false,
-        "installed": false,
-        "executed": false,
+        "installed": true,
+        "executed": true,
         "mcp_connected": false,
         "probe_verified": false,
         "full_security_audit": false
+      },
+      "runtime_verification": {
+        "date": "2026-11-05",
+        "environment": "macOS arm64 / Python 3.13.14",
+        "scope": "synthetic samples only; see rehearsal report",
+        "probe_verified": false,
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05",
+        "package_version": "5.3.3.0",
+        "source_commit_is_executed_wheel": false
       }
+    }
+  ],
+  "excluded_tools": [
+    {
+      "id": "mcp-optimizer",
+      "repository": "https://github.com/dmitryanchikov/mcp-optimizer",
+      "commit": "65db2231711535033936975e7450032a3a494954",
+      "reason": "Observed ignored max_time and end_location constraints; removed by user request",
+      "selected": false,
+      "install": false,
+      "register": false,
+      "fallback_candidate": false,
+      "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05"
     }
   ]
 }

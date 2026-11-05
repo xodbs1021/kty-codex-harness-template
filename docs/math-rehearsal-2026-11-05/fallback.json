@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-05",
+  "synthetic": true,
+  "input_polynomial": "x**2-7*x+12",
+  "mcp_failure": "recorded prior actual native call denial; no reattempt in this test",
+  "direct_local_calculation_explicitly_allowed": true,
+  "permission_policy_changed": false,
+  "sympy_run": {
+    "version": "1.14.0",
+    "python": "3.13.14",
+    "roots": [
+      3,
+      4
+    ],
+    "residuals": [
+      0,
+      0
+    ],
+    "command_exit": 0
+  },
+  "first_run": {
+    "reason": "test fixture resolved venv executable symlink to base interpreter",
+    "sympy_import": "ModuleNotFoundError",
+    "standard_library": [
+      "math.isqrt",
+      "fractions.Fraction"
+    ],
+    "roots": [
+      3,
+      4
+    ],
+    "residuals": [
+      0,
+      0
+    ]
+  },
+  "process_prohibited_branch": "instruction/response checked only; no enforced sandbox experiment",
+  "runs": [
+    {
+      "run": "forward",
+      "cli_model": "gpt-6.1-sol",
+      "session_id": "01a1aae5-c0eb-7123-aa17-b4f00f09dd1d",
+      "raw_stdout_sha256": "dba8946c08fa0f334eb3c83200407e096b9403ce198c28ede705a58eeb244db5",
+      "raw_stderr_sha256": "bc529967eec32f6fce875a4dfbe3fa95bab5471c5bf9f7d47d52cd9a2a4e3f1d",
+      "role": "architect",
+      "independent_session": true
+    },
+    {
+      "run": "stdlib-fallback",
+      "cli_model": "gpt-6.1-sol",
+      "session_id": "01a1aae4-473a-72e0-8933-5fc0346f7cb0",
+      "raw_stdout_sha256": "6662602729da1ad1b1a2c21ed0bd10c733c3fd259bbfe40a221ff772c4586f7b",
+      "raw_stderr_sha256": "c78156116ab04e409460298459e7fce94cee3c8cfc3a55c6dfb5119a13526ae1",
+      "role": "architect",
+      "independent_session": true
+    }
+  ],
+  "tests": {
+    "unit_tests_passed": 42,
+    "seconds": 11.989,
+    "skill_validation": "passed",
+    "installed_template_matches": true
+  }
+}

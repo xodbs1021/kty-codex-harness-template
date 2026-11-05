@@ -1,0 +1,615 @@
+{
+  "date": "2026-11-05",
+  "synthetic_only": true,
+  "not_exam_prediction": true,
+  "library_results": {
+    "synthetic": true,
+    "python": "3.13.14",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "sympy": "1.14.0",
+      "scipy": "1.18.1",
+      "networkx": "3.7",
+      "ortools": "9.15.6755",
+      "cvxpy": "1.9.3",
+      "z3-solver": "5.3.3.0",
+      "highspy": "1.15.1"
+    },
+    "libraries": {
+      "sympy": {
+        "roots": [
+          2,
+          3
+        ],
+        "substitution_verified": true
+      },
+      "scipy": {
+        "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "x": [
+          2.0,
+          2.0
+        ],
+        "objective": 10.0
+      },
+      "networkx": {
+        "path": [
+          "A",
+          "B",
+          "C"
+        ],
+        "cost": 5,
+        "unreachable_verified": true
+      },
+      "cvxpy": {
+        "status": "optimal",
+        "solver": "HIGHS",
+        "x": [
+          2.0,
+          2.0
+        ],
+        "objective": 10.0
+      },
+      "z3": {
+        "status": "unsat",
+        "independent_reason": "x<=2 and x>2 contradict"
+      },
+      "HiGHS": {
+        "status": "HighsModelStatus.kOptimal",
+        "integer": 2.0,
+        "objective": 2.0
+      }
+    },
+    "routes": {
+      "normal": {
+        "solver": {
+          "status": "OPTIMAL",
+          "wall_seconds": 0.010442,
+          "candidate_count": 11,
+          "seed": 7,
+          "workers": 1,
+          "limit_seconds": 5,
+          "objective": 22.0,
+          "bound": 22.0,
+          "routes": [
+            [
+              0,
+              1,
+              3,
+              5
+            ],
+            [
+              0,
+              2,
+              4,
+              5
+            ]
+          ]
+        },
+        "oracle": {
+          "examined": 120,
+          "feasible": 6,
+          "best": {
+            "routes": [
+              [
+                0,
+                1,
+                3,
+                5
+              ],
+              [
+                0,
+                2,
+                4,
+                5
+              ]
+            ],
+            "objective": 22
+          }
+        }
+      },
+      "capacity_3": {
+        "solver": {
+          "status": "INFEASIBLE",
+          "wall_seconds": 5.7e-05,
+          "candidate_count": 5,
+          "seed": 7,
+          "workers": 1,
+          "limit_seconds": 5
+        },
+        "oracle": {
+          "examined": 120,
+          "feasible": 0,
+          "best": null
+        }
+      },
+      "deadline_5": {
+        "solver": {
+          "status": "INFEASIBLE",
+          "wall_seconds": 0.000778,
+          "candidate_count": 0,
+          "seed": 7,
+          "workers": 1,
+          "limit_seconds": 5
+        },
+        "oracle": {
+          "examined": 120,
+          "feasible": 0,
+          "best": null
+        }
+      }
+    },
+    "zero_budget": {
+      "status": "UNKNOWN",
+      "wall_seconds": 4.7000000000000004e-05,
+      "candidate_count": 11,
+      "seed": 7,
+      "workers": 1,
+      "limit_seconds": 0
+    },
+    "rejected_mutations": {
+      "missing": "coverage",
+      "duplicate": "coverage",
+      "capacity": "capacity",
+      "late": "deadline",
+      "objective": "objective",
+      "endpoint": "endpoints"
+    },
+    "elapsed_seconds": 1.319083834066987,
+    "passed": true,
+    "execution_isolation": "OR-Tools in separate subprocess from highspy/CVXPY/SciPy"
+  },
+  "mcp": {
+    "mcp-sympy": {
+      "source_commit": "83530c0b2dbc9b0f2f3943ebdbe104d7bcff5c2e",
+      "initialized": true,
+      "tool_count": 171,
+      "actual_calls": [
+        "sympy_solve"
+      ],
+      "clean_context_exit": true,
+      "probe_completed": true,
+      "semantic_acceptance": true,
+      "elapsed_seconds": 0.6123789581470191,
+      "raw_transcript_sha256": "0af2ab7287f97590248a14cfad84eb79c3c10c20cf84145ce7970f94b780e4ba",
+      "results": {
+        "equation_substitution": true
+      }
+    },
+    "mcp-solver": {
+      "source_commit": "24b7d6fb1d5e361eeb8558b6119ca8e8cb083a3a",
+      "initialized": true,
+      "tool_count": 6,
+      "actual_calls": [
+        "select_backend",
+        "python_exec",
+        "submit_code"
+      ],
+      "clean_context_exit": true,
+      "probe_completed": true,
+      "semantic_acceptance": true,
+      "elapsed_seconds": 1.636103832628578,
+      "raw_transcript_sha256": "58d9dee5f040b54c5baee1b1ad0b449c47b50f9673c017d019eba3cc412cf1e2",
+      "results": {
+        "normal": {
+          "status": "OPTIMAL",
+          "lower": "22",
+          "upper": "22",
+          "objective": 22,
+          "routes": [
+            [
+              0,
+              1,
+              4,
+              5
+            ],
+            [
+              0,
+              2,
+              3,
+              5
+            ]
+          ]
+        },
+        "capacity_3": {
+          "status": "INFEASIBLE"
+        },
+        "deadline_5": {
+          "status": "INFEASIBLE"
+        }
+      },
+      "independent_oracle_passed": true,
+      "submit_code_compile_check": true
+    },
+    "mcp-optimizer": {
+      "source_commit": "65db2231711535033936975e7450032a3a494954",
+      "initialized": true,
+      "tool_count": 13,
+      "actual_calls": [
+        "solve_linear_program_tool",
+        "solve_vehicle_routing_problem",
+        "solve_vehicle_routing_problem",
+        "solve_vehicle_routing_problem"
+      ],
+      "clean_context_exit": true,
+      "probe_completed": true,
+      "semantic_acceptance": false,
+      "elapsed_seconds": 1.0451982500962913,
+      "raw_transcript_sha256": "9f53c82c7744d6a0ddf0f1c768dcc2602948f5c9cb3156a1a43aba9a8e691024",
+      "results": {
+        "lp_independently_verified": true,
+        "closed_route_independently_verified": true,
+        "max_time_violation_observed": true,
+        "end_location_violation_observed": true
+      },
+      "counterexamples": [
+        {
+          "input": {
+            "locations": [
+              {
+                "name": "depot",
+                "demand": 0
+              },
+              {
+                "name": "A",
+                "demand": 2
+              },
+              {
+                "name": "B",
+                "demand": 2
+              }
+            ],
+            "vehicles": [
+              {
+                "capacity": 4,
+                "max_time": 1
+              }
+            ],
+            "distance_matrix": [
+              [
+                0,
+                2,
+                2
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            "time_matrix": [
+              [
+                0,
+                2,
+                2
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            "depot": 0,
+            "time_limit_seconds": 1
+          },
+          "response": {
+            "status": "optimal",
+            "objective_value": 5.0,
+            "execution_time": 0.0003161430358886719,
+            "error_message": null,
+            "variables": {
+              "routes": [
+                {
+                  "vehicle_id": 0,
+                  "route": [
+                    {
+                      "location": "depot",
+                      "index": 0,
+                      "demand": 0.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "B",
+                      "index": 2,
+                      "demand": 2.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "A",
+                      "index": 1,
+                      "demand": 2.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "depot",
+                      "index": 0,
+                      "demand": 0.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    }
+                  ],
+                  "distance": 5.0,
+                  "load": 4.0,
+                  "capacity": 4.0,
+                  "utilization": 1.0
+                }
+              ],
+              "total_distance": 5.0,
+              "total_load": 4.0,
+              "num_vehicles_used": 1,
+              "num_locations_served": 3
+            },
+            "solver_info": {
+              "solver_name": "OR-Tools Routing",
+              "search_strategy": "PATH_CHEAPEST_ARC",
+              "vehicles_available": 1
+            }
+          }
+        },
+        {
+          "input": {
+            "locations": [
+              {
+                "name": "depot",
+                "demand": 0
+              },
+              {
+                "name": "A",
+                "demand": 2
+              },
+              {
+                "name": "B",
+                "demand": 2
+              }
+            ],
+            "vehicles": [
+              {
+                "capacity": 4,
+                "end_location": 2
+              }
+            ],
+            "distance_matrix": [
+              [
+                0,
+                2,
+                2
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            "time_matrix": [
+              [
+                0,
+                2,
+                2
+              ],
+              [
+                2,
+                0,
+                1
+              ],
+              [
+                2,
+                1,
+                0
+              ]
+            ],
+            "depot": 0,
+            "time_limit_seconds": 1
+          },
+          "response": {
+            "status": "optimal",
+            "objective_value": 5.0,
+            "execution_time": 0.0003139972686767578,
+            "error_message": null,
+            "variables": {
+              "routes": [
+                {
+                  "vehicle_id": 0,
+                  "route": [
+                    {
+                      "location": "depot",
+                      "index": 0,
+                      "demand": 0.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "B",
+                      "index": 2,
+                      "demand": 2.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "A",
+                      "index": 1,
+                      "demand": 2.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    },
+                    {
+                      "location": "depot",
+                      "index": 0,
+                      "demand": 0.0,
+                      "coordinates": {
+                        "lat": null,
+                        "lng": null,
+                        "x": null,
+                        "y": null
+                      }
+                    }
+                  ],
+                  "distance": 5.0,
+                  "load": 4.0,
+                  "capacity": 4.0,
+                  "utilization": 1.0
+                }
+              ],
+              "total_distance": 5.0,
+              "total_load": 4.0,
+              "num_vehicles_used": 1,
+              "num_locations_served": 3
+            },
+            "solver_info": {
+              "solver_name": "OR-Tools Routing",
+              "search_strategy": "PATH_CHEAPEST_ARC",
+              "vehicles_available": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "review": {
+    "status": "completed",
+    "same_input_hashes_verified": true,
+    "snapshot_commit": "d69b646c389b51dbf27d0cb42b594367772a76cb",
+    "independent_cli_sessions": [
+      {
+        "label": "a",
+        "model_reported_by_cli": "gpt-6.1-sol",
+        "session_id": "01a1aac8-df0d-7a33-ab51-6b552c640a3a",
+        "findings": 0,
+        "actual_test_rerun": true,
+        "output_sha256": "4c8a51eed9a6ff6305b2a75a75e9af85e34275c5eeb88949b5f6990398a31611"
+      },
+      {
+        "label": "b",
+        "model_reported_by_cli": "gpt-6.1-sol",
+        "session_id": "01a1aac8-df0d-71e2-8414-1ea11b19f0cc",
+        "findings": 0,
+        "actual_test_rerun": true,
+        "output_sha256": "59162a2390d10872c93b68588cc23da79a092ad2ae9d6ec98f5bea5f48765f1f"
+      }
+    ],
+    "effort_override": false,
+    "scope": "frozen library/MCP SDK scripts and recorded responses; native MCP follow-up is separate"
+  },
+  "scope_limits": [
+    "Probe unverified",
+    "Native Codex MCP tool calls blocked by approval policy; SDK success does not override this",
+    "No native hook or web service validation"
+  ],
+  "source_hashes": {
+    "fixture.json": "e9132d12a7fc4764cc94d595f2d405635dd2f20294533100fe150d738fc4ba79",
+    "verify_routes.py": "3328fe1345674dd029d33a93f1c993ff3825844670ecf25afc1357619a405e9b",
+    "run_mcp.py": "261e17bb04c2f0d982b2a842c5a2cd55c0af59a19f94cbddb863aaab5722d9ba",
+    "run_libraries.py": "13bdd1726637f568d53e5d16bd849359035cd76524b47dc542f9ebd11d64534b",
+    "z3_routes.py": "e52441d2baf0a243d000c19884bf63366a482c772da2f59ef6b71632bde8d26a"
+  },
+  "harness_verify": "passed",
+  "native_import_conflict": {
+    "command": [
+      "python",
+      "-B",
+      "-c",
+      "import highspy; from ortools.sat.python import cp_model"
+    ],
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import highspy; from ortools.sat.python import cp_model\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"$REHEARSAL/venv/lib/python3.13/site-packages/ortools/sat/python/cp_model.py\", line 64, in <module>\n    from ortools.sat.python import cp_model_helper as cmh\nImportError: dlopen($REHEARSAL/venv/lib/python3.13/site-packages/ortools/sat/python/cp_model_helper.so, 0x0002): Symbol not found: __Z19setLocalOptionValueRK15HighsLogOptionsRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEERS_RNS2_6vectorIP12OptionRecordNS6_ISE_EEEES8_\n  Referenced from: <CE1BEC02-6D78-3896-93B8-13F7B0330335> $REHEARSAL/venv/lib/python3.13/site-packages/ortools/.libs/libortools.9.dylib\n  Expected in:     <E66C4BC4-AA01-3B43-A163-6D6C53CE2EA5> $REHEARSAL/venv/lib/python3.13/site-packages/highspy/libhighs.1.dylib\n"
+  },
+  "initial_failures": [
+    {
+      "component": "OR-Tools + highspy",
+      "reason": "macOS same-process libhighs symbol collision",
+      "resolution": "separate process"
+    },
+    {
+      "component": "mcp-optimizer",
+      "reason": "PuLP 4 removed PULP_CBC_CMD and shared-env OR-Tools import failure",
+      "resolution": "separate venv and pulp<4; installed 3.3.2; semantic routing defects remain"
+    },
+    {
+      "component": "our Z3 rehearsal code",
+      "reason": "empty candidate list gives native int objective; Optimize.minimize requires Z3 expression",
+      "resolution": "z3.IntVal(0) + sum; normal/infeasible cases rerun passed"
+    }
+  ],
+  "native_codex_mcp": {
+    "exit_code": 0,
+    "tool_execution_passed": false,
+    "temporary_cli_config_only": true,
+    "calls": [
+      {
+        "id": "item_4",
+        "type": "mcp_tool_call",
+        "server": "kty_math_solver",
+        "tool": "select_backend",
+        "arguments": {
+          "solver": "z3"
+        },
+        "result": null,
+        "error": {
+          "message": "MCP tool call requires approval, but approval policy is never"
+        },
+        "status": "failed"
+      },
+      {
+        "id": "item_5",
+        "type": "mcp_tool_call",
+        "server": "kty_math_sympy",
+        "tool": "sympy_solve",
+        "arguments": {
+          "equation": "x**2-5*x+6=0",
+          "variables": "x"
+        },
+        "result": null,
+        "error": {
+          "message": "MCP tool call requires approval, but approval policy is never"
+        },
+        "status": "failed"
+      }
+    ],
+    "trace_sha256": "7243296d33c9c83f8eb9f6f6ea6285e4e13f7e2b594c95d52e15239088b2616b",
+    "policy_changed_after_denial": false
+  }
+}
