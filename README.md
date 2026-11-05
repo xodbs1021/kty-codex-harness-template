@@ -78,6 +78,7 @@ Sol A/B 코드 검수와 조건부 보안·테스트 검토 → 설명 → 완�
 - 코드·문서 작성/검수: [Google 스타일 Skill](template/.agents/skills/google-styleguide/SKILL.md). Python·Java·Go 원문 포함.
 - API 설계·리뷰: [Google API Skill](template/.agents/skills/google-api-design/SKILL.md)의 관련 AIP 원문을 직접 읽고 계약·검증에 연결한다.
 - 사용자 설명·문장 품질: [readable-writing](template/.agents/skills/readable-writing/SKILL.md).
+- 이해도 대비: 작업 단계에서 [설명 절차](template/.agents/skills/kty-harness/references/explanation.md)에 따라 **새 과제의 실제 구현에 맞는 예상 질문·근거**를 전달한다.
 - 결정·진행·반복 지적: [기록 계약](template/.agents/skills/kty-harness/references/decision-memory.md).
 - 수학 계산: MCP가 막히면 허용된 라이브러리 직접 호출로 이어가고 재검산·Sol A/B 검수를 수행한다. 실행 자체가 금지되면 미실행으로 보고한다.
 - 서비스 과제: 구현뿐 아니라 실행·연결·응답을 검증한다. 주소·포트·스택은 고정하지 않는다.

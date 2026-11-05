@@ -31,6 +31,7 @@ MCP가 불가하면 같은 문서의 전환 절차로 별도로 허용된 라이
 - 조사·비교 요청: [research.md](references/research.md)의 수집 → 독립 원문 평가 → 메인 종합.
 - 변경 설명 요청: [explanation.md](references/explanation.md)의 `kty_change_explainer`.
 - 구조·설계 이유 질문: 같은 문서의 `kty_architecture_guide`. 개발 파이프라인을 새로 돌리지 않는다.
+- 최종 이해도 질문 대비: 같은 문서의 ‘새 과제의 예상 이해도 질문’. 작업 단계에서 실제 구현·검증에 맞춘 질문과 답변 근거를 제공한다.
 - 설치·설정 요청: `.harness/setup.md`. 실제 과제 구현까지 완료했다고 보고하지 않는다.
 
 사용 가능한 독립 역할을 호출한다. 이름이 미등록이면 해당 역할 TOML과 관련 reference를 제공 도구에
