@@ -1,0 +1,515 @@
+{
+  "date": "2026-11-05",
+  "provenance": "New synthetic local executions. No actual exam files used. User-reported Cofa incident is separate.",
+  "cofa_root_cause": "unresolved; original logs unavailable",
+  "codex_native_calls": "not_verified",
+  "hook_events": "not_verified",
+  "tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "passed": 53
+  },
+  "results": {
+    "macos_sympy": {
+      "checked_at": "2026-11-05T09:27:41.768440+00:00",
+      "passed": true,
+      "codex_native": "unverified",
+      "hook_events": "unverified",
+      "mcp_solver": "separate_solver_setup_required",
+      "direct_only": false,
+      "current_stage": "registration",
+      "python": "<task>/.harness/work/math-tools/env-erply38v/bin/python",
+      "checks": {
+        "direct": {
+          "sympy_roots": [
+            2,
+            3
+          ],
+          "residuals": [
+            0,
+            0
+          ],
+          "z3": "unsat"
+        },
+        "sdk_mcp": {
+          "initialize": true,
+          "tool_list": true,
+          "equation_call": true,
+          "roots": [
+            2,
+            3
+          ],
+          "residuals": [
+            0,
+            0
+          ],
+          "transport": "local_sdk_stdio"
+        }
+      },
+      "resolved_packages": [
+        "aiofile==3.12.3",
+        "annotated-types==0.8.0",
+        "anyio==4.16.0",
+        "attrs==26.1.0",
+        "Authlib==1.9.4",
+        "beartype==0.23.1",
+        "cachetools==7.2.8",
+        "caio==0.12.10",
+        "certifi==2026.10.23",
+        "cffi==2.1.1",
+        "click==8.5.0",
+        "cryptography==50.0.2",
+        "cyclopts==5.3.3",
+        "dnspython==2.9.2",
+        "docstring_parser==0.18.0",
+        "email-validator==2.3.0",
+        "exceptiongroup==1.3.1",
+        "fastmcp==3.4.11",
+        "fastmcp-slim==3.4.11",
+        "griffelib==2.4.1",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpx==0.28.1",
+        "httpx-sse==0.4.3",
+        "idna==3.20",
+        "jaraco.classes==3.4.0",
+        "jaraco.context==6.1.2",
+        "jaraco.functools==4.6.0",
+        "joserfc==1.8.0",
+        "jsonref==1.1.0",
+        "jsonschema==4.26.0",
+        "jsonschema-path==0.5.0",
+        "jsonschema-specifications==2025.9.1",
+        "keyring==25.7.0",
+        "markdown-it-py==4.2.0",
+        "mcp==1.30.0",
+        "mcp-sympy==0.1.0",
+        "mdurl==0.1.2",
+        "more-itertools==11.2.1",
+        "mpmath==1.3.0",
+        "openapi-pydantic==0.6.0",
+        "opentelemetry-api==1.45.2",
+        "packaging==26.3",
+        "pathable==0.6.0",
+        "platformdirs==4.14.5",
+        "py-key-value-aio==0.4.6",
+        "pycparser==3.12",
+        "pydantic==2.14.3",
+        "pydantic-settings==2.16.2",
+        "pydantic_core==2.50.4",
+        "Pygments==2.21.0",
+        "PyJWT==2.15.1",
+        "pyperclip==1.11.0",
+        "python-dotenv==1.2.4",
+        "python-multipart==0.0.33",
+        "PyYAML==6.0.3",
+        "referencing==0.37.0",
+        "rich==15.0.0",
+        "rich-rst==2.2.0",
+        "rpds-py==2026.9.1",
+        "sse-starlette==3.6.0",
+        "starlette==1.10.0",
+        "sympy==1.14.0",
+        "typing-inspection==0.4.5",
+        "typing_extensions==4.16.0",
+        "uncalled-for==0.4.2",
+        "uvicorn==0.54.0",
+        "watchfiles==1.3.0",
+        "websockets==17.4",
+        "z3-solver==5.3.3.0"
+      ],
+      "project_config_registered": true
+    },
+    "macos_solver": {
+      "checked_at": "2026-11-05T09:27:43.268602+00:00",
+      "passed": true,
+      "codex_native": "unverified",
+      "cofa_probe": "not_independently_observed",
+      "source_commit": "24b7d6fb1d5e361eeb8558b6119ca8e8cb083a3a",
+      "stages": {
+        "thread": {
+          "value": 42
+        },
+        "asyncio-thread": {
+          "value": 42
+        },
+        "anyio-thread": {
+          "value": 42
+        },
+        "engine": {
+          "initialize": true,
+          "tools": [
+            "python_exec",
+            "python_reset",
+            "python_status",
+            "submit_code",
+            "python_interrupt"
+          ]
+        },
+        "solver": {
+          "initialize": true,
+          "tools": [
+            "select_backend",
+            "python_exec",
+            "python_reset",
+            "python_status",
+            "python_interrupt",
+            "submit_code"
+          ],
+          "z3": "unsat",
+          "independent_check": "x<=2 and x>2 contradiction",
+          "submit_code": true
+        }
+      },
+      "current_stage": "registration",
+      "resolved_packages": [
+        "agentic-python-coder==3.4.3",
+        "annotated-types==0.8.0",
+        "anyio==4.16.0",
+        "appnope==1.0.0",
+        "asttokens==3.0.2",
+        "attrs==26.1.0",
+        "certifi==2026.10.23",
+        "cffi==2.1.1",
+        "click==8.5.0",
+        "comm==0.2.3",
+        "cryptography==50.0.2",
+        "debugpy==1.8.22",
+        "executing==2.3.0",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpcore2==2.16.0",
+        "httpx==0.28.1",
+        "httpx-sse==0.4.3",
+        "httpx2==2.16.0",
+        "idna==3.20",
+        "ipykernel==7.4.0",
+        "ipython==9.18.1",
+        "ipython_pygments_lexers==1.1.1",
+        "jedi==0.20.1",
+        "jiter==0.18.0",
+        "jsonschema==4.26.0",
+        "jsonschema-specifications==2025.9.1",
+        "jupyter_client==8.10.0",
+        "jupyter_core==5.9.1",
+        "markdown-it-py==4.2.0",
+        "matplotlib-inline==0.2.2",
+        "mcp==1.30.0",
+        "mcp-minion @ file://<task>/.harness/work/solver-tools/installation-e59h_75f/source/minion",
+        "mcp-solver @ file://<task>/.harness/work/solver-tools/installation-e59h_75f/source",
+        "mdurl==0.1.2",
+        "nest-asyncio2==1.7.4",
+        "openai==3.46.0",
+        "packaging==26.3",
+        "parso==0.8.7",
+        "pexpect==4.9.0",
+        "platformdirs==4.14.5",
+        "prompt_toolkit==3.0.53",
+        "psutil==7.2.2",
+        "ptyprocess==0.7.0",
+        "pure_eval==0.2.4",
+        "pycparser==3.12",
+        "pydantic==2.14.2",
+        "pydantic-settings==2.16.2",
+        "pydantic_core==2.50.2",
+        "Pygments==2.21.0",
+        "PyJWT==2.15.1",
+        "python-dateutil==4.0.0",
+        "python-dotenv==1.2.4",
+        "python-multipart==0.0.33",
+        "PyYAML==6.0.3",
+        "pyzmq==27.3.0",
+        "referencing==0.37.0",
+        "rich==15.0.0",
+        "rpds-py==2026.9.1",
+        "sniffio==1.3.1",
+        "sse-starlette==3.6.0",
+        "stack-data==0.6.3",
+        "starlette==1.10.0",
+        "tornado==6.6",
+        "traitlets==5.16.1",
+        "truststore==0.10.5",
+        "typing-inspection==0.4.5",
+        "typing_extensions==4.16.0",
+        "tzdata==2026.6",
+        "uv==0.11.21",
+        "uvicorn==0.54.0",
+        "wcwidth==0.9.4"
+      ],
+      "project_config_registered": true
+    },
+    "macos_registered_commands": {
+      "kty_math_sympy": {
+        "initialized": true,
+        "tools_count": 171,
+        "codex_native": false,
+        "equation_result": {
+          "meta": {
+            "fastmcp": {
+              "wrap_result": true
+            }
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "[2, 3]",
+              "annotations": null,
+              "meta": null
+            }
+          ],
+          "structuredContent": {
+            "result": "[2, 3]"
+          },
+          "isError": false
+        }
+      },
+      "kty_math_solver": {
+        "initialized": true,
+        "tools_count": 6,
+        "codex_native": false
+      }
+    },
+    "linux_sympy": {
+      "checked_at": "2026-11-05T09:30:39.178899+00:00",
+      "passed": true,
+      "codex_native": "unverified",
+      "hook_events": "unverified",
+      "mcp_solver": "separate_solver_setup_required",
+      "direct_only": false,
+      "current_stage": "registration",
+      "python": "/task/.harness/work/math-tools/env-vp_du0ec/bin/python",
+      "checks": {
+        "direct": {
+          "sympy_roots": [
+            2,
+            3
+          ],
+          "residuals": [
+            0,
+            0
+          ],
+          "z3": "unsat"
+        },
+        "sdk_mcp": {
+          "initialize": true,
+          "tool_list": true,
+          "equation_call": true,
+          "roots": [
+            2,
+            3
+          ],
+          "residuals": [
+            0,
+            0
+          ],
+          "transport": "local_sdk_stdio"
+        }
+      },
+      "resolved_packages": [
+        "aiofile==3.12.3",
+        "annotated-types==0.8.0",
+        "anyio==4.16.0",
+        "attrs==26.1.0",
+        "Authlib==1.9.4",
+        "beartype==0.23.1",
+        "cachetools==7.2.8",
+        "caio==0.12.10",
+        "certifi==2026.10.23",
+        "cffi==2.1.1",
+        "click==8.5.0",
+        "cryptography==50.0.2",
+        "cyclopts==5.3.3",
+        "dnspython==2.9.2",
+        "docstring_parser==0.18.0",
+        "email-validator==2.3.0",
+        "exceptiongroup==1.3.1",
+        "fastmcp==3.4.11",
+        "fastmcp-slim==3.4.11",
+        "griffelib==2.4.1",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpx==0.28.1",
+        "httpx-sse==0.4.3",
+        "idna==3.20",
+        "jaraco.classes==3.4.0",
+        "jaraco.context==6.1.2",
+        "jaraco.functools==4.6.0",
+        "jeepney==0.9.0",
+        "joserfc==1.8.0",
+        "jsonref==1.1.0",
+        "jsonschema==4.26.0",
+        "jsonschema-path==0.5.0",
+        "jsonschema-specifications==2025.9.1",
+        "keyring==25.7.0",
+        "markdown-it-py==4.2.0",
+        "mcp==1.30.0",
+        "mcp-sympy==0.1.0",
+        "mdurl==0.1.2",
+        "more-itertools==11.2.1",
+        "mpmath==1.3.0",
+        "openapi-pydantic==0.6.0",
+        "opentelemetry-api==1.45.2",
+        "packaging==26.3",
+        "pathable==0.6.0",
+        "platformdirs==4.14.5",
+        "py-key-value-aio==0.4.6",
+        "pycparser==3.12",
+        "pydantic==2.14.3",
+        "pydantic-settings==2.16.2",
+        "pydantic_core==2.50.4",
+        "Pygments==2.21.0",
+        "PyJWT==2.15.1",
+        "pyperclip==1.11.0",
+        "python-dotenv==1.2.4",
+        "python-multipart==0.0.33",
+        "PyYAML==6.0.3",
+        "referencing==0.37.0",
+        "rich==15.0.0",
+        "rich-rst==2.2.0",
+        "rpds-py==2026.9.1",
+        "SecretStorage==3.5.0",
+        "sse-starlette==3.6.0",
+        "starlette==1.10.0",
+        "sympy==1.14.0",
+        "typing-inspection==0.4.5",
+        "typing_extensions==4.16.0",
+        "uncalled-for==0.4.2",
+        "uvicorn==0.54.0",
+        "watchfiles==1.3.0",
+        "websockets==17.4",
+        "z3-solver==5.3.3.0"
+      ],
+      "project_config_registered": true
+    },
+    "linux_solver": {
+      "checked_at": "2026-11-05T09:30:54.866828+00:00",
+      "passed": true,
+      "codex_native": "unverified",
+      "cofa_probe": "not_independently_observed",
+      "source_commit": "24b7d6fb1d5e361eeb8558b6119ca8e8cb083a3a",
+      "stages": {
+        "thread": {
+          "value": 42
+        },
+        "asyncio-thread": {
+          "value": 42
+        },
+        "anyio-thread": {
+          "value": 42
+        },
+        "engine": {
+          "initialize": true,
+          "tools": [
+            "python_exec",
+            "python_reset",
+            "python_status",
+            "submit_code",
+            "python_interrupt"
+          ]
+        },
+        "solver": {
+          "initialize": true,
+          "tools": [
+            "select_backend",
+            "python_exec",
+            "python_reset",
+            "python_status",
+            "python_interrupt",
+            "submit_code"
+          ],
+          "z3": "unsat",
+          "independent_check": "x<=2 and x>2 contradiction",
+          "submit_code": true
+        }
+      },
+      "current_stage": "registration",
+      "python": "/task/.harness/work/solver-tools/installation-ha253i4_/venv/bin/python",
+      "source": "/task/.harness/work/solver-tools/installation-ha253i4_/source",
+      "resolved_packages": [
+        "agentic-python-coder==3.4.3",
+        "annotated-types==0.8.0",
+        "anyio==4.16.0",
+        "asttokens==3.0.2",
+        "attrs==26.1.0",
+        "certifi==2026.10.23",
+        "cffi==2.1.1",
+        "click==8.5.0",
+        "comm==0.2.3",
+        "cryptography==50.0.2",
+        "debugpy==1.8.22",
+        "executing==2.3.0",
+        "h11==0.16.0",
+        "httpcore==1.0.9",
+        "httpcore2==2.16.0",
+        "httpx==0.28.1",
+        "httpx-sse==0.4.3",
+        "httpx2==2.16.0",
+        "idna==3.20",
+        "ipykernel==7.4.0",
+        "ipython==9.18.1",
+        "ipython_pygments_lexers==1.1.1",
+        "jedi==0.20.1",
+        "jiter==0.18.0",
+        "jsonschema==4.26.0",
+        "jsonschema-specifications==2025.9.1",
+        "jupyter_client==8.10.0",
+        "jupyter_core==5.9.1",
+        "markdown-it-py==4.2.0",
+        "matplotlib-inline==0.2.2",
+        "mcp==1.30.0",
+        "mcp-minion @ file:///task/.harness/work/solver-tools/installation-ha253i4_/source/minion",
+        "mcp-solver @ file:///task/.harness/work/solver-tools/installation-ha253i4_/source",
+        "mdurl==0.1.2",
+        "nest-asyncio2==1.7.4",
+        "openai==3.46.0",
+        "packaging==26.3",
+        "parso==0.8.7",
+        "pexpect==4.9.0",
+        "platformdirs==4.14.5",
+        "prompt_toolkit==3.0.53",
+        "psutil==7.2.2",
+        "ptyprocess==0.7.0",
+        "pure_eval==0.2.4",
+        "pycparser==3.12",
+        "pydantic==2.14.3",
+        "pydantic-settings==2.16.2",
+        "pydantic_core==2.50.4",
+        "Pygments==2.21.0",
+        "PyJWT==2.15.1",
+        "python-dateutil==4.0.0",
+        "python-dotenv==1.2.4",
+        "python-multipart==0.0.33",
+        "PyYAML==6.0.3",
+        "pyzmq==27.3.0",
+        "referencing==0.37.0",
+        "rich==15.0.0",
+        "rpds-py==2026.9.1",
+        "sniffio==1.3.1",
+        "sse-starlette==3.6.0",
+        "stack-data==0.6.3",
+        "starlette==1.10.0",
+        "tornado==6.6",
+        "traitlets==5.16.1",
+        "truststore==0.10.5",
+        "typing-inspection==0.4.5",
+        "typing_extensions==4.16.0",
+        "tzdata==2026.6",
+        "uv==0.11.21",
+        "uvicorn==0.54.0",
+        "wcwidth==0.9.4"
+      ],
+      "project_config_registered": true
+    },
+    "linux_readonly_settings_doctor": {
+      "files_ok": true,
+      "problems": [],
+      "role_files": 13,
+      "skill_files": 4,
+      "runtime_skill_discovery": "unverified",
+      "runtime_role_calls": "unverified",
+      "hook_trust": "unverified",
+      "hook_events": "unverified",
+      "codex_mcp_calls": "unverified",
+      "application_checks": "not_run"
+    }
+  }
+}

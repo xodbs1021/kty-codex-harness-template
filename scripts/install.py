@@ -2,6 +2,7 @@
 """Install only repo-local files; preserve project instructions and domain slots."""
 
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -86,12 +87,14 @@ def install(root, hooks=True):
         raise ValueError("설치 manifest 형식이 올바르지 않습니다.")
     changes = {}
     managed = {}
+    inventory = []
     for source in sorted((SOURCE / "template").rglob("*")):
         if not source.is_file() or "__pycache__" in source.parts:
             continue
         name = source.relative_to(SOURCE / "template").as_posix()
         if name == "AGENTS.block.md":
             continue
+        inventory.append(name)
         target = safe_path(root, name)
         content = source.read_bytes()
         if target.exists():
@@ -130,6 +133,9 @@ def install(root, hooks=True):
     safe_path(root, ".harness/state/setup-context.json")
     changes[".harness/state/setup-context.json"] = (
         json.dumps(context, ensure_ascii=False, indent=2) + "\n").encode()
+    safe_path(root, ".harness/state/install-inventory.json")
+    status_path = safe_path(root, ".harness/state/installation-status.json")
+    changes[".harness/state/install-inventory.json"] = (json.dumps(inventory, indent=2) + "\n").encode()
     # Validate every destination before writing anything; conflicts do not leave partial installs.
     for name, content in changes.items():
         path = safe_path(root, name)
@@ -139,7 +145,15 @@ def install(root, hooks=True):
             path.chmod(0o755)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(managed, indent=2) + "\n")
+    checked = subprocess.run([sys.executable, "-B", str(root / ".harness/installation_check.py")],
+                             capture_output=True, text=True)
+    status = json.loads(checked.stdout)
+    status["checked_at"] = datetime.now(timezone.utc).isoformat()
+    status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n")
+    if checked.returncode:
+        raise ValueError("설치 파일 자체 검사 실패: " + str(status["problems"]))
     print("파일 설치 완료 (과제 설정·런타임 활성화·실행 검증은 아직 별도): " + str(root))
+    print("설치 자체 검사 통과: 역할 13개 / Skill 4개. 최신 파일 상태: .harness/state/installation-status.json")
     print("제공 Codex: 여기서 종료하지 말고 .harness/setup.md를 읽어 남은 설정과 검증을 이어가세요.")
     print("진행 기록: .harness/setup-status.md / 반입 경로: .harness/state/setup-context.json")
     print("모델: gpt-6.1-sol / effort 미지정. 현재 세션에서 가능한 단계는 먼저 완료하세요.")

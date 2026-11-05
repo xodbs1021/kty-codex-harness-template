@@ -111,6 +111,17 @@
         "sdk_stdio": "passed",
         "codex_native": "blocked_by_approval_policy",
         "native_tool_execution": false
+      },
+      "installation_verification": {
+        "date": "2026-11-05",
+        "environments": [
+          "macOS arm64 Python 3.13.14",
+          "Linux amd64 Python 3.13.18 via OrbStack emulation, non-root user"
+        ],
+        "fresh_install_and_sdk_call": "passed",
+        "codex_native": "unverified",
+        "cofa_probe_root_cause": "unresolved; original logs unavailable",
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/blob/main/docs/setup-repair-2026-11-05.md"
       }
     },
     {
@@ -147,6 +158,17 @@
         "sdk_stdio": "passed",
         "codex_native": "blocked_by_approval_policy",
         "native_tool_execution": false
+      },
+      "installation_verification": {
+        "date": "2026-11-05",
+        "environments": [
+          "macOS arm64 Python 3.13.14",
+          "Linux amd64 Python 3.13.18 via OrbStack emulation, non-root user"
+        ],
+        "fresh_install_and_sdk_call": "passed",
+        "codex_native": "unverified",
+        "cofa_probe_root_cause": "unresolved; original logs unavailable",
+        "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/blob/main/docs/setup-repair-2026-11-05.md"
       }
     },
     {
@@ -331,6 +353,20 @@
       "register": false,
       "fallback_candidate": false,
       "evidence": "https://github.com/xodbs1021/kty-codex-harness-template/tree/main/docs/math-rehearsal-2026-11-05"
+    }
+  ],
+  "environment_reports": [
+    {
+      "reported_on": "2026-11-05",
+      "source": "user-pasted Cofa Probe Codex report; original logs unavailable after session ended",
+      "harness_files": "13 role files and 4 Skills reported installed",
+      "skill_discovery": "4 Skills reported recognized in same session",
+      "mcp_sympy": "SDK equation call and substitution reported passed after dependency repair; exact repaired versions unavailable",
+      "mcp_solver": "internal Python MCP initialization timeout; minimal async-thread hang reported; root cause unresolved",
+      "codex_native_mcp": "not connected per report",
+      "hooks": "6 simulated checks reported passed; trust and actual events unverified",
+      "independently_observed": false,
+      "setup_guide": ".harness/math-setup.md"
     }
   ]
 }

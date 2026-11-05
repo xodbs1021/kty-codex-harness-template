@@ -197,6 +197,60 @@ class HarnessTest(unittest.TestCase):
         self.assertEqual(outside.read_text(), "preserve")
         self.assertFalse((self.root / "AGENTS.md").exists())
 
+    def test_doctor_is_readonly_and_independent_of_empty_application_checks(self):
+        self.install()
+        before = {str(p.relative_to(self.root)): p.read_bytes()
+                  for p in self.root.rglob("*") if p.is_file()}
+        result = json.loads(self.command("doctor").stdout)
+        after = {str(p.relative_to(self.root)): p.read_bytes()
+                 for p in self.root.rglob("*") if p.is_file()}
+        self.assertEqual(before, after)
+        self.assertTrue(result["files_ok"])
+        self.assertEqual((result["role_files"], result["skill_files"]), (13, 4))
+        self.assertEqual(result["hook_events"], "unverified")
+        self.assertEqual(result["application_checks"], "not_run")
+        self.assertFalse((self.root / ".harness/state/verification.json").exists())
+
+    def test_doctor_detects_deleted_skill_and_modified_role(self):
+        self.install()
+        (self.root / ".agents/skills/kty-harness/SKILL.md").unlink()
+        self.write(".codex/agents/kty-reviewer.toml", "changed")
+        result = json.loads(self.command("doctor", success=False).stdout)
+        self.assertFalse(result["files_ok"])
+        self.assertEqual(result["skill_files"], 3)
+        self.assertTrue(any("modified" in p for p in result["problems"]))
+        self.assertTrue(any("missing" in p for p in result["problems"]))
+
+    def test_doctor_allows_task_facts_and_user_mcp_configuration(self):
+        self.install()
+        self.write(".harness/project-profile.md", "actual task requirements")
+        self.write(".harness/task-evidence.md", "actual observations")
+        self.write(".harness/setup-status.md", "skills discovered; hooks unverified")
+        self.checks()
+        with (self.root / ".codex/config.toml").open("a") as stream:
+            stream.write('\n[mcp_servers.custom]\ncommand = "my-local-server"\n')
+        self.assertTrue(json.loads(self.command("doctor").stdout)["files_ok"])
+
+    def test_reinstall_refreshes_machine_installation_state_preserving_notes(self):
+        self.install()
+        self.write(".harness/setup-status.md", "installation pending; preserve my notes")
+        self.write(".harness/state/installation-status.json", '{"files_ok": false}')
+        self.install()
+        status = json.loads((self.root / ".harness/state/installation-status.json").read_text())
+        self.assertTrue(status["files_ok"])
+        self.assertEqual((self.root / ".harness/setup-status.md").read_text(),
+                         "installation pending; preserve my notes")
+
+    def test_installation_status_symlink_aborts_before_writes(self):
+        external = Path(self.temp.name) / "external.json"
+        external.write_text("preserve")
+        status = self.root / ".harness/state/installation-status.json"
+        status.parent.mkdir(parents=True)
+        status.symlink_to(external)
+        self.install(success=False)
+        self.assertEqual(external.read_text(), "preserve")
+        self.assertFalse((self.root / "AGENTS.md").exists())
+
     def test_default_launcher_resumes_setup_and_explicit_prompt_is_preserved(self):
         self.install()
         fake = self.root / "bin/codex"

@@ -227,6 +227,7 @@ def main():
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("verify")
+    commands.add_parser("doctor", help="쓰기 없이 설치 파일 확인 (앱 검사·런타임 확인과 별개)")
     commands.add_parser("fingerprint")
     commands.add_parser("hook")
     codex = commands.add_parser("codex")
@@ -243,6 +244,12 @@ def main():
     args = parser.parse_args()
     try:
         root = args.root.resolve()
+        if args.command == "doctor":
+            sys.dont_write_bytecode = True
+            from installation_check import inspect
+            result = inspect(root)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0 if result["files_ok"] else 1
         if args.command == "verify":
             return verify(root)
         if args.command == "fingerprint":
