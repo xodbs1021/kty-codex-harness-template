@@ -13,6 +13,7 @@ description: Codex 개발 하네스. 기능 구현·수정·계획·검수, 관�
 코드·문서 작성 및 검수 전에 `../google-styleguide/SKILL.md`와 해당 언어 원문을 읽는다.
 사용자 대면 글·설명은 `../readable-writing/SKILL.md`도 적용한다.
 서비스 API 설계·구현·검수이면 `../google-api-design/SKILL.md`와 선택된 AIP 원문도 직접 읽는다.
+수학·그래프·제약·최적화가 핵심이면 [math-tools.md](references/math-tools.md)를 읽고 문제 모델·도구 선택·독립 검증에 적용한다. 도구 설치와 MCP 등록은 자동 수행하지 않는다.
 관련 Skill은 모두 이 패키지에 포함되며 자동 등록 실패 시 직접 읽는다.
 새 작업의 초기 실행은 [decision-memory.md](references/decision-memory.md)에 따라
 이미 반입된 기준본 대조와 과제 내부의 유사 작업 이력 회수를 한 번 수행한다.

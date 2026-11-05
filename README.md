@@ -89,6 +89,8 @@ SessionStart·Stop은 최신 검증 기록을 확인하는 보조 장치다.
 | --- | --- |
 | 설치·승인·읽기 전용·CLI 상세 | [설치·운영 가이드](docs/usage.md) |
 | 반도체 개념 65개와 검색 | [지식 패키지](knowledge/semiconductor/README.md) |
+| 수학·알고리즘·최적화 도구 선택 | [오픈소스 7개·MCP 3개와 검증 기준](template/.agents/skills/kty-harness/references/math-tools.md) |
+| 종료된 과제 회고·문항 OCR | [날짜별 기록](docs/retrospectives/README.md) — 사용자 요청으로 공개한 사후 기록 |
 | 지식을 실제 문제에 적용 | [적용 가이드](knowledge/semiconductor/application-playbook.md) |
 | 사전체험 진단 | [15분 실행표](docs/practice-runbook.md) |
 | 원본 구성 파일별 대응·차이 | [구성 대조와 최신 검증](docs/component-parity-2026-10-31.md) |
